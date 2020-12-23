@@ -1,0 +1,102 @@
+<div class="m-5">
+    <div class="row top-leader"></div>
+    <div class="row">
+        <div class="col-sm-3 col-md-2 my-3 leftSearchBox radius-normal">
+            <h2 class="mb-0  mt-3"> Search </h2>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="" *ngFor="let City of AllCitiesArr"> {{City}} </option>
+                </select>
+            </div>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="" *ngFor="let SideNav of SideNavListArr">{{SideNav}}</option>
+                </select>
+            </div>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="--" *ngFor="let Merchandise of MerchandiseListArr">{{Merchandise}}</option>
+                </select>
+            </div>
+            <div class="">
+                <h3 class="mb-0"> Price (AED) </h3>
+                <div class="d-flex justify-content-between">
+                    <input type="number" class="form-control col-5">
+                    <span class="mt-2" style="font-size: 34px"> - </span>
+                    <input type="number" class="form-control col-5">
+                </div>
+            </div>
+
+            <h3 class="my-2"> Content Language </h3>
+            <div class="form-group d-flex align-middle">
+                <input type="checkbox" class="checkbox">
+                <a class="mx-2 black text-decoration-none" href=""> Show English abs only </a>
+            </div>
+
+            <h3 class="my-2"> Keywords </h3>
+            <div class="form-group">
+                <input type="search" class="form-control">
+                <button class="btn btn-danger my-3 btn-block">Search</button>
+            </div>
+            <div class="accordion mb-3" id="advanceOption">
+                <div class="card">
+                    <div class="card-header p-0" id="options">
+                        <h2 class="mb-0">
+                            <button type="button"
+                                class="btn btn-block black text-decoration-none btn-link d-flex justify-content-between"
+                                data-toggle="collapse" data-target="#collapseOne">
+                                <span>Advance Options</span><i class="fa fa-plus my-auto"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="options" data-parent="#advanceOption">
+                        <div class="card-body p-0">
+                            <h3 class="my-2"> Neighborhoods </h3>
+                            <div class="form-group">
+                                <input type="search" class="form-control" placeholder="Select Neighborhoods...">
+                            </div>
+                            <div class="group " id="div_added__gte">
+                                <h3 class="mb-0  mt-3"> Ads posted </h3>
+                                <select id="added__gte:swfield" class="custom-select" name="added__gte">
+                                    <option value="" *ngFor="let Time of TimeListArr">{{Time}}</option>
+                                </select>
+                            </div>
+                            <div class="group " id="div_age__lte">
+                                <h3 class="mb-0  mt-3"> Age </h3>
+                                <select id="age__lte:swfield" class="custom-select" name="age__lte">
+                                    <option value="" *ngFor="let Age of AgeListArr">{{Age}}</option>
+                                </select>
+                            </div>
+                            <div class="group " id="div_condition__gte">
+                                <h3 class="mb-0  mt-3"> Condition </h3>
+                                <select id="condition__gte:swfield" class="custom-select" name="condition__gte">
+                                    <option value="" *ngFor="let Condition of ConditionListArr"> {{Condition}} </option>
+                                </select>
+                            </div>
+                            <div class="group " id="div_usage__lte">
+                                <h3 class="mb-0  mt-3"> Usage </h3>
+                                <select id="usage__lte:swfield" class="custom-select" name="usage__lte">
+                                    <option value="" *ngFor="let Usage of UsageListArr"> {{Usage}} </option>
+                                </select>
+                            </div>
+                            <h3 class="my-2"> Photos </h3>
+                            <div class="form-group d-flex align-middle">
+                                <input type="checkbox" class="checkbox">
+                                <a class="mx-2 black text-decoration-none" style="font-size: 12px;" href=""> Show ads
+                                    with photos only </a>
+                            </div>
+                            <button class="btn btn-danger my-3 btn-block">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-10 my-3">
+            <div class="mx-4">
+                <app-navbar></app-navbar>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+    </div>
+</div>

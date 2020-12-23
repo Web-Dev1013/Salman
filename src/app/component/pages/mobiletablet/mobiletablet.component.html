@@ -1,0 +1,243 @@
+<div class="m-5">
+    <div class="row top-leader"></div>
+    <div class="row">
+        <div class="col-sm-3 col-md-2 my-3 leftSearchBox radius-normal">
+            <h2 class="mb-0  mt-3"> Search </h2>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="" selected> All Cities </option>
+                    <option value=""> Dubai </option>
+                    <option value=""> Abu Dhabi </option>
+                    <option value=""> Ras al Khaimah </option>
+                    <option value=""> Sharjah </option>
+                    <option value=""> Fujairah </option>
+                    <option value=""> Ajman </option>
+                    <option value=""> Umm al Quwain </option>
+                    <option value=""> Al Ain </option>
+                </select>
+            </div>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="--" selected>All of Dubizzle</option>
+                    <option value="MT">Motors</option>
+                    <option value="CL" selected="">Classifieds</option>
+                    <option value="SP">Property For Sale</option>
+                    <option value="RP">Property For Rent</option>
+                    <option value="JB">Jobs</option>
+                    <option value="JW">Jobs Wanted</option>
+                    <option value="CO">Community</option>
+                </select>
+            </div>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="--">&gt; All Categories</option>
+                    <option value="1722">Accounting</option>
+                    <option value="1723">Architecture/Eng.</option>
+                    <option value="1724">Art/Design</option>
+                    <option value="1725">Bank/Finance</option>
+                    <option value="1726">Business Dev.</option>
+                    <option value="1727">Construction</option>
+                    <option value="1728">Consulting</option>
+                    <option value="1729">Education</option>
+                    <option value="1730">Executive</option>
+                    <option value="1732">Hospitality</option>
+                    <option value="1731">HR/Recruiting</option>
+                    <option value="1733">IT/Telecom</option>
+                    <option value="1734">Marketing/PR</option>
+                    <option value="1735">Media</option>
+                    <option value="1736">Medical/Health</option>
+                    <option value="1737">Oil/Gas</option>
+                    <option value="1739">Retail</option>
+                    <option value="1740">Sales</option>
+                    <option value="1741">Secretarial</option>
+                    <option value="1738">Other</option>
+                </select>
+            </div>
+            <div class="">
+                <h3 class="mb-0"> Price (AED) </h3>
+                <div class="d-flex justify-content-between">
+                    <input type="number" class="form-control col-5">
+                    <span class="mt-2" style="font-size: 34px"> - </span>
+                    <input type="number" class="form-control col-5">
+                </div>
+            </div>
+
+            <h3 class="my-2"> Content Language </h3>
+            <div class="form-group d-flex align-middle">
+                <input type="checkbox" class="checkbox">
+                <a class="mx-2 black text-decoration-none" href=""> Show English abs only </a>
+            </div>
+
+            <h3 class="my-2"> Keywords </h3>
+            <div class="form-group">
+                <input type="search" class="form-control">
+                <button class="btn btn-danger my-3 btn-block">Search</button>
+            </div>
+            <div class="accordion mb-3" id="advanceOption">
+                <div class="card">
+                    <div class="card-header p-0" id="options">
+                        <h2 class="mb-0">
+                            <button type="button"
+                                class="btn btn-block black text-decoration-none btn-link d-flex justify-content-between"
+                                data-toggle="collapse" data-target="#collapseOne">
+                                <span>Advance Options</span><i class="fa fa-plus my-auto"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="options" data-parent="#advanceOption">
+                        <div class="card-body p-0">
+                            <h3 class="my-2"> Neighborhoods </h3>
+                            <div class="form-group">
+                                <input type="search" class="form-control" placeholder="Select Neighborhoods...">
+                            </div>
+                            <div class="group " id="div_added__gte">
+                                <h3 class="mb-0  mt-3"> Ads posted </h3>
+                                <select id="added__gte:swfield" class="custom-select" name="added__gte">
+                                    <option value="" selected="selected">Any Time</option>
+                                    <option value="0">Today</option>
+                                    <option value="3">Within 3 Days</option>
+                                    <option value="7">Within 1 Week</option>
+                                    <option value="14">Within 2 Weeks</option>
+                                    <option value="30">Within 1 Month</option>
+                                    <option value="90">Within 3 Months</option>
+                                    <option value="190">Within 6 Months</option>
+                                </select>
+                            </div>
+                            <div class="group " id="div_age__lte">
+                                <h3 class="mb-0  mt-3"> Age </h3>
+                                <select id="age__lte:swfield" class="custom-select" name="age__lte">
+                                    <option value="" selected="selected"></option>
+                                    <option value="1">Brand New</option>
+                                    <option value="2">Less than 1 month</option>
+                                    <option value="3">Less than 6 months</option>
+                                    <option value="4">Less than 1 year</option>
+                                    <option value="5">Less than 2 years</option>
+                                    <option value="6">Less than 5 years</option>
+                                    <option value="7">Less than 10 years</option>
+                                    <option value="8">Any age</option>
+                                </select>
+                            </div>
+                            <div class="group " id="div_condition__gte">
+                                <h3 class="mb-0  mt-3"> Condition </h3>
+                                <select id="condition__gte:swfield" class="custom-select" name="condition__gte">
+                                    <option value="" selected="selected"></option>
+                                    <option value="5">Flawless</option>
+                                    <option value="4">Excellent or better</option>
+                                    <option value="3">Good or better</option>
+                                    <option value="2">Average or better</option>
+                                    <option value="1">Poor or better</option>
+                                </select>
+                            </div>
+                            <div class="group " id="div_usage__lte">
+                                <h3 class="mb-0  mt-3"> Usage </h3>
+                                <select id="usage__lte:swfield" class="custom-select" name="usage__lte">
+                                    <option value="" selected="selected"></option>
+                                    <option value="1">Never Used</option>
+                                    <option value="2">Used Once or less</option>
+                                    <option value="3">Light Usage or less</option>
+                                    <option value="4">Normal Usage or less</option>
+                                    <option value="5">Heavy Usage or less</option>
+                                </select>
+                            </div>
+                            <h3 class="my-2"> Photos </h3>
+                            <div class="form-group d-flex align-middle">
+                                <input type="checkbox" class="checkbox">
+                                <a class="mx-2 black text-decoration-none" style="font-size: 12px;" href=""> Show ads
+                                    with photos only </a>
+                            </div>
+                            <button class="btn btn-danger my-3 btn-block">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-10 my-3">
+            <div class="mx-4">
+                <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#demo-navbar"
+                        aria-controls="demo-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="demo-navbar">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="" id="mobilephones" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Mobile Phones
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="mobilephones">
+                                    <a class="dropdown-item" routerLink="mobilephones" routerLinkActive="active"> View All
+                                    </a>
+                                    <a class="dropdown-item" href=""> Armoires & Wardrobes </a>
+                                    <a class="dropdown-item" href=""> Beds & Bed Sets </a>
+                                    <a class="dropdown-item" href=""> Bookcases </a>
+                                    <a class="dropdown-item" href=""> Cabinets & Cupboards </a>
+                                    <a class="dropdown-item" href=""> Chairs, Benches & Stools </a>
+                                    <a class="dropdown-item" href=""> Childrens Furniture </a>
+                                    <a class="dropdown-item" href=""> Dining Sets </a>
+                                    <a class="dropdown-item" href=""> Dressers & Vanities </a>
+                                    <a class="dropdown-item" href=""> Entertainment Centers </a>
+                                    <a class="dropdown-item" href=""> Kitchen Islands & Carts </a>
+                                    <a class="dropdown-item" href=""> Nightstands </a>
+                                    <a class="dropdown-item" href=""> Office Furniture </a>
+                                    <a class="dropdown-item" href=""> Sofas, Futons, & Lounges </a>
+                                    <a class="dropdown-item" href=""> Tables </a>
+                                    <a class="dropdown-item" href=""> Other </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="phonetablets" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Mobile Phone & Tablet Accessories
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="phonetablets">
+                                    <a class="dropdown-item" routerLink="phonetablet" routerLinkActive="active"> View All
+                                    </a>
+                                    <a class="dropdown-item" href=""> Ceiling Fans </a>
+                                    <a class="dropdown-item" href=""> Lamps </a>
+                                    <a class="dropdown-item" href=""> Light Fixtures </a>
+                                    <a class="dropdown-item" href=""> Stand Fans </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="tablets" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tablets
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="tablets">
+                                    <a class="dropdown-item" routerLink="tablets" routerLinkActive="active"> View All </a>
+                                    <a class="dropdown-item" href=""> Abstract/Modern </a>
+                                    <a class="dropdown-item" href=""> Animal Skin </a>
+                                    <a class="dropdown-item" href=""> Asian </a>
+                                    <a class="dropdown-item" href=""> Children </a>
+                                    <a class="dropdown-item" href=""> European/Classical </a>
+                                    <a class="dropdown-item" href=""> Middle Eastern/Indian </a>
+                                    <a class="dropdown-item" href=""> Solid Color </a>
+                                    <a class="dropdown-item" href=""> Other </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="othermobiletablet"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Other Mobile Phones & Tablets
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="othermobiletablet">
+                                    <a class="dropdown-item" routerLink="othermobiletablet" routerLinkActive="active"> View All
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+    </div>
+</div>

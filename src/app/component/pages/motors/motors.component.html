@@ -1,0 +1,116 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-6">
+            <div class="searchBox my-5 text-center">
+                <h1 class="white title">The UAE's leading marketplace to buy <br> and sell cars</h1>
+                <input type="search" class="search" placeholder="Enter Keyword...">
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-lg-2 col-md-4 col-sm-6 pr-0 mb-2" *ngFor="let kindOfCar of KindOfCarsArr">
+            <div class="py-3 text-center listBox container" routerLink="/motors/{{kindOfCar.id}}">
+                <h5 class="font-weight-bold mb-0"> {{kindOfCar.kind}} </h5>
+                <h3 class="font-weight-bold mb-0"> {{kindOfCar.amount}} </h3>
+            </div>
+        </div>
+    </div>
+    <div class="list-title text-dark mb-5">Featured Listings</div>
+    <div class="row mb-5">
+        <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-2 carbox" *ngFor="let Featured of FeaturedArr">
+            <div class="card-body">
+                <img class="img-responsive" src="{{Featured.src}}">
+                <div class="ml-3">
+                    <div class="card-title">
+                        <h3 class="red font-weight-bold mb-0"> {{Featured.price}} </h3>
+                    </div>
+                    <div class="card-title">
+                        <h5 class="font-weight-bold mb-0"> {{Featured.title}} </h5>
+                    </div>
+                    <div class="card-text mb-3">{{Featured.property}}</div>
+                    <div class="card-text">{{Featured.name}} <span class="float-right mr-3"> {{Featured.time}} </span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-title text-dark mb-5">Latest news from dubizzle</div>
+    <div class="row mb-5">
+        <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-2 carbox" *ngFor="let LatestNews of LatestNewsArr">
+            <div class="card-body">
+                <img class="img-responsive" src="{{LatestNews.src}}" width="100%">
+                <div class="ml-3">
+                    <div class="card-title">
+                        <h5 class="font-weight-bold mb-0"> {{LatestNews.title}}</h5>
+                    </div>
+                    <div class="card-text mb-3">{{LatestNews.date}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-title text-dark mb-3">Testimonials</div>
+    <div class="row mb-5">
+        <div class="col-lg-4 col-sm-12 pr-0 mb-2">
+            <div class="card-body testimonial">
+                <div class="card-title">
+                    <h4 class="mb-0"> I've been using dubizzle now for 10 years, I've literally lost count of the number
+                        cars I've bought and sold from it. Its become so addictive, I tend to log-on most days -
+                        planning the next car is both fast &amp; fun. </h4>
+                </div>
+                <div class="card-text container">
+                    <div class="rounded-circle row align-middle">
+                        <div class="col-sm-12">
+                            <img src="../../../../assets/Image/motors/testimonials/Sean.png">
+                            <span class="blue pl-3 testimonial-font">Sean Caln</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12 pr-0 mb-2">
+            <div class="card-body testimonial">
+                <div class="card-title">
+                    <h4 class="mb-0"> I've been using dubizzle now for 10 years, I've literally lost count of the number
+                        cars I've bought and sold from it. Its become so addictive, I tend to log-on most days -
+                        planning the next car is both fast &amp; fun. </h4>
+                </div>
+                <div class="card-text container">
+                    <div class="rounded-circle row align-middle">
+                        <div class="col-sm-12">
+                            <img src="../../../../assets/Image/motors/testimonials/Sean.png">
+                            <span class="blue pl-3 testimonial-font">Sean Caln</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12 pr-0 mb-2">
+            <div class="card-body testimonial">
+                <div class="card-title">
+                    <h4 class="mb-0"> I've been using dubizzle now for 10 years, I've literally lost count of the number
+                        cars I've bought and sold from it. Its become so addictive, I tend to log-on most days -
+                        planning the next car is both fast &amp; fun. </h4>
+                </div>
+                <div class="card-text container">
+                    <div class="rounded-circle row align-middle">
+                        <div class="col-sm-12">
+                            <img src="../../../../assets/Image/motors/testimonials/Sean.png">
+                            <span class="blue pl-3 testimonial-font">Sean Caln</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5 app-banner border-radius ml-1">
+        <div class="col-sm-3 py-3">
+            <span style="font-size: 18px">Find amazing deals on the go.</span>
+            <p class="red" style="font-size: 18px"> Download the app now!</p>
+        </div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-5 mx-auto py-4 text-center">
+            <img src="../../../../assets/icon/appstore.png" class="img-responsive mx-4">
+            <img src="../../../../assets/icon/googleplay.png" class="img-responsive">
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

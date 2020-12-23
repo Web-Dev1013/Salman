@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="gray ">United Arab Emirates.</h3>
+    </div>
+    <div class="list-title text-dark mb-3">New Off-plan Projects in Abu Dhabi</div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-2" *ngFor="let Project of projectsArr">
+            <div class="card-body">
+                <div class="projectImg">
+                    <img class="img-responsive" src="{{Project.src}}" width="100%">
+                </div>
+                <div class="ml-3">
+                    <div class="card-title">
+                        <h2 class="font-weight-bold mb-0"> {{Project.title}} </h2>
+                    </div>
+                    <div class="card-title">
+                        <h4 class="font-weight-bold mb-0"> {{Project.city}} </h4>
+                    </div>
+                    <div class="card-title">
+                        <h4 class="font-weight-bold mb-0 red"> from {{Project.price}} </h4>
+                    </div>
+                    <div class="card-title">
+                        <h4 class="gray"> {{Project.SqFt}}...{{Project.bedrooms}} </h4>
+                    </div>
+                </div>
+                <div class="border-top">
+                    <button class="btn btn-block btn-danger"> <i class="fa fa-phone"></i> &nbsp;&nbsp;Call </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

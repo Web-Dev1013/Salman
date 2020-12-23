@@ -1,0 +1,176 @@
+.header{
+    background: url("../../../../assets/Image/header.jpg") no-repeat;
+    background-size: cover;
+}
+.transparent{
+    background: rgba(255, 255, 255, 0.205);
+    border-bottom: 1px solid rgba(238, 238, 238, 0.473);
+}
+.logo{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    color: #343434;
+}
+.nav-item a{
+    color: black;
+    font-size: 15px;
+}
+.headerIcon{
+    font-size: 12px;
+    padding: 2px 10px;
+}
+.headerIcon i{
+    font-size: 18px;
+    font-weight: bold;
+}
+.loginBtn{
+    padding: 10px 15px;
+    font-size: 15px;        
+}
+.loginBtn:hover{
+    cursor: pointer;
+}
+.dropdown-item{    
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    padding: 10px 15px;
+}
+.dropdown-item:hover{
+    background: rgba(231, 4, 4, 0.726);
+}
+.dropdown-menu{
+    padding: 0 !important;
+    height: 300px;
+    overflow-y: auto;
+}
+.children{
+    margin-left: -2px;
+}
+.input-group{
+    height: 50px;
+}
+.input-group input{
+    border-right: 0 !important;
+    height: 50px;
+}
+.input-group-text{
+    background: transparent;
+    color: red;
+}
+.input-group-text:hover{
+    cursor: pointer;
+}
+.avatar{
+    background: url("../../../../assets/icon/avatar.png");
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 9px #151615;
+    margin-top: -70px !important;
+}
+.facebook{
+    font-size: 30px;
+    color: blue;
+}
+.loginWith button{
+    border-color: #333;
+    width: 75%;
+    text-align: left;
+    box-shadow: 0 0 4px #151615;
+}
+.loginWith button:hover{
+    background:#eee;
+    border-color: #bbb;
+}
+.loginWith button img{
+    width: 25px;
+    height: 25px;
+}
+.createOne{
+    color: red;
+    font-weight: bold;
+}
+.createOne:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.agreement span{
+    color: rgb(6, 6, 177);
+    font-weight: bold;
+}
+.agreement span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.signWith .form-group{
+    width: 75%;
+}
+.signWith input{
+    padding: 25px;
+}
+.signWith button{
+    width: 75%;
+    height: 50px;
+}
+.headerRight .nav-link:hover{
+    cursor: pointer;
+    color: rgb(212, 5, 50);
+}
+.outline-none{
+    outline: none;
+    border: none;
+}
+.column-3{
+    column-count: 3;
+}
+.column-2{
+    column-count: 2;
+}
+.right{
+    right: 100%;
+}
+.left{
+    left: 275%;
+}
+.dropdown_no_child .parent{
+    height: auto !important;
+    /* width: 100%; */
+}
+.dropdown_for_child{
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: #eee;
+    min-width: 250px;
+    height: 300px;
+    overflow-y: auto;
+    border-bottom-right-radius: 6px;
+    z-index: 100;
+    columns: auto;
+    border: 1px solid #eee;
+    column-count: 1;
+    column-fill: auto;
+}
+.sublist{
+    box-sizing: border-box;
+    /* border-bottom: 1px solid #eee; */
+    transition: 0.1s ease-in;
+    padding: 6px 15px;    
+    display: block;
+    width: 100%;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+}
+.sublist:hover{
+    background: rgba(231, 4, 4, 0.726);
+    cursor: pointer;
+}
+.active{
+    background: rgba(231, 4, 4, 0.726);
+}

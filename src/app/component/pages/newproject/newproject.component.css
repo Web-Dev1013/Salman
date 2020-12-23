@@ -1,0 +1,135 @@
+
+/* common Class */
+.red{
+    color: red;
+}
+.fix-height{
+    max-height: 350px;
+    min-width: 180px;
+    overflow-y: auto;
+}
+.full-width{
+    width: 100% !important;
+}
+.transparent{
+    background: transparent;
+    color: #151515;
+}
+.non-border{
+    border: 0;
+}
+.column-2{
+    column-count: 2;
+}
+.btn-border{
+    border:1px solid #eee;
+}
+.non-outline{
+    outline: none;
+}
+.non-boxshadow{
+    box-shadow: none !important;
+}
+.font-size-normal{
+    font-size: 14px;
+}
+.btn-gray{
+    background: rgb(71, 71, 71);
+    color: white;
+}
+.btn-gray:hover{
+    background:rgb(46, 46, 46);
+}
+/* end Common Class */
+.navbar{
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+.subNav{
+    z-index: 1000;
+    position: fixed;
+    top: 55px;
+}
+.sublist{
+    box-sizing: border-box;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    padding: 6px 15px;
+    transition: 0.1s ease-in;
+    display: block;
+    width: 100%;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+}
+.sublist:hover{
+    background: rgba(231, 4, 4, 0.726);
+    cursor: pointer;
+}
+.subItem{
+    border-right: 1px solid #eee;
+}
+.subItem:hover{
+    background: rgba(231, 4, 4, 0.726);
+}
+.developer_search{
+    width: 100%;
+}
+.subdropdown{    
+    position: relative;
+}
+.subdropdown-menu{    
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+.subdropdown-item{
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.modal-body .btn{
+    font-size: 14px !important;
+}
+.modal-body{
+    box-sizing: border-box;
+    padding: 40px;
+    max-height: 450px;
+    overflow-y: auto;
+}
+.content{
+    position: relative;
+    top: 120px;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+.title{
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+.subItem .dropdown-menu{
+    background: white !important;
+}

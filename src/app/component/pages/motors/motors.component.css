@@ -1,0 +1,85 @@
+.searchBox{
+    background: url("./../../../../assets/Image/motors/SearchBox.png");
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #151515;
+    padding: 80px 10%;
+}
+.title{
+    font-size: 34px;
+    line-height: 1.5;
+    text-shadow: 0 0 5px #151515;
+}
+.white{    
+    color: white;
+}
+.red{
+    color: red;
+}
+.blue{
+    color: blue;
+}
+.search{
+    background: rgba(255, 255, 255, 0.623);
+    padding: 0 10px;
+    font-size: 20px;
+    width: 60%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    box-shadow: 0 0 1px 8px #15151549;
+}
+.listBox{
+    max-width: 160px;
+    box-shadow: 0 0 5px #151515;
+    border-radius: 10px;
+    height:80px;
+    transition: 0.2s ease-out;
+}
+.listBox:hover{
+    cursor: pointer;
+    border: 1px solid red;
+}
+.list-title{
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: black;
+}
+.testimonial{
+    box-shadow: 0 0 5px #151615;
+    border-radius: 10px;
+}
+.testimonial-font{
+    font-size: 20px;
+}
+.app-banner{
+    background:url("../../../../assets/Image/motors/testimonials/app-banner.png") no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 5px #151615;
+}
+.app-banner img:hover{
+    cursor: pointer;
+    box-shadow: 0 0 6px 1px rgb(6, 4, 114);
+    border-radius: 5px;
+}
+.border-radius{
+    border-radius:10px;
+}
+.card-body:not(.testimonial) img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.card-body:not(.testimonial){
+    box-shadow: 0 3px 5px #1516155e;
+    border-radius: 8px;
+    transition: 0.2s ease;
+    height: 320px;
+}
+.card-body:not(.testimonial):hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 1px red solid;
+}

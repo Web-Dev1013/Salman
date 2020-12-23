@@ -1,0 +1,293 @@
+<nav class="navbar navbar-expand-md border-bottom">
+  <a class="navbar-brand ml-5 pb-0 logo" href="">SALMAN</a>
+  <span class="navbar-toggler navbar-toggler-right collapsed" data-toggle="collapse" data-target="#headerList"
+    aria-expanded="false">
+    <span class="navbar-toggler-icon">
+      <i class="fa fa-th-list" style="font-size: 30px;"></i>
+    </span>
+  </span>
+  <div class="collapse navbar-collapse" id="headerList">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="https://blog.dubizzle.com/uae/stay-safe/" target="_blank"
+          style="align-items: center; display: flex;" id="covid19Banner">
+          <span style="margin-bottom: -11px; height: 20px;">
+            <svg style="direction: ltr;" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 91 27" width="91">
+              <g fill="none" fill-rule="evenodd">
+                <path
+                  d="m8.83217937 0c2.36380743 0 4.59215303.87954859 6.26510553 2.46530408l.8872745.84102821.8737282-.82818809c1.6729525-1.58575548 3.8945251-2.45888401 6.2583325-2.45888401s4.5786069.86670846 6.2515594 2.45246395c1.6729525 1.58575548 2.5873193 3.69153605 2.5805835 5.93213793 0 2.24060183-.9211772 4.34638243-2.5941297 5.93213793l-12.7469499 12.0376176c-.1761003.1669216-.4131583.2503824-.6434433.2503824s-.467343-.0898809-.6434433-.2568025l-12.71985758-12.0568778c-1.67295251-1.5857554-2.60090254-3.6851159-2.60090254-5.92571782-.006736-2.24060188.91440385-4.34638244 2.58735637-5.93213793 1.66617943-1.57933542 3.887752-2.45246395 6.24478632-2.45246395z"
+                  fill="#e00000" fill-rule="nonzero"></path>
+                <path
+                  d="m10.6666667 3.55555556v3.555l3.5555555.00055555v2.84444445h-3.5555555v3.55555554h-2.84444448l-.00055555-3.55555554h-3.555v-2.84444445l3.555-.00055555.00055555-3.555z"
+                  fill="#fff"></path><text fill="#e00000" font-family="proxima-nova" font-size="14" font-weight="bold">
+                  <tspan x="36" y="17" style="font-size: 16px">Covid-19</tspan>
+                </text>
+              </g>
+            </svg>
+          </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" data-toggle="dropdown" class="btn dropdown-toggle cities" aria-expanded="false"> All Cities </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item py-0" *ngFor="let City of CitiesArr">
+              <a class="nav-link" href="{{City.link}}"> {{City.name}} </a>
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav  ml-auto headerRight">
+      <li class="nav-item text-center">
+        <a class="nav-link"><i class="fa fa-bell-o font-weight-bold p-2">
+            <p>Notifications</p>
+          </i></a>
+      </li>
+      <li class="nav-item text-center">
+        <a class="nav-link"><i class="fa fa-search p-2">
+            <p class="font-weight-bold">Searches</p>
+          </i></a>
+
+      </li>
+      <li class="nav-item text-center">
+        <a class="nav-link"><i class="fa fa-heart-o font-weight-bold p-2">
+            <p>Favorite</p>
+          </i></a>
+      </li>
+      <li class="nav-item text-center">
+        <a class="nav-link"><i class="fa fa-comment-o font-weight-bold p-2">
+            <p>My Chats</p>
+          </i></a>
+      </li>
+      <li class="nav-item my-auto">
+        <a class="nav-link font-weight-bold" data-toggle="modal" data-target="#login">Login or Sign Up</a>
+      </li>
+      <li class="nav-item my-auto">
+        <a class="nav-link"><span class="btn btn-danger">Place Your Ad</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ?////////////// -->
+<div class="modal fade" id="login">
+  <div class="modal-dialog" style="margin-top: 200px">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="pt-4 avatar mx-auto"></div>
+        <div>
+          <h1 class="m-3"> Log in</h1>
+        </div>
+        <div class="loginWith mt-4">
+          <button type="button" class="btn btn-outline-light text-dark py-3 px-5 mb-2 ">
+            <img class="facebook" src="https://dbzproperty-a.akamaihd.net/auth/0.2.66/a0c838e1.png">
+            <span class="px-3">Continue With Facebook</span>
+          </button>
+          <button type="button" class="btn btn-outline-light text-dark py-3 px-5 mb-2">
+            <img class="google" src="https://dbzproperty-a.akamaihd.net/auth/0.2.66/bfc29afc.png">
+            <span class="px-3">Continue With Google</span>
+          </button>
+          <button type="button" class="btn btn-outline-light text-dark py-3 px-5 mb-2">
+            <img class="apple" src="https://dbzproperty-a.akamaihd.net/auth/0.2.66/48a4448a.png">
+            <span class="px-3">Continue With Apple</span>
+          </button>
+          <button type="button" data-toggle="modal" data-dismiss="modal" data-target="#withEmail"
+            class="btn btn-outline-light text-dark py-3 px-5 mb-2">
+            <img class="email" src="https://dbzproperty-a.akamaihd.net/auth/0.2.66/cbcf5c04.png">
+            <span class="px-3">Continue With Email</span>
+          </button>
+          <div class="createOne px-5 m-3" data-toggle="modal" data-dismiss="modal" data-target="#signup">Don’t have an
+            account? Create one</div>
+          <div class="agreement px-5 m-3">By signing up I agree to the <span>Terms and Conditions</span><br> and
+            <span>Privacy Policy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ///////////// -->
+<!-- Create one user -->
+<div class="modal fade" id="signup">
+  <div class="modal-dialog" style="margin-top: 200px">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button outline-none" class="close float-left" data-toggle="modal" data-dismiss="modal"
+          data-target="#login"><i class="fa fa-long-arrow-left"></i></button>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div>
+          <h1 class="m-3"> Create an account</h1>
+        </div>
+        <div class="signWith">
+          <form method="post" id="singnupFrom">
+            <div class="form-group mx-auto">
+              <input type="text" class="form-control" id="user" placeholder="First name">
+            </div>
+            <div class="form-group mx-auto">
+              <input type="email" class="form-control" id="email" placeholder="Email " required>
+            </div>
+            <div class="form-group input-group mx-auto">
+              <input type="password" class="form-control" id="pwd" placeholder="Password">
+              <div class="input-group-append">
+                <span class="input-group-text changetype">Show</span>
+              </div>
+            </div>
+            <div class="signBtn my-4"><button class="btn btn-primary signupBtn">Sign Up</button></div>
+            <div class="agreement mb-4">By signing up I agree to the <span>Terms and Conditions</span><br> and
+              <span>Privacy Policy</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Continue login with Email -->
+<div class="modal fade" id="withEmail" style="padding: 0;">
+  <div class="modal-dialog" style="margin-top: 200px">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button outline-none" class="close float-left" data-toggle="modal" data-dismiss="modal"
+          data-target="#login"><i class="fa fa-long-arrow-left"></i></button>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div>
+          <h1 class="m-3"> Log in with your Email </h1>
+        </div>
+        <div class="signWith">
+          <form method="post" id="withEmailFrom">
+            <div class="form-group mx-auto">
+              <input type="email" class="form-control" id="withEmailemail" placeholder="Email " required>
+            </div>
+            <div class="form-group input-group mx-auto">
+              <input type="password" class="form-control" id="withEmailpwd" placeholder="Password">
+              <div class="input-group-append">
+                <span class="input-group-text changetype">Show</span>
+              </div>
+            </div>
+            <div class="signBtn my-4"><button class="btn btn-primary loginBtn">Log in</button></div>
+            <div class="agreement mb-4">By signing up I agree to the <span>Terms and Conditions</span><br> and
+              <span>Privacy Policy</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ///////////// -->
+<nav class="row navbar navbar-expand-lg border-bottom">
+  <span class="navbar-toggler navbar-toggler-right collapsed" data-toggle="collapse" data-target="#contentList"
+    aria-expanded="false">
+    <span class="navbar-toggler-icon ml-4">
+      <i class="fa fa-th-list" style="font-size: 30px;"></i>
+    </span>
+  </span>
+  <div class="navbar-collapse collapse" id="contentList">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item ml-5 pr-4 dropdown dropdown_has_child">
+        <a class="nav-link" href="motors">Motors</a>
+        <div class="dropdown-menu parent">
+          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let Motor of MotorsArr; let i = index">
+            <a class="nav-link d-flex justify-content-between" id="Motor_{{i}}" href="{{Motor.link}}"> {{Motor.name}} <i
+                class="fa fa-angle-double-right pl-3"></i></a>
+            <div class="dropdown-menu py-0 children mt-0">
+              <a class="dropdown-item" *ngFor="let SubMotor of Motor.child">
+                <a class="sublist text-decoration-none" href="{{SubMotor.link}}"> {{SubMotor.name}} </a>
+              </a>
+            </div>
+          </a>
+        </div>
+        <div class="dropdown_for_child left"></div>
+      </li>
+      <li class="nav-item mx-auto py-0 pr-4 dropdown dropdown_no_child">
+        <a class="nav-link" href="propertyforrent"> Property for Rent</a>
+        <div class="dropdown-menu parent">
+          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let ForRent of PropertyForRentArr; let i = index">
+            <a class="nav-link" id="ForRent_{{i}}" href="{ForRent.link}"> {{ForRent.name}} </a>
+          </a>
+        </div>
+      </li>
+      <li class="nav-item mx-auto py-0 pr-4 dropdown dropdown_no_child">
+        <a class="nav-link" href="propertyforsale">Property for Sale</a>
+        <div class="dropdown-menu parent mt-0">
+          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let ForSale of PropertyForSaleArr; let i = index">
+            <a class="nav-link" id="ForSale_{{i}}" href="{{ForSale.link}}"> {{ForSale.name}} </a>
+          </a>
+        </div>
+      </li>
+      <li class="nav-item mx-auto pr-4 dropdown dropdown_no_child">
+        <a class="nav-link" href="propertynewproject">Property New Projects</a>
+        <div class="dropdown-menu parent mt-0">
+          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let NewProject of NewProjectArr; let i = index">
+            <a class="nav-link" id="NewProject_{{i}}" href="{{NewProject.link}}"> {{NewProject.name}}</a>
+          </a>
+        </div>
+      </li>
+      <li class="nav-item mx-auto pr-4 dropdown dropdown_has_child">
+        <a class="nav-link" href="classified">Classified</a>
+        <div class="dropdown-menu parent mt-0">
+          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let Classified of ClassifiedArr">
+            <a class="nav-link justify-content-between d-flex" href="/{{Classified.link}}"> {{Classified.name}}<i
+                class="fa fa-angle-double-left pl-3"></i></a>
+            <div class="dropdown-menu children mt-0">
+              <a class="dropdown-item" *ngFor="let SubClassified of Classified.child">
+                <a class="sublist text-decoration-none" href="/{{SubClassified.link}}"> {{SubClassified.name}}</a>
+              </a>
+            </div>
+          </a>
+        </div>
+        <div class="dropdown_for_child right"></div>
+      </li>
+      <li class="nav-item mx-auto pr-4 dropdown dropdown_has_child">
+        <a class="nav-link" href="furnituregarden">Furniture & Garden</a>
+        <div class="dropdown-menu parent mt-0">
+          <a class="dropdown-item py-0 dropdown dropright"
+            *ngFor="let FurnitureGarden of FurnitureGardenArr; let i=index">
+            <a class="nav-link justify-content-between d-flex" id="furnituregarden_{{i}}"
+              href="/{{FurnitureGarden.link}}"> {{FurnitureGarden.name}} <i
+                class="fa float-right fa-angle-double-left pl-3"></i></a>
+            <div class="dropdown-menu children mt-0">
+              <a class="dropdown-item" *ngFor="let SubItem of FurnitureGarden.child">
+                <a class="sublist text-decoration-none" href="/{{SubItem.link}}"> {{SubItem.name}} </a>
+              </a>
+            </div>
+          </a>
+        </div>
+        <div class="dropdown_for_child right"></div>
+      </li>
+      <li class="nav-item mx-auto pr-4 dropdown dropdown_has_child">
+        <a class="nav-link" href="mobiletablet"> Mobiles & Tablets</a>
+        <div class="dropdown-menu parent mt-0">
+          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let MobileTablet of MobileTabletArr; let i=index">
+            <a class="nav-link justify-content-between d-flex" id="mobiletablet_{{i}}" href="/{{MobileTablet.link}}">
+              {{MobileTablet.name}} <i class="fa fa-angle-double-left pl-3"></i></a>
+            <div class="dropdown-menu children mt-0">
+              <a class="dropdown-item" *ngFor="let SubMobileTablet of MobileTablet.child">
+                <a class="sublist text-decoration-none" href="/{{SubMobileTablet.link}}"> {{SubMobileTablet.name}} </a>
+              </a>
+            </div>
+          </a>
+        </div>
+        <div class="dropdown_for_child right"></div>
+      </li>
+      <li class="nav-item mx-auto pr-4 dropdown dropdown_no_child">
+        <a class="nav-link" href="job">Job</a>
+        <div class="dropdown-menu dropdown-menu-right column-3 parent mt-0">
+          <a class="dropdown-item py-0 dropdown dropleft" *ngFor="let job of jobArr">
+            <a class="nav-link" href="/{{job.link}}"> {{job.name}} </a>
+          </a>
+        </div>
+      </li>
+      <li class="nav-item mx-auto pr-4 dropdown dropdown_no_child">
+        <a class="nav-link" href="community">Community</a>
+        <div class="dropdown-menu dropdown-menu-right column-2 parent mt-0">
+          <a class="dropdown-item py-0 dropdown dropleft" *ngFor="let community of communityArr">
+            <a class="nav-link" href="/{{community.link}}"> {{community.name}} </a>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

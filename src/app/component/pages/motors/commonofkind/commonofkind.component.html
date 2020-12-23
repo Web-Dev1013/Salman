@@ -1,0 +1,221 @@
+<div class="m-5">
+    <div class="row top-leader"></div>
+    <div class="row">
+        <div class="col-sm-5 col-md-3 my-3 leftSearchBox radius-normal">
+            <h3 class="mb-0  mt-3 font-weight-bold"> Search </h3>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="" *ngFor="let City of AllCitiesArr"> {{City}} </option>
+                </select>
+            </div>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="" *ngFor="let SideNav of SideNavListArr">{{SideNav}}</option>
+                </select>
+            </div>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="" *ngFor="let Merchandise of MerchandiseListArr">{{Merchandise}}</option>
+                </select>
+            </div>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="" *ngFor="let Cars of CarListArr">{{Cars}}</option>
+                </select>
+            </div>
+            <div class="">
+                <h3 class="mb-0 font-weight-bold"> Price (AED) </h3>
+                <div class="d-flex justify-content-between">
+                    <input type="number" class="form-control col-5" placeholder="Price form">
+                    <span class="mt-2" style="font-size: 34px"> - </span>
+                    <input type="number" class="form-control col-5" placeholder="Price to">
+                </div>
+            </div>
+
+            <div class="">
+                <h3 class="mb-0 font-weight-bold"> Year </h3>
+                <div class="d-flex justify-content-between">
+                    <input type="number" class="form-control col-5" placeholder="Year from">
+                    <span class="mt-2" style="font-size: 34px"> - </span>
+                    <input type="number" class="form-control col-5" placeholder="Year to">
+                </div>
+            </div>
+
+            <div class="">
+                <h3 class="mb-0 font-weight-bold"> Kilometers </h3>
+                <div class="d-flex justify-content-between">
+                    <input type="number" class="form-control col-5" placeholder="KM from">
+                    <span class="mt-2" style="font-size: 34px"> - </span>
+                    <input type="number" class="form-control col-5" placeholder="KM to">
+                </div>
+            </div>
+
+            <h3 class="my-2 font-weight-bold"> Seller type </h3>
+            <div class="my-2">
+                <select class="custom-select">
+                    <option value="" *ngFor="let Seller of SellerTypeArr">{{Seller}}</option>
+                </select>
+            </div>
+
+            <h3 class="my-2 font-weight-bold"> Badges </h3>
+            <div class="form-group d-flex align-middle" *ngFor="let Badges of BadgesArr">
+                <input type="checkbox" class="checkbox">
+                <a class="mx-2 black text-decoration-none">
+                    {{Badges}} </a>
+            </div>
+
+            <h3 class="my-2 font-weight-bold"> CarReport </h3>
+            <div class="form-group d-flex align-middle">
+                <input type="checkbox" class="checkbox">
+                <a class="mx-2 black text-decoration-none" href=""> Show ads with CarReport </a>
+            </div>
+
+            <h3 class="my-2 font-weight-bold"> Content Language </h3>
+            <div class="form-group d-flex align-middle">
+                <input type="checkbox" class="checkbox">
+                <a class="mx-2 black text-decoration-none" href=""> Show English abs only </a>
+            </div>
+
+            <h3 class="my-2 font-weight-bold"> Keywords </h3>
+            <div class="form-group">
+                <input type="search" class="form-control">
+                <button class="btn btn-danger my-3 btn-block">Search</button>
+            </div>
+            <div class="accordion mb-3" id="advanceOption">
+                <div class="card">
+                    <div class="card-header p-0" id="options">
+                        <h2 class="mb-0">
+                            <button type="button"
+                                class="btn btn-block black text-decoration-none btn-link d-flex justify-content-between"
+                                data-toggle="collapse" data-target="#collapseOne">
+                                <span>Advance Options</span><i class="fa fa-plus my-auto"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="options" data-parent="#advanceOption">
+                        <div class="card-body p-0">
+                            <h3 class="my-2"> Neighborhoods </h3>
+                            <div class="form-group">
+                                <input type="search" class="form-control" placeholder="Select Neighborhoods...">
+                            </div>
+                            <div class="group " id="">
+                                <h3 class="mb-0  mt-3"> Auto Agent </h3>
+                                <input type="search" class="form-control" placeholder="Select Auto Agents">
+                            </div>
+                            <div class="group " id="">
+                                <h3 class="mb-0  mt-3"> Ads posted </h3>
+                                <select id="" class="custom-select" name="">
+                                    <option value="" *ngFor="let Time of TimeListArr">{{Time}}</option>
+                                </select>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Body Type </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle" *ngFor="let BodyType of BodyTypeArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{BodyType}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Doors </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle" *ngFor="let Door of DoorsArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{Door}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> No.of Cylinders </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle"
+                                    *ngFor="let NoOfCylinder of NoOfCylindersArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{NoOfCylinder}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Technical Features </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle"
+                                    *ngFor="let TechnicalFeature of TechnicalFeaturesArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{TechnicalFeature}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Extras </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle" *ngFor="let Extras of ExtrasArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{Extras}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Horsepower </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle" *ngFor="let Horsepower of HorsepowerArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{Horsepower}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Transmission Type </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle"
+                                    *ngFor="let TransmissionType of TransmissionTypeArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{TransmissionType}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Color </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle" *ngFor="let Color of ColorArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{Color}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Warranty </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle" *ngFor="let Warranty of WarrantyArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{Warranty}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Fuel Type </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle" *ngFor="let FuelType of FuelTypeArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{FuelType}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Regional Specs </h3>
+                            <div class=" sidebar-item-max-height p-3">
+                                <div class="form-group d-flex align-middle"
+                                    *ngFor="let RegionalSpec of RegionalSpecsArr">
+                                    <input type="checkbox" class="checkbox">
+                                    <a class="mx-2 black text-decoration-none">
+                                        {{RegionalSpec}} </a>
+                                </div>
+                            </div>
+                            <h3 class="my-2 font-weight-bold"> Photos </h3>
+                            <div class="form-group d-flex align-middle">
+                                <input type="checkbox" class="checkbox">
+                                <a class="mx-2 black text-decoration-none"> Show ads with photos only </a>
+                            </div>
+                            <button class="btn btn-danger my-3 btn-block">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7 col-md-9 my-3">
+            <div class="mx-4">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+    </div>
+</div>

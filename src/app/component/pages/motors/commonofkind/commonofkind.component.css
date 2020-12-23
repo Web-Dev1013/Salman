@@ -1,0 +1,43 @@
+/* common classes */
+.radius-normal{
+    border-radius: 10px;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+.black{
+    color: black;
+}
+/* common classes end */
+.leftSearchBox{
+    width: 100%;
+    height: fit-content;
+    background: #eee;
+}
+.accordion .fa{
+    margin-right: 0.5rem;
+}
+.card{
+    background-clip: unset;
+    background-color: #eee;
+    border: 0;
+}
+.card-header{
+    background: #eee;
+}
+.card-body{
+    background: #eee;
+}
+.custom-select{
+    font-size: 14px !important;
+}
+.form-control{
+    font-size: 14px !important;
+}
+.sidebar-item-max-height{
+    box-shadow: 0 2px 4px #1516156e inset;
+    box-sizing: border-box;
+    max-height: 350px;
+    overflow: auto;
+}
