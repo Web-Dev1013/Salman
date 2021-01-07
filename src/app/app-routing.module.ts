@@ -6,7 +6,10 @@ import { PropertyforsaleComponent } from "./component/pages/propertyforsale/prop
 import { CarouselComponent } from "./component/common/carousel/carousel.component";
 import { ClassifiedComponent} from "./component/pages/classified/classified.component";
 import { NavbarComponent } from './component/common/navbar/navbar.component';
-import { CommonofkindComponent } from './component/pages/motors/commonofkind/commonofkind.component';
+import { ProductDetailComponent } from './component/common/product-detail/product-detail.component';
+import { ProductsListComponent } from './component/common/products-list/products-list.component';
+import { MotorsComponent } from './component/pages/motors/motors.component';
+import { RealestateComponent } from './component/common/realestate/realestate.component';
 const routes: Routes = [
   {path: "", redirectTo: "main", pathMatch: "full"},
   {path: "navbar", component: NavbarComponent},
@@ -15,14 +18,15 @@ const routes: Routes = [
   {path: "propertyforsale", component: PropertyforsaleComponent},
   {path: "carousel", component: CarouselComponent},
   {path: "classified", component: ClassifiedComponent},
-  {path: "motors", loadChildren: () => import(`./component/pages/motors/motors.module`).then(m => m.MotorsModule)},
+  {path: "motors", component: MotorsComponent},
   {path: "furnituregarden", loadChildren: () => import(`./component/pages/furnituregarden/furnituregarden.module`).then(m => m.FurnituregardenModule)},
   {path: "mobiletablet", loadChildren: () => import(`./component/pages/mobiletablet/mobiletablet.module`).then(m => m.MobiletabletModule)}, 
   {path: "job", loadChildren: () => import(`./component/pages/job/job.module`).then(m => m.JobModule)},  
   {path: "community", loadChildren: () => import(`./component/pages/community/community.module`).then(m => m.CommunityModule)},
   {path: "propertynewproject", loadChildren: () => import(`./component/pages/newproject/newproject.module`).then(m => m.NewprojectModule)},
-  {path: "motors/:id", component: CommonofkindComponent }
-  // {path: "commonofkind", loadChildren:  () => import(`./component/pages/motors/motors.module`).then(m => m.MotorsModule)},
+  {path: "common/:id", component: ProductsListComponent},
+  {path: "product_detail/:id", component: ProductDetailComponent},
+  {path: "realEstate/:id", component: RealestateComponent}
 ]
 
 @NgModule({

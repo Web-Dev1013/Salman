@@ -26,6 +26,9 @@ import { JobComponent } from './component/pages/job/job.component';
 import { CommunityComponent } from './component/pages/community/community.component';
 import { NewprojectComponent } from './component/pages/newproject/newproject.component';
 import { CommonofkindComponent } from './component/pages/motors/commonofkind/commonofkind.component';
+import { ProductDetailComponent } from './component/common/product-detail/product-detail.component';
+import { ProductsListComponent } from './component/common/products-list/products-list.component';
+import { RealestateComponent } from './component/common/realestate/realestate.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { CommonofkindComponent } from './component/pages/motors/commonofkind/com
     JobComponent,
     CommunityComponent,
     NewprojectComponent,
-    CommonofkindComponent
+    CommonofkindComponent,
+    ProductDetailComponent,
+    ProductsListComponent,
+    RealestateComponent,
   ],
   imports: [
     BrowserModule,

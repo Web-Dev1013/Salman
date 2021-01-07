@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -6,6 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  constructor(private router: Router) { }
+
+  OnInit() {
+  }
+  // public gotoProductsList(url:any, id:any){
+  //   this.router.navigate([url, id]).then((e) =>{
+  //     if(e){
+  //       console.log("success");
+  //     }else{
+  //       console.log("warning");
+  //     }
+  //   });
+  // }
+
+  // public gotoProductDetail(url: any, id: any){
+  //   console.log(url, id);
+  //   this.router.navigate([url, id]).then((e) => {
+  //     if(e){
+  //       console.log("success");
+  //     }else{
+  //       console.log("warning");
+  //     }
+  //   });
+  // }
 
   CitiesArr:any[] = [
     {link: "Allcities", name: "All Cities(UAE)"},
@@ -415,83 +442,78 @@ export class HeaderComponent {
 
 // Motors
   MotorsArr:any[] = [
-    {link: "UsedCar" , name: "Used Cars for Sale", child:[
-      {link: "Acura" , name: "Acura"},
-      {link: "AlfaRomeo" , name: "Alfa Romeo"},
-      {link: "AstonMartin" , name: "Aston Martin"},
-      {link: "Audi" , name: "Audi"},
-      {link: "BAIC" , name: "BAIC"},
-      {link: "BMW" , name: "BMW"},
-      {link: "BYD" , name: "BYD"},
-      {link: "Bentley" , name: "Bentley"},
-      {link: "Bizzarrini" , name: "Bizzarrini"},
-      {link: "Borgward" , name: "Borgward"},
-      {link: "Brilliance" , name: "Brilliance"},
-      {link: "Bufori" , name: "Bufori"},
-      {link: "Bugatti" , name: "Bugatti"},
-      {link: "Buick" , name: "Buick"},
-      {link: "CMC" , name: "CMC"},
-      {link: "Cadilac" , name: "Cadilac"},
-      {link: "Caterham" , name: "Caterham"},
-      {link: "Changan" , name: "Changan"},
-      {link: "Chery" , name: "Chery"},
-      {link: "Chevrolet" , name: "Chevrolet"}
+    {id: "usedCar" , name: "Used Cars for Sale", child:[
+      {id: "Acura" , name: "Acura"},
+      {id: "AlfaRomeo" , name: "Alfa Romeo"},
+      {id: "AstonMartin" , name: "Aston Martin"},
+      {id: "Audi" , name: "Audi"},
+      {id: "BAIC" , name: "BAIC"},
+      {id: "BMW" , name: "BMW"},
+      {id: "BYD" , name: "BYD"},
+      {id: "Bentley" , name: "Bentley"},
+      {id: "Bizzarrini" , name: "Bizzarrini"},
+      {id: "Borgward" , name: "Borgward"},
+      {id: "Brilliance" , name: "Brilliance"},
+      {id: "Bufori" , name: "Bufori"},
+      {id: "Bugatti" , name: "Bugatti"},
+      {id: "Buick" , name: "Buick"},
+      {id: "CMC" , name: "CMC"},
+      {id: "Cadilac" , name: "Cadilac"},
+      {id: "Caterham" , name: "Caterham"},
+      {id: "Changan" , name: "Changan"},
+      {id: "Chery" , name: "Chery"},
+      {id: "Chevrolet" , name: "Chevrolet"}
     ]},
-    {link: "Motorcycle" , name: "Motorcycles", child:[
-      {link: "SportBike", name: "Sport Bike"},
-      {link: "AdventTour", name: "Adventure/Touring"},
-      {link: "CruiserChopper", name: "Cruiser/Chopper"},
-      {link: "OffRoad", name: "Off-Road"},
-      {link: "Scooter", name: "Scooter"},
-      {link: "StandCommuter", name: "Standard/Commuter"},
-      {link: "CafeRacer", name: "Cafe Racer"},
-      {link: "Trike", name: "Trike"},
-      {link: "Trailer", name: "Trailer"},
-      {link: "Karting", name: "Karting"},
-      {link: "MoPed", name: "Mo-Ped"},
-      {link: "Other", name: "Other"}
+    {id: "motorcycle" , name: "Motorcycles", child:[
+      {id: "usedCar", name: "Sport Bike"},
+      {id: "boats", name: "Adventure/Touring"},
+      {id: "motorcycle", name: "Cruiser/Chopper"},
+      {id: "OffRoad", name: "Off-Road"},
+      {id: "Scooter", name: "Scooter"},
+      {id: "StandCommuter", name: "Standard/Commuter"},
+      {id: "CafeRacer", name: "Cafe Racer"},
+      {id: "Trike", name: "Trike"},
+      {id: "Trailer", name: "Trailer"},
+      {id: "Karting", name: "Karting"},
+      {id: "MoPed", name: "Mo-Ped"},
+      {id: "Other", name: "Other"}
     ]},
-    {link: "AutoAccPart" , name: "Auto Accessories & Parts", child:[
-      {link: "CarPart", name: "Car/4&times;4 Parts"},
-      {link: "AppMerAcc", name: "Apparel, Merchandise & Accessories"},
-      {link: "MotorcyclePart", name: "MotorCycle Parts"},
-      {link: "AutoMotiveTool", name: "Automotive Tools"},
-      {link: "BoatPart", name: "Boat Parts"},
-      {link: "NumPlate", name: "Number Plates"},
-      {link: "OtherVehiclePart", name: "Other Vehicle Parts"}
+    {id: "accessories" , name: "Auto Accessories & Parts", child:[
+      {id: "CarPart", name: "Car/4&times;4 Parts"},
+      {id: "AppMerAcc", name: "Apparel, Merchandise & Accessories"},
+      {id: "MotorcyclePart", name: "MotorCycle Parts"},
+      {id: "AutoMotiveTool", name: "Automotive Tools"},
+      {id: "BoatPart", name: "Boat Parts"},
+      {id: "NumPlate", name: "Number Plates"},
+      {id: "OtherVehiclePart", name: "Other Vehicle Parts"}
     ]},
-    {link: "HeavyVehicle" , name: "Heavy Vehicles", child:[
-      {link: "Truck", name: "Trucks"},
-      {link: "Buses", name: "Buses"},
-      {link: "Forklift", name: "Forklifts"},
-      {link: "Trailer", name: "Trailers"},
-      {link: "Crane", name: "Cranes"},
-      {link: "Tanker", name: "Tankers"},
-      {link: "PartEngine", name: "Parts & Engines"},
-      {link: "OtherHeavyVehicle", name: "Other Heavy Vehicle"}
+    {id: "heavyVehicles" , name: "Heavy Vehicles", child:[
+      {id: "Truck", name: "Trucks"},
+      {id: "Buses", name: "Buses"},
+      {id: "Forklift", name: "Forklifts"},
+      {id: "Trailer", name: "Trailers"},
+      {id: "Crane", name: "Cranes"},
+      {id: "Tanker", name: "Tankers"},
+      {id: "PartEngine", name: "Parts & Engines"},
+      {id: "OtherHeavyVehicle", name: "Other Heavy Vehicle"}
     ]},
-    {link: "Boat" , name: "Boats", child: [
-      {link: "Motorboat", name: "Motorboats"},
-      {link: "Sailboat", name: "Sailboats"},
-      {link: "RowPaddle", name: "Row/Paddle Boats"}
+    {id: "boats" , name: "Boats", child: [
+      {id: "Motorboat", name: "Motorboats"},
+      {id: "Sailboat", name: "Sailboats"},
+      {id: "RowPaddle", name: "Row/Paddle Boats"}
     ]},
-    {link: "NumberPlate" , name: "Number Plates", child:[
-      {link: "Dubai", name: "Dubai Plate"},
-      {link: "AbuDhabi", name: "Abu Dhabi Plate"},
-      {link: "Sharjah", name: "Sharjah Plate"},
-      {link: "Ajman", name: "Ajman Plate"},
-      {link: "Fujairah", name: "Fujairah Plate"},
-      {link: "UmmAlQuwain", name: "Umm Al Quwain Plate"},
-      {link: "RasAlKhaimah", name: "Ras Al Khaimah Plate"}
+    {id: "numberPlates" , name: "Number Plates", child:[
+      {id: "Dubai", name: "Dubai Plate"},
+      {id: "AbuDhabi", name: "Abu Dhabi Plate"},
+      {id: "Sharjah", name: "Sharjah Plate"},
+      {id: "Ajman", name: "Ajman Plate"},
+      {id: "Fujairah", name: "Fujairah Plate"},
+      {id: "UmmAlQuwain", name: "Umm Al Quwain Plate"},
+      {id: "RasAlKhaimah", name: "Ras Al Khaimah Plate"}
     ]},
-    {link: "ExportCar" , name: "Export Cars", child:[
-      {link: "ExportCar", name: "View All"}
+    {id: "" , name: "Export Cars", child:[
+      {id: "ExportCar", name: "View All"}
     ]}
   ]
-
-  constructor() { }
-
-  OnInit() {
-  }
 
 }

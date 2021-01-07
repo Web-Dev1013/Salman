@@ -8,17 +8,17 @@
         </div>
     </div>
     <div class="row mb-5">
-        <div class="col-lg-2 col-md-4 col-sm-6 pr-0 mb-2" *ngFor="let kindOfCar of KindOfCarsArr">
-            <div class="py-3 text-center listBox container" routerLink="/motors/{{kindOfCar.id}}">
-                <h5 class="font-weight-bold mb-0"> {{kindOfCar.kind}} </h5>
-                <h3 class="font-weight-bold mb-0"> {{kindOfCar.amount}} </h3>
+        <div class="col-lg-2 col-md-4 col-sm-6 pr-0 mb-2" *ngFor="let Common of CommonArr">
+            <div class="py-3 text-center listBox container" (click) = "gotoCommonDetails('/common/', Common.id)">
+                <h5 class="font-weight-bold mb-0"> {{Common.name}} </h5>
+                <h3 class="font-weight-bold mb-0"> {{Common.amount}} </h3>
             </div>
         </div>
     </div>
     <div class="list-title text-dark mb-5">Featured Listings</div>
     <div class="row mb-5">
         <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-2 carbox" *ngFor="let Featured of FeaturedArr">
-            <div class="card-body">
+            <div class="card-body" (click) ="gotoProductDetails('/product_detail', Featured.id)">
                 <img class="img-responsive" src="{{Featured.src}}">
                 <div class="ml-3">
                     <div class="card-title">
@@ -36,7 +36,7 @@
     <div class="list-title text-dark mb-5">Latest news from dubizzle</div>
     <div class="row mb-5">
         <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-2 carbox" *ngFor="let LatestNews of LatestNewsArr">
-            <div class="card-body">
+            <div class="card-body" (click) ="gotoProductDetails('/product_detail', LatestNews.id)">
                 <img class="img-responsive" src="{{LatestNews.src}}" width="100%">
                 <div class="ml-3">
                     <div class="card-title">

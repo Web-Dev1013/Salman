@@ -32,7 +32,7 @@
           <button type="button" data-toggle="dropdown" class="btn dropdown-toggle cities" aria-expanded="false"> All Cities </button>
           <div class="dropdown-menu">
             <a class="dropdown-item py-0" *ngFor="let City of CitiesArr">
-              <a class="nav-link" href="{{City.link}}"> {{City.name}} </a>
+              <a class="nav-link" routerLink="{{City.link}}" routerLinkActive="active"> {{City.name}} </a>
             </a>
           </div>
         </div>
@@ -82,20 +82,20 @@
         </div>
         <div class="loginWith mt-4">
           <button type="button" class="btn btn-outline-light text-dark py-3 px-5 mb-2 ">
-            <img class="facebook" src="https://dbzproperty-a.akamaihd.net/auth/0.2.66/a0c838e1.png">
+            <img class="facebook" src="../../../../assets/icon/facebook.png">
             <span class="px-3">Continue With Facebook</span>
           </button>
           <button type="button" class="btn btn-outline-light text-dark py-3 px-5 mb-2">
-            <img class="google" src="https://dbzproperty-a.akamaihd.net/auth/0.2.66/bfc29afc.png">
+            <img class="google" src="../../../../assets/icon/google.png">
             <span class="px-3">Continue With Google</span>
           </button>
           <button type="button" class="btn btn-outline-light text-dark py-3 px-5 mb-2">
-            <img class="apple" src="https://dbzproperty-a.akamaihd.net/auth/0.2.66/48a4448a.png">
+            <img class="apple" src="../../../../assets/icon/apple.png">
             <span class="px-3">Continue With Apple</span>
           </button>
           <button type="button" data-toggle="modal" data-dismiss="modal" data-target="#withEmail"
             class="btn btn-outline-light text-dark py-3 px-5 mb-2">
-            <img class="email" src="https://dbzproperty-a.akamaihd.net/auth/0.2.66/cbcf5c04.png">
+            <img class="email" src="../../../../assets/icon/email.png">
             <span class="px-3">Continue With Email</span>
           </button>
           <div class="createOne px-5 m-3" data-toggle="modal" data-dismiss="modal" data-target="#signup">Don’t have an
@@ -187,14 +187,14 @@
   <div class="navbar-collapse collapse" id="contentList">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item ml-5 pr-4 dropdown dropdown_has_child">
-        <a class="nav-link" href="motors">Motors</a>
+        <a class="nav-link" routerLink="motors" routerLinkActive="active">Motors</a>
         <div class="dropdown-menu parent">
-          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let Motor of MotorsArr; let i = index">
-            <a class="nav-link d-flex justify-content-between" id="Motor_{{i}}" href="{{Motor.link}}"> {{Motor.name}} <i
+          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let Motor of MotorsArr">
+            <a class="nav-link d-flex justify-content-between" [routerLink] = "['/common/', Motor.id]"> {{Motor.name}} <i
                 class="fa fa-angle-double-right pl-3"></i></a>
             <div class="dropdown-menu py-0 children mt-0">
               <a class="dropdown-item" *ngFor="let SubMotor of Motor.child">
-                <a class="sublist text-decoration-none" href="{{SubMotor.link}}"> {{SubMotor.name}} </a>
+                <a class="sublist text-decoration-none" [routerLink] = "['/common/', SubMotor.id]" > {{SubMotor.name}} </a>
               </a>
             </div>
           </a>
@@ -202,15 +202,15 @@
         <div class="dropdown_for_child left"></div>
       </li>
       <li class="nav-item mx-auto py-0 pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" href="propertyforrent"> Property for Rent</a>
+        <a class="nav-link" routerLink="propertyforrent" routerLinkActive="active"> Property for Rent</a>
         <div class="dropdown-menu parent">
           <a class="dropdown-item py-0 dropdown dropright" *ngFor="let ForRent of PropertyForRentArr; let i = index">
-            <a class="nav-link" id="ForRent_{{i}}" href="{ForRent.link}"> {{ForRent.name}} </a>
+            <a class="nav-link" id="ForRent_{{i}}" routerLink="{ForRent.link}" routerLinkActive="active"> {{ForRent.name}} </a>
           </a>
         </div>
       </li>
       <li class="nav-item mx-auto py-0 pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" href="propertyforsale">Property for Sale</a>
+        <a class="nav-link" routerLink="propertyforsale" routerLinkActive="active">Property for Sale</a>
         <div class="dropdown-menu parent mt-0">
           <a class="dropdown-item py-0 dropdown dropright" *ngFor="let ForSale of PropertyForSaleArr; let i = index">
             <a class="nav-link" id="ForSale_{{i}}" href="{{ForSale.link}}"> {{ForSale.name}} </a>
@@ -218,7 +218,7 @@
         </div>
       </li>
       <li class="nav-item mx-auto pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" href="propertynewproject">Property New Projects</a>
+        <a class="nav-link" routerLink="propertynewproject" routerLinkActive="active">Property New Projects</a>
         <div class="dropdown-menu parent mt-0">
           <a class="dropdown-item py-0 dropdown dropright" *ngFor="let NewProject of NewProjectArr; let i = index">
             <a class="nav-link" id="NewProject_{{i}}" href="{{NewProject.link}}"> {{NewProject.name}}</a>
@@ -226,14 +226,14 @@
         </div>
       </li>
       <li class="nav-item mx-auto pr-4 dropdown dropdown_has_child">
-        <a class="nav-link" href="classified">Classified</a>
+        <a class="nav-link" routerLink="classified" routerLinkActive="active">Classified</a>
         <div class="dropdown-menu parent mt-0">
           <a class="dropdown-item py-0 dropdown dropright" *ngFor="let Classified of ClassifiedArr">
-            <a class="nav-link justify-content-between d-flex" href="/{{Classified.link}}"> {{Classified.name}}<i
+            <a class="nav-link justify-content-between d-flex" routerLink="/{{Classified.link}}" routerLinkActive="active"> {{Classified.name}}<i
                 class="fa fa-angle-double-left pl-3"></i></a>
             <div class="dropdown-menu children mt-0">
               <a class="dropdown-item" *ngFor="let SubClassified of Classified.child">
-                <a class="sublist text-decoration-none" href="/{{SubClassified.link}}"> {{SubClassified.name}}</a>
+                <a class="sublist text-decoration-none" routerLink="/{{SubClassified.link}}" routerLinkActive="active"> {{SubClassified.name}}</a>
               </a>
             </div>
           </a>
@@ -241,16 +241,16 @@
         <div class="dropdown_for_child right"></div>
       </li>
       <li class="nav-item mx-auto pr-4 dropdown dropdown_has_child">
-        <a class="nav-link" href="furnituregarden">Furniture & Garden</a>
+        <a class="nav-link" routerLink="furnituregarden" routerLinkActive="active">Furniture & Garden</a>
         <div class="dropdown-menu parent mt-0">
           <a class="dropdown-item py-0 dropdown dropright"
             *ngFor="let FurnitureGarden of FurnitureGardenArr; let i=index">
             <a class="nav-link justify-content-between d-flex" id="furnituregarden_{{i}}"
-              href="/{{FurnitureGarden.link}}"> {{FurnitureGarden.name}} <i
+              routerLink="/{{FurnitureGarden.link}}" routerLinkActive="active"> {{FurnitureGarden.name}} <i
                 class="fa float-right fa-angle-double-left pl-3"></i></a>
             <div class="dropdown-menu children mt-0">
               <a class="dropdown-item" *ngFor="let SubItem of FurnitureGarden.child">
-                <a class="sublist text-decoration-none" href="/{{SubItem.link}}"> {{SubItem.name}} </a>
+                <a class="sublist text-decoration-none" routerLink="/{{SubItem.link}}" routerLinkActive="active"> {{SubItem.name}} </a>
               </a>
             </div>
           </a>
@@ -258,14 +258,14 @@
         <div class="dropdown_for_child right"></div>
       </li>
       <li class="nav-item mx-auto pr-4 dropdown dropdown_has_child">
-        <a class="nav-link" href="mobiletablet"> Mobiles & Tablets</a>
+        <a class="nav-link" routerLink="mobiletablet" routerLinkActive="active"> Mobiles & Tablets</a>
         <div class="dropdown-menu parent mt-0">
           <a class="dropdown-item py-0 dropdown dropright" *ngFor="let MobileTablet of MobileTabletArr; let i=index">
-            <a class="nav-link justify-content-between d-flex" id="mobiletablet_{{i}}" href="/{{MobileTablet.link}}">
+            <a class="nav-link justify-content-between d-flex" id="mobiletablet_{{i}}" routerLink="/{{MobileTablet.link}}" routerLinkActive="active">
               {{MobileTablet.name}} <i class="fa fa-angle-double-left pl-3"></i></a>
             <div class="dropdown-menu children mt-0">
               <a class="dropdown-item" *ngFor="let SubMobileTablet of MobileTablet.child">
-                <a class="sublist text-decoration-none" href="/{{SubMobileTablet.link}}"> {{SubMobileTablet.name}} </a>
+                <a class="sublist text-decoration-none" routerLink="/{{SubMobileTablet.link}}" routerLinkActive="active"> {{SubMobileTablet.name}} </a>
               </a>
             </div>
           </a>
@@ -273,18 +273,18 @@
         <div class="dropdown_for_child right"></div>
       </li>
       <li class="nav-item mx-auto pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" href="job">Job</a>
+        <a class="nav-link" routerLink="job" routerLinkActive="active">Job</a>
         <div class="dropdown-menu dropdown-menu-right column-3 parent mt-0">
           <a class="dropdown-item py-0 dropdown dropleft" *ngFor="let job of jobArr">
-            <a class="nav-link" href="/{{job.link}}"> {{job.name}} </a>
+            <a class="nav-link" routerLink="/{{job.link}}" routerLinkActive="active"> {{job.name}} </a>
           </a>
         </div>
       </li>
       <li class="nav-item mx-auto pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" href="community">Community</a>
+        <a class="nav-link" routerLink="community" routerLinkActive="active">Community</a>
         <div class="dropdown-menu dropdown-menu-right column-2 parent mt-0">
           <a class="dropdown-item py-0 dropdown dropleft" *ngFor="let community of communityArr">
-            <a class="nav-link" href="/{{community.link}}"> {{community.name}} </a>
+            <a class="nav-link" routerLink="/{{community.link}}" routerLinkActive="active"> {{community.name}} </a>
           </a>
         </div>
       </li>
