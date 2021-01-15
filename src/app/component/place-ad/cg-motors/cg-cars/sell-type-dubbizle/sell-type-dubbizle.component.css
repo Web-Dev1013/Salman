@@ -1,0 +1,57 @@
+.progress_bar .dropdown-divider{
+    border-top: 3px solid #ddd; 
+}
+.badge-danger{
+    background: rgb(252, 8, 8);
+}
+.btn-danger{
+    background: #e53b3b;
+}
+.red{
+    color: red;
+}
+.w-33{
+    width: 33.33%;
+}
+.step{
+    position: absolute;
+}
+.car-detail{
+    top: 10px;
+    left: -25px;
+}
+.other-detail{
+    top: 10px;
+    left: 100px;
+}
+.payment{
+    top: 10px;
+    left: 240px;
+}
+.confirmation{
+    top: 10px;
+    left: 355px;
+}
+.active{
+    color:rgb(252, 8, 8);
+    font-weight: bold;
+}
+.back:hover{
+    cursor: pointer;
+    color: rgb(214, 16, 16);
+}
+.logo{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    color: #343434;
+}
+.modal-dialog{
+    width: 400px;
+}
+.w-40{
+    width: 40%;
+}
+.activeBar{
+    border-color: red !important;
+}

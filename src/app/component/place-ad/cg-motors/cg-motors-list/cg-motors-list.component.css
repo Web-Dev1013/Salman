@@ -1,0 +1,27 @@
+.sub_motors:hover{
+    cursor: pointer;
+    background: #eee;
+}
+.sub_motors{
+    transition: 0.3s;
+}
+div:focus{
+    outline: none !important;
+}
+.right{
+    position: absolute !important;
+    right: 20px !important;
+}
+.dropdown-item{
+    border-bottom: 1px solid #eee;
+}
+p:focus{
+    outline: none !important;
+}
+.back:hover{
+    color: red !important;
+    cursor: pointer;
+}
+.dropdown-menu{
+    top: 90% !important;
+}

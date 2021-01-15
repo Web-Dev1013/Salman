@@ -33,6 +33,7 @@
 .listBox{
     box-shadow: 0 0 5px #151515;
     border-radius: 10px;
+    transition: 0.4s;
 }
 .listGroup .listBox{
     height: 80px;
@@ -42,6 +43,8 @@
 }
 .listBox:hover{
     cursor: pointer;
+    transform: scale(1.1);
+    border: 1px solid red;
 }
 .list-title{
     font-size: 28px;
@@ -55,9 +58,13 @@
     height: 100%;
     border-radius: 5px;
 }
+.carbox{
+    transition: 0.4s;
+}
 .carbox:hover{
     cursor: pointer;
-    box-shadow: 0 0 10px #151615;
+    box-shadow: 0 1px 3px #ff0303;
+    transform: scale(1.03);
     border-radius: 10px;
 }
 .card-body img{
@@ -82,6 +89,10 @@
 }
 .border-radius{
     border-radius:10px;
+}
+div:focus{
+    outline: none !important;
+    border: none !important;
 }
 .all-blog{
     font-weight: bold;

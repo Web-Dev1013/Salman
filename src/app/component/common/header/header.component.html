@@ -27,44 +27,79 @@
           </span>
         </a>
       </li>
-      <li class="nav-item">
-        <div class="dropdown">
-          <button type="button" data-toggle="dropdown" class="btn dropdown-toggle cities" aria-expanded="false"> All Cities </button>
-          <div class="dropdown-menu">
+      <li class="nav-item text-center">
+        <div class="dropdown" (mouseenter)="showCityDropdown()" (mouseleave)="hideCityDropdown()">
+          <button type="button" class="btn dropdown-toggle">
+            {{cityName}} </button>
+          <div class="dropdown-menu d-block" *ngIf="showCityMenu" style="top: 30px">
             <a class="dropdown-item py-0" *ngFor="let City of CitiesArr">
-              <a class="nav-link" routerLink="{{City.link}}" routerLinkActive="active"> {{City.name}} </a>
+              <a class="nav-link" (click)="displayCity(City)" [routerLink]="['main', City.name]"> {{City.name}} </a>
             </a>
           </div>
         </div>
       </li>
     </ul>
     <ul class="navbar-nav  ml-auto headerRight">
-      <li class="nav-item text-center">
+      <li class="nav-item notification text-center text-dark dropdown" data-toggle="dropdown">
         <a class="nav-link"><i class="fa fa-bell-o font-weight-bold p-2">
             <p>Notifications</p>
+            <div class="dropdown-menu dropdown-menu-right">
+              <h3 class="dropdown-header mb-0">Notifications </h3>
+              <a class="dropdown-item d-flex" [routerLink]="['/motors', notification.id]"
+                *ngFor="let notification of notificationArr">
+                <span class="avatar pr-2">
+                  <img src="{{notification.avatar}}" class="rounded-circle">
+                </span>
+                <span class="px-2">
+                  <p class="title h6 font-weight-bold">{{notification.title}}</p>
+                  <p class="description text-secondary small">{{notification.description}}</p>
+                  <p class="date small font-weight-bold text-secondary mb-0">{{notification.date}} days ago</p>
+                </span>
+              </a>
+            </div>
           </i></a>
       </li>
-      <li class="nav-item text-center">
+      <li class="nav-item text-center text-dark" [routerLink]="['user_info', 'my_searches']">
         <a class="nav-link"><i class="fa fa-search p-2">
             <p class="font-weight-bold">Searches</p>
           </i></a>
 
       </li>
-      <li class="nav-item text-center">
+      <li class="nav-item text-center text-dark" [routerLink]="['user_info', 'my_favorites']">
         <a class="nav-link"><i class="fa fa-heart-o font-weight-bold p-2">
             <p>Favorite</p>
           </i></a>
       </li>
-      <li class="nav-item text-center">
-        <a class="nav-link"><i class="fa fa-comment-o font-weight-bold p-2">
+      <li class="nav-item text-center dropdown text-dark" (click)="toggleChats()">
+        <a class="nav-link">
+          <i class="fa fa-comment-o font-weight-bold p-2">
             <p>My Chats</p>
-          </i></a>
+          </i>
+        </a>
+        <div class="chats bg-light dropdown-menu d-block" *ngIf="showChats">
+          <p class="text-secondary dropdown-item text-wrap">Hey, looks like you don’t have any chat messages yet.
+            Connect with
+            other dubizzlers for your next best deal!</p>
+        </div>
       </li>
-      <li class="nav-item my-auto">
-        <a class="nav-link font-weight-bold" data-toggle="modal" data-target="#login">Login or Sign Up</a>
+      <li class="nav-item my-auto text-center">
+        <a class="nav-link font-weight-bold" *ngIf="logged==''" data-toggle="modal" data-target="#login">Login or Sign
+          Up</a>
+        <div class="dropdown" *ngIf="logged=='success'" (mouseenter)="showUserInfo('active')" (mouseleave)="showUserInfo('')">
+          <a class="btn dropdown-toggle"><i class="fa fa-user-circle-o px-2" style="font-size: 30px;"></i>Star</a>
+          <div class="dropdown-menu dropdown-menu-right d-block" *ngIf="displayInfo=='active'">
+            <!-- <a class="dropdown-item border-bottom px-3"> Job Dashboard </a> -->
+            <a class="dropdown-item border-bottom px-3" [routerLink]="['/user_info',userInfo.id]"
+              *ngFor="let userInfo of userInfoArr"> {{userInfo.name}} </a>
+            <a class="dropdown-item border-bottom px-3" [routerLink]="['/my_chats', 'star']" >My Chats</a>
+            <!-- <a class="dropdown-item border-bottom px-3">Change Avatar</a> -->
+            <a class="dropdown-item border-bottom px-3" [routerLink]="['/account_setting', 'star']">Account Settings</a>
+            <a class="dropdown-item border-bottom px-3" (click)="loggedIn('')">Sign out</a>
+          </div>
+        </div>
       </li>
-      <li class="nav-item my-auto">
-        <a class="nav-link"><span class="btn btn-danger">Place Your Ad</span></a>
+      <li class="nav-item my-auto text-center">
+        <a class="nav-link"><span class="btn btn-danger" routerLink="place_ad">Place Your Ad</span></a>
       </li>
     </ul>
   </div>
@@ -76,7 +111,8 @@
     <div class="modal-content">
       <div class="modal-body text-center">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <div class="pt-4 avatar mx-auto"></div>
+        <div class="pt-4 avatar mx-auto">
+        </div>
         <div>
           <h1 class="m-3"> Log in</h1>
         </div>
@@ -166,7 +202,8 @@
                 <span class="input-group-text changetype">Show</span>
               </div>
             </div>
-            <div class="signBtn my-4"><button class="btn btn-primary loginBtn">Log in</button></div>
+            <div class="signBtn my-4"><span class="btn btn-primary loginBtn" data-dismiss="modal" (click)="loggedIn('success')"
+                [routerLink]="['main', 'all']">Log in</span></div>
             <div class="agreement mb-4">By signing up I agree to the <span>Terms and Conditions</span><br> and
               <span>Privacy Policy</span>
             </div>
@@ -176,117 +213,35 @@
     </div>
   </div>
 </div>
-<!-- ///////////// -->
-<nav class="row navbar navbar-expand-lg border-bottom">
-  <span class="navbar-toggler navbar-toggler-right collapsed" data-toggle="collapse" data-target="#contentList"
-    aria-expanded="false">
-    <span class="navbar-toggler-icon ml-4">
-      <i class="fa fa-th-list" style="font-size: 30px;"></i>
-    </span>
-  </span>
-  <div class="navbar-collapse collapse" id="contentList">
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+    <span class="text-dark"><i class="fa fa-th-list" style="font-size: 30px;"></i></span>
+  </button>
+  <div class="collapse navbar-collapse" id="main_nav">
     <ul class="navbar-nav mx-auto">
-      <li class="nav-item ml-5 pr-4 dropdown dropdown_has_child">
-        <a class="nav-link" routerLink="motors" routerLinkActive="active">Motors</a>
-        <div class="dropdown-menu parent">
-          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let Motor of MotorsArr">
-            <a class="nav-link d-flex justify-content-between" [routerLink] = "['/common/', Motor.id]"> {{Motor.name}} <i
-                class="fa fa-angle-double-right pl-3"></i></a>
-            <div class="dropdown-menu py-0 children mt-0">
-              <a class="dropdown-item" *ngFor="let SubMotor of Motor.child">
-                <a class="sublist text-decoration-none" [routerLink] = "['/common/', SubMotor.id]" > {{SubMotor.name}} </a>
-              </a>
+      <li class="nav-item dropdown px-3" *ngFor="let menu of menuArr" (mouseenter)="toggleDropdown(menu.id)"
+        (mouseleave)="toggleDropdown('')">
+        <a class="nav-link text-dark font-weight-bold" routerLink="{{menu.id}}"> {{menu.name}} </a>
+        <ul class="dropdown-menu parent d-block"
+          [ngClass]="[menu.id=='community' ? 'column-2 dropdown-menu-right' : '', menu.id=='job'?'column-3 dropdown-menu-right': '', menu.id=='mobiletablet'?'dropdown-menu-right': '']"
+          *ngIf="activeMenu == menu.id">
+          <li class="has-submenu" *ngFor="let subMenu of menu.subMenu">
+            <a class="dropdown-item justify-content-between d-flex" [routerLink]="[menu.id,subMenu.id]"> <span>{{subMenu.name}}</span>
+              <span class="px-2" *ngIf="subMenu.child"> <i class="fa fa-caret-right"></i></span></a>
+            <div class="megasubmenu dropdown-menu" *ngIf="subMenu.child">
+              <div class="row">
+                <div class="col-12">
+                  <ul class="list-unstyled">
+                    <li class="p-2" *ngFor="let child of subMenu.child" [routerLink]="[menu.id, child.id]">
+                      <a>{{child.name}}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
-        <div class="dropdown_for_child left"></div>
-      </li>
-      <li class="nav-item mx-auto py-0 pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" routerLink="propertyforrent" routerLinkActive="active"> Property for Rent</a>
-        <div class="dropdown-menu parent">
-          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let ForRent of PropertyForRentArr; let i = index">
-            <a class="nav-link" id="ForRent_{{i}}" routerLink="{ForRent.link}" routerLinkActive="active"> {{ForRent.name}} </a>
-          </a>
-        </div>
-      </li>
-      <li class="nav-item mx-auto py-0 pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" routerLink="propertyforsale" routerLinkActive="active">Property for Sale</a>
-        <div class="dropdown-menu parent mt-0">
-          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let ForSale of PropertyForSaleArr; let i = index">
-            <a class="nav-link" id="ForSale_{{i}}" href="{{ForSale.link}}"> {{ForSale.name}} </a>
-          </a>
-        </div>
-      </li>
-      <li class="nav-item mx-auto pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" routerLink="propertynewproject" routerLinkActive="active">Property New Projects</a>
-        <div class="dropdown-menu parent mt-0">
-          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let NewProject of NewProjectArr; let i = index">
-            <a class="nav-link" id="NewProject_{{i}}" href="{{NewProject.link}}"> {{NewProject.name}}</a>
-          </a>
-        </div>
-      </li>
-      <li class="nav-item mx-auto pr-4 dropdown dropdown_has_child">
-        <a class="nav-link" routerLink="classified" routerLinkActive="active">Classified</a>
-        <div class="dropdown-menu parent mt-0">
-          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let Classified of ClassifiedArr">
-            <a class="nav-link justify-content-between d-flex" routerLink="/{{Classified.link}}" routerLinkActive="active"> {{Classified.name}}<i
-                class="fa fa-angle-double-left pl-3"></i></a>
-            <div class="dropdown-menu children mt-0">
-              <a class="dropdown-item" *ngFor="let SubClassified of Classified.child">
-                <a class="sublist text-decoration-none" routerLink="/{{SubClassified.link}}" routerLinkActive="active"> {{SubClassified.name}}</a>
-              </a>
-            </div>
-          </a>
-        </div>
-        <div class="dropdown_for_child right"></div>
-      </li>
-      <li class="nav-item mx-auto pr-4 dropdown dropdown_has_child">
-        <a class="nav-link" routerLink="furnituregarden" routerLinkActive="active">Furniture & Garden</a>
-        <div class="dropdown-menu parent mt-0">
-          <a class="dropdown-item py-0 dropdown dropright"
-            *ngFor="let FurnitureGarden of FurnitureGardenArr; let i=index">
-            <a class="nav-link justify-content-between d-flex" id="furnituregarden_{{i}}"
-              routerLink="/{{FurnitureGarden.link}}" routerLinkActive="active"> {{FurnitureGarden.name}} <i
-                class="fa float-right fa-angle-double-left pl-3"></i></a>
-            <div class="dropdown-menu children mt-0">
-              <a class="dropdown-item" *ngFor="let SubItem of FurnitureGarden.child">
-                <a class="sublist text-decoration-none" routerLink="/{{SubItem.link}}" routerLinkActive="active"> {{SubItem.name}} </a>
-              </a>
-            </div>
-          </a>
-        </div>
-        <div class="dropdown_for_child right"></div>
-      </li>
-      <li class="nav-item mx-auto pr-4 dropdown dropdown_has_child">
-        <a class="nav-link" routerLink="mobiletablet" routerLinkActive="active"> Mobiles & Tablets</a>
-        <div class="dropdown-menu parent mt-0">
-          <a class="dropdown-item py-0 dropdown dropright" *ngFor="let MobileTablet of MobileTabletArr; let i=index">
-            <a class="nav-link justify-content-between d-flex" id="mobiletablet_{{i}}" routerLink="/{{MobileTablet.link}}" routerLinkActive="active">
-              {{MobileTablet.name}} <i class="fa fa-angle-double-left pl-3"></i></a>
-            <div class="dropdown-menu children mt-0">
-              <a class="dropdown-item" *ngFor="let SubMobileTablet of MobileTablet.child">
-                <a class="sublist text-decoration-none" routerLink="/{{SubMobileTablet.link}}" routerLinkActive="active"> {{SubMobileTablet.name}} </a>
-              </a>
-            </div>
-          </a>
-        </div>
-        <div class="dropdown_for_child right"></div>
-      </li>
-      <li class="nav-item mx-auto pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" routerLink="job" routerLinkActive="active">Job</a>
-        <div class="dropdown-menu dropdown-menu-right column-3 parent mt-0">
-          <a class="dropdown-item py-0 dropdown dropleft" *ngFor="let job of jobArr">
-            <a class="nav-link" routerLink="/{{job.link}}" routerLinkActive="active"> {{job.name}} </a>
-          </a>
-        </div>
-      </li>
-      <li class="nav-item mx-auto pr-4 dropdown dropdown_no_child">
-        <a class="nav-link" routerLink="community" routerLinkActive="active">Community</a>
-        <div class="dropdown-menu dropdown-menu-right column-2 parent mt-0">
-          <a class="dropdown-item py-0 dropdown dropleft" *ngFor="let community of communityArr">
-            <a class="nav-link" routerLink="/{{community.link}}" routerLinkActive="active"> {{community.name}} </a>
-          </a>
-        </div>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>

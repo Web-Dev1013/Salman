@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="p-5">
+        <p class="h4">Account Settings</p>
+        <div class=""></div>
+        <ngb-accordion  [closeOthers]="true" activeIds="ngb-panel-0">
+            <ngb-panel>
+                <ng-template ngbPanelTitle>
+                    <span>&#9733; Name: {{userInfo.name}} &#9733;</span>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="d-flex">
+                        <div class="mx-2">
+                            <span>First Name</span><input type="text" class="form-control">
+                        </div>
+                        <div class="mx-2">
+                            <span>Last Name</span><input type="text" class="form-control">
+                        </div>
+                        <button class="btn btn-danger mt-3 px-4 mx-2">Change Name</button>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+                <ng-template ngbPanelTitle>
+                    <span>&#9733; Password: {{userInfo.password}} &#9733;</span>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="d-flex">
+                        <div class="mx-2">
+                            <span>Old Password</span><input type="password" class="form-control">
+                        </div>
+                        <div class="mx-2">
+                            <span>New Password</span><input type="password" class="form-control">
+                        </div>
+                        <div class="mx-2">
+                            <span>Confirm Password</span><input type="password" class="form-control">
+                        </div>
+                        <button class="btn btn-danger mt-3 px-4 mx-2">Change Password</button>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+                <ng-template ngbPanelTitle>
+                    <span>&#9733; Phone: {{userInfo.phone}}&#9733;</span>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="d-flex">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text form-control">+971</span>
+                          </div>
+                          <input type="tel" class="form-control" placeholder="Phone Number">
+                        </div>
+                        <button class="btn btn-danger px-4 mx-2">Send verification code</button>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+                <ng-template ngbPanelTitle>
+                    <span>&#9733; Email Address: {{userInfo.email}} &#9733;</span>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="d-flex">
+                        <div class="mx-2">
+                            <span>Email Address</span><input type="email" class="form-control" required> 
+                        </div>
+                        <button class="btn btn-danger mt-3 px-4 mx-2">Change Email</button>
+                    </div>                    
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+                <ng-template ngbPanelTitle>
+                    <span>&#9733; Deactivation &#9733;</span>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="d-flex">
+                        <p class="h6 text-dark">Are you sure you want to delete your account?</p>
+                        <button class="btn btn-danger px-4 mx-2">Confirm</button>
+                        <button class="btn btn-danger px-4 mx-2">Cancel</button>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+</div>

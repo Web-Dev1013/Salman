@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NewProjectModel } from "./newproject.model"; 
 
 @Component({
   selector: 'app-newproject',
@@ -40,14 +41,25 @@ export class NewprojectComponent implements OnInit {
     this.ProjectName = Projects.name;
   }
 //////////////
+projectsArr:NewProjectModel[] = [
+  new NewProjectModel(1, "../../../../../assets/Image/newproject/dubai/003.jpg", "Golf Views", "Dubai, JLT Jumeirah Lake Towers", "400,888 AED", "384-1516SqFt-Studio",3),
+  new NewProjectModel(2, "../../../../../assets/Image/newproject/dubai/1.jpg", "Sweden Palaces Luxury Villas", "Dubai, The World", "80,000,000 AED", "21168 SqFt", 5),
+  new NewProjectModel(3, "../../../../../assets/Image/newproject/dubai/2.jpg", "Casablanca Villas", "Dubai, Akoya Oxygen", "1,680,000 AED", "2300 SqFt", 4),
+  new NewProjectModel(4, "../../../../../assets/Image/newproject/dubai/3.jpg", "Seven Palm", "Dubai, The Palm Jumeirah", "649,888 AED", "307-1664 SqFt-Studio", 3),
+  new NewProjectModel(5, "../../../../../assets/Image/newproject/dubai/4.jpg", "Hera Tower", "Dubai, The Heart of Europe", "20,000,000 AED", "340 SqFt-Studio", 3),
+  new NewProjectModel(6, "../../../../../assets/Image/newproject/dubai/5.jpg", "The Floating Seahorse Villas", "Dubai, The Heart of Europe", "20,000,000", "4004SqFt", 4),
+  new NewProjectModel(7, "../../../../../assets/Image/newproject/dubai/6.jpg", "Dezire Residences", "Dubai, JVC Jumeirah Village Circle", "200,000", "384-760 SqFt-Studio", 1),
+  new NewProjectModel(8, "../../../../../assets/Image/newproject/dubai/7.jpg", "Royal Park", "Dubai, Jumeirah Park", "3,099,000 AED", "2900SqFt", 4)  
+]
+
   NewProjectArr: any[] = [
-    { link: "DubaiProject", name: "Dubai Projects(252)" },
-    { link: "SharjahProject", name: "Sharjah Projects(24)" },
-    { link: "AbuDhabiProject", name: "Abu Dhabi Projects(11)" },
-    { link: "FujairahProject", name: "Fujalrah Projects(2)" },
-    { link: "AlAinProject", name: "Al Ain Projects(1)" },
-    { link: "RasAlKhaimahProject", name: "Ras Al Khaimah Projects(1)" },
-    { link: "AjmanProject", name: "Ajman Projects(1)" }
+    { id: 1, name: "Dubai Projects(252)" },
+    { id: 2, name: "Sharjah Projects(24)" },
+    { id: 3, name: "Abu Dhabi Projects(11)" },
+    { id: 4, name: "Fujalrah Projects(2)" },
+    { id: 5, name: "Al Ain Projects(1)" },
+    { id: 6, name: "Ras Al Khaimah Projects(1)" },
+    { id: 7, name: "Ajman Projects(1)" }
   ]
 /// Cities
     CityName:string = "All Cities";

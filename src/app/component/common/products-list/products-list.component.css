@@ -18,6 +18,9 @@
 .gray{
     color: gray;
 }
+:focus{
+    outline: none !important;
+}
 /* common classes end */
 .leftSearchBox{
     width: 100%;

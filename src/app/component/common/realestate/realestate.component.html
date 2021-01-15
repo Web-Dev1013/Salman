@@ -1,1 +1,1413 @@
-<p>realestate works!</p>
+<div class="container mt-5">
+    <nav ngbNav #nav="ngbNav" class="nav-tabs">
+        <ng-container ngbNavItem>
+            <a ngbNavLink>Residential Units for Rent</a>
+            <ng-template ngbNavContent>
+                <div class="estate-searchBox row p-4 ml-0">
+                    <div class="input-group col-sm-4 pl-0">
+                        <div class="input-group-prepend">
+                            <select class="form-control font-14">
+                                <option routerLink="/" *ngFor="let City of CitiesArr"> {{City.name}} </option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control font-14" placeholder="Enter Neighborhood or Building">
+                    </div>
+                    <div class="col-sm-3 pl-0">
+                        <select class="form-control font-14">
+                            <option>All Types</option>
+                            <option>Villa/House for Rent</option>
+                            <option>Apartment/Flat for Rent</option>
+                        </select>
+                    </div>
+                    <div class="dropdown col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary dropdown-toggle rangeBtn form-control"
+                            data-toggle="dropdown">
+                            Any
+                        </button>
+                        <div class="dropdown-menu numberRange">
+                            <div>
+                                <label data-testid="min_price" class="number">Min
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus  pb-3"> - </span>
+                                <label data-testid="max_price" class="number">Max
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary dropdown-toggle rangeBtn form-control"
+                            data-toggle="dropdown">
+                            Any
+                        </button>
+                        <div class="dropdown-menu numberRange">
+                            <div>
+                                <label data-testid="min_price" class="number">Min
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus  pb-3"> - </span>
+                                <label data-testid="max_price" class="number">Max
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary rangeBtn form-control" (click)="ShowMore()">
+                            More
+                        </button>
+                        <div class="more mt-2" *ngIf="state">
+                            <div class="d-block p-2">
+                                <h3 class="mb-1">Furnishing</h3>
+                                <select class="form-control">
+                                    <option>Show All</option>
+                                    <option>Furnished</option>
+                                    <option>Unfurnished</option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Amenities</h3>
+                                <div class="column-2">
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maids Room</span>
+                                    </div>
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Central A/C & Heating</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Garden</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Gym</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Gym </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Concierge Service</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Covered Parking </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Walk-in Closet </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Water</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Pets Allowed </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Study</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Balcony</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Jacuzzi </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Spa</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Security</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maid Service </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Wardrobes </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Kitchen Appliances</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Landmark</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Rend is Paid</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Quarterly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Bi-Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Monthly</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Keyword Search</h3>
+                                <input type="text" placeholder="E.g.Pool,Security,Ref ID Number" class="form-control">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Listed By</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Agent</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Developer</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Landlord</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Bathrooms</h3>
+                                <select class="form-control">
+                                    <option selected> Any Bathrooms </option>
+                                    <option> 1 or more Bathrooms </option>
+                                    <option> 2 or more Bathrooms </option>
+                                    <option> 3 or more Bathrooms </option>
+                                    <option> 4 or more Bathrooms </option>
+                                    <option> 5 or more Bathrooms </option>
+                                    <option> 6 or more Bathrooms </option>
+                                    <option> 7 or more Bathrooms </option>
+                                    <option> 8 or more Bathrooms </option>
+                                    <option> 9 or more Bathrooms </option>
+                                    <option> 10 or more Bathrooms </option>
+                                    <option> 11 or more Bathrooms </option>
+                                    <option> 12 or more Bathrooms </option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Size(Sqft)</h3>
+                                <label data-testid="min_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus mb-4"> - </span>
+                                <label data-testid="max_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Real Estate Agent</h3>
+                                <input type="text" class="form-control" placeholder="E.g.DAMAC Properties">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="p-2">
+                                <h3 class="mb-1">Ads with video only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with video only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Ads with 360 tour only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with 360 tour only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="moreSearchBtn p-2 row">
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2">Search</button>
+                                </div>
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2" (click)="HideMore()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 pl-0">
+                        <button class="btn btn-block btn-danger">Search</button>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+        <ng-container ngbNavItem>
+            <a ngbNavLink>Commercial for Rent</a>
+            <ng-template ngbNavContent>
+                <div class="estate-searchBox row p-4 ml-0">
+                    <div class="input-group col-sm-4 pl-0">
+                        <div class="input-group-prepend">
+                            <select class="form-control font-14">
+                                <option routerLink="/" *ngFor="let City of CitiesArr"> {{City.name}} </option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control font-14" placeholder="Enter Neighborhood or Building">
+                    </div>
+                    <div class="col-sm-3 pl-0">
+                        <select class="form-control font-14">
+                            <option>All Types</option>
+                            <option>Villa/House for Rent</option>
+                            <option>Apartment/Flat for Rent</option>
+                        </select>
+                    </div>
+                    <div class="dropdown col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary dropdown-toggle rangeBtn form-control"
+                            data-toggle="dropdown">
+                            Any
+                        </button>
+                        <div class="dropdown-menu numberRange">
+                            <div>
+                                <label data-testid="min_price" class="number">Min
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus  pb-3"> - </span>
+                                <label data-testid="max_price" class="number">Max
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 pl-0">
+                        <button type="button" class="btn btn-primary rangeBtn form-control" (click)="ShowMore()">
+                            More
+                        </button>
+                        <div class="more mt-2" *ngIf="state">
+                            <div class="d-block p-2">
+                                <h3 class="mb-1">Furnishing</h3>
+                                <select class="form-control">
+                                    <option>Show All</option>
+                                    <option>Furnished</option>
+                                    <option>Unfurnished</option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Amenities</h3>
+                                <div class="column-2">
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maids Room</span>
+                                    </div>
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Central A/C & Heating</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Garden</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Gym</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Gym </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Concierge Service</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Covered Parking </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Walk-in Closet </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Water</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Pets Allowed </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Study</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Balcony</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Jacuzzi </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Spa</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Security</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maid Service </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Wardrobes </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Kitchen Appliances</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Landmark</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Rend is Paid</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Quarterly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Bi-Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Monthly</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Keyword Search</h3>
+                                <input type="text" placeholder="E.g.Pool,Security,Ref ID Number" class="form-control">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Listed By</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Agent</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Developer</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Landlord</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Bathrooms</h3>
+                                <select class="form-control">
+                                    <option selected> Any Bathrooms </option>
+                                    <option> 1 or more Bathrooms </option>
+                                    <option> 2 or more Bathrooms </option>
+                                    <option> 3 or more Bathrooms </option>
+                                    <option> 4 or more Bathrooms </option>
+                                    <option> 5 or more Bathrooms </option>
+                                    <option> 6 or more Bathrooms </option>
+                                    <option> 7 or more Bathrooms </option>
+                                    <option> 8 or more Bathrooms </option>
+                                    <option> 9 or more Bathrooms </option>
+                                    <option> 10 or more Bathrooms </option>
+                                    <option> 11 or more Bathrooms </option>
+                                    <option> 12 or more Bathrooms </option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Size(Sqft)</h3>
+                                <label data-testid="min_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus mb-4"> - </span>
+                                <label data-testid="max_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Real Estate Agent</h3>
+                                <input type="text" class="form-control" placeholder="E.g.DAMAC Properties">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="p-2">
+                                <h3 class="mb-1">Ads with video only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with video only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Ads with 360 tour only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with 360 tour only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="moreSearchBtn p-2 row">
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2">Search</button>
+                                </div>
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2" (click)="HideMore()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 pl-0">
+                        <button class="btn btn-block btn-danger">Search</button>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+        <ng-container ngbNavItem>
+            <a ngbNavLink>Rooms for rent (flatmates)</a>
+            <ng-template ngbNavContent>
+                <div class="estate-searchBox row p-4 ml-0">
+                    <div class="input-group col-sm-4 pl-0">
+                        <div class="input-group-prepend">
+                            <select class="form-control font-14">
+                                <option routerLink="/" *ngFor="let City of CitiesArr"> {{City.name}} </option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control font-14" placeholder="Enter Neighborhood or Building">
+                    </div>
+                    <div class="col-sm-3 pl-0">
+                        <select class="form-control font-14">
+                            <option>All Types</option>
+                            <option>Villa/House for Rent</option>
+                            <option>Apartment/Flat for Rent</option>
+                        </select>
+                    </div>
+                    <div class="dropdown col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary dropdown-toggle rangeBtn form-control"
+                            data-toggle="dropdown">
+                            Any
+                        </button>
+                        <div class="dropdown-menu numberRange">
+                            <div>
+                                <label data-testid="min_price" class="number">Min
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus  pb-3"> - </span>
+                                <label data-testid="max_price" class="number">Max
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 pl-0">
+                        <button type="button" class="btn btn-primary rangeBtn form-control" (click)="ShowMore()">
+                            More
+                        </button>
+                        <div class="more mt-2" *ngIf="state">
+                            <div class="d-block p-2">
+                                <h3 class="mb-1">Furnishing</h3>
+                                <select class="form-control">
+                                    <option>Show All</option>
+                                    <option>Furnished</option>
+                                    <option>Unfurnished</option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Amenities</h3>
+                                <div class="column-2">
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maids Room</span>
+                                    </div>
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Central A/C & Heating</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Garden</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Gym</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Gym </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Concierge Service</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Covered Parking </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Walk-in Closet </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Water</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Pets Allowed </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Study</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Balcony</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Jacuzzi </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Spa</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Security</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maid Service </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Wardrobes </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Kitchen Appliances</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Landmark</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Rend is Paid</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Quarterly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Bi-Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Monthly</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Keyword Search</h3>
+                                <input type="text" placeholder="E.g.Pool,Security,Ref ID Number" class="form-control">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Listed By</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Agent</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Developer</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Landlord</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Bathrooms</h3>
+                                <select class="form-control">
+                                    <option selected> Any Bathrooms </option>
+                                    <option> 1 or more Bathrooms </option>
+                                    <option> 2 or more Bathrooms </option>
+                                    <option> 3 or more Bathrooms </option>
+                                    <option> 4 or more Bathrooms </option>
+                                    <option> 5 or more Bathrooms </option>
+                                    <option> 6 or more Bathrooms </option>
+                                    <option> 7 or more Bathrooms </option>
+                                    <option> 8 or more Bathrooms </option>
+                                    <option> 9 or more Bathrooms </option>
+                                    <option> 10 or more Bathrooms </option>
+                                    <option> 11 or more Bathrooms </option>
+                                    <option> 12 or more Bathrooms </option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Size(Sqft)</h3>
+                                <label data-testid="min_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus mb-4"> - </span>
+                                <label data-testid="max_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Real Estate Agent</h3>
+                                <input type="text" class="form-control" placeholder="E.g.DAMAC Properties">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="p-2">
+                                <h3 class="mb-1">Ads with video only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with video only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Ads with 360 tour only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with 360 tour only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="moreSearchBtn p-2 row">
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2">Search</button>
+                                </div>
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2" (click)="HideMore()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 pl-0">
+                        <button class="btn btn-block btn-danger">Search</button>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+        <ng-container ngbNavItem>
+            <a ngbNavLink> Short Term (Monthly)</a>
+            <ng-template ngbNavContent>
+                <div class="estate-searchBox row p-4 ml-0">
+                    <div class="input-group col-sm-4 pl-0">
+                        <div class="input-group-prepend">
+                            <select class="form-control font-14">
+                                <option routerLink="/" *ngFor="let City of CitiesArr"> {{City.name}} </option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control font-14" placeholder="Enter Neighborhood or Building">
+                    </div>
+                    <div class="col-sm-3 pl-0">
+                        <select class="form-control font-14">
+                            <option>All Types</option>
+                            <option>Villa/House for Rent</option>
+                            <option>Apartment/Flat for Rent</option>
+                        </select>
+                    </div>
+                    <div class="dropdown col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary dropdown-toggle rangeBtn form-control"
+                            data-toggle="dropdown">
+                            Any
+                        </button>
+                        <div class="dropdown-menu numberRange">
+                            <div>
+                                <label data-testid="min_price" class="number">Min
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus  pb-3"> - </span>
+                                <label data-testid="max_price" class="number">Max
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary dropdown-toggle rangeBtn form-control"
+                            data-toggle="dropdown">
+                            Any
+                        </button>
+                        <div class="dropdown-menu numberRange">
+                            <div>
+                                <label data-testid="min_price" class="number">Min
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus  pb-3"> - </span>
+                                <label data-testid="max_price" class="number">Max
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary rangeBtn form-control" (click)="ShowMore()">
+                            More
+                        </button>
+                        <div class="more mt-2" *ngIf="state">
+                            <div class="d-block p-2">
+                                <h3 class="mb-1">Furnishing</h3>
+                                <select class="form-control">
+                                    <option>Show All</option>
+                                    <option>Furnished</option>
+                                    <option>Unfurnished</option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Amenities</h3>
+                                <div class="column-2">
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maids Room</span>
+                                    </div>
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Central A/C & Heating</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Garden</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Gym</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Gym </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Concierge Service</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Covered Parking </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Walk-in Closet </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Water</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Pets Allowed </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Study</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Balcony</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Jacuzzi </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Spa</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Security</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maid Service </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Wardrobes </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Kitchen Appliances</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Landmark</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Rend is Paid</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Quarterly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Bi-Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Monthly</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Keyword Search</h3>
+                                <input type="text" placeholder="E.g.Pool,Security,Ref ID Number" class="form-control">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Listed By</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Agent</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Developer</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Landlord</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Bathrooms</h3>
+                                <select class="form-control">
+                                    <option selected> Any Bathrooms </option>
+                                    <option> 1 or more Bathrooms </option>
+                                    <option> 2 or more Bathrooms </option>
+                                    <option> 3 or more Bathrooms </option>
+                                    <option> 4 or more Bathrooms </option>
+                                    <option> 5 or more Bathrooms </option>
+                                    <option> 6 or more Bathrooms </option>
+                                    <option> 7 or more Bathrooms </option>
+                                    <option> 8 or more Bathrooms </option>
+                                    <option> 9 or more Bathrooms </option>
+                                    <option> 10 or more Bathrooms </option>
+                                    <option> 11 or more Bathrooms </option>
+                                    <option> 12 or more Bathrooms </option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Size(Sqft)</h3>
+                                <label data-testid="min_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus mb-4"> - </span>
+                                <label data-testid="max_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Real Estate Agent</h3>
+                                <input type="text" class="form-control" placeholder="E.g.DAMAC Properties">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="p-2">
+                                <h3 class="mb-1">Ads with video only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with video only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Ads with 360 tour only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with 360 tour only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="moreSearchBtn p-2 row">
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2">Search</button>
+                                </div>
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2" (click)="HideMore()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 pl-0">
+                        <button class="btn btn-block btn-danger">Search</button>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+        <ng-container ngbNavItem>
+            <a ngbNavLink>Short Term (Daily)</a>
+            <ng-template ngbNavContent>
+                <div class="estate-searchBox row p-4 ml-0">
+                    <div class="input-group col-sm-4 pl-0">
+                        <div class="input-group-prepend">
+                            <select class="form-control font-14">
+                                <option routerLink="/" *ngFor="let City of CitiesArr"> {{City.name}} </option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control font-14" placeholder="Enter Neighborhood or Building">
+                    </div>
+                    <div class="col-sm-3 pl-0">
+                        <select class="form-control font-14">
+                            <option>All Types</option>
+                            <option>Villa/House for Rent</option>
+                            <option>Apartment/Flat for Rent</option>
+                        </select>
+                    </div>
+                    <div class="dropdown col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary dropdown-toggle rangeBtn form-control"
+                            data-toggle="dropdown">
+                            Any
+                        </button>
+                        <div class="dropdown-menu numberRange">
+                            <div>
+                                <label data-testid="min_price" class="number">Min
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus  pb-3"> - </span>
+                                <label data-testid="max_price" class="number">Max
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary dropdown-toggle rangeBtn form-control"
+                            data-toggle="dropdown">
+                            Any
+                        </button>
+                        <div class="dropdown-menu numberRange">
+                            <div>
+                                <label data-testid="min_price" class="number">Min
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus  pb-3"> - </span>
+                                <label data-testid="max_price" class="number">Max
+                                    <input type="number" lang="en" step="1000" min="0" max="1000000000"
+                                        data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 pl-0">
+                        <button type="button" class="btn btn-primary rangeBtn form-control" (click)="ShowMore()">
+                            More
+                        </button>
+                        <div class="more mt-2" *ngIf="state">
+                            <div class="d-block p-2">
+                                <h3 class="mb-1">Furnishing</h3>
+                                <select class="form-control">
+                                    <option>Show All</option>
+                                    <option>Furnished</option>
+                                    <option>Unfurnished</option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Amenities</h3>
+                                <div class="column-2">
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maids Room</span>
+                                    </div>
+                                    <div class="pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Central A/C & Heating</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Garden</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Gym</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Gym </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Concierge Service</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Covered Parking </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Walk-in Closet </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Water</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Pets Allowed </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Study</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Balcony</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Pool </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Private Jacuzzi </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Shared Spa</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Security</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Maid Service </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Wardrobes </span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Built-in Kitchen Appliances</span>
+                                    </div>
+                                    <div class=" pl-3 align-middle  py-1">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>View of Landmark</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Rend is Paid</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Quarterly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Bi-Yearly</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Monthly</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Keyword Search</h3>
+                                <input type="text" placeholder="E.g.Pool,Security,Ref ID Number" class="form-control">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Listed By</h3>
+                                <div class="column-2">
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Agent</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Developer</span>
+                                    </div>
+                                    <div class=" py-1 pl-3 align-middle">
+                                        <span class="mr-1"><input type="checkbox"></span>
+                                        <span>Landlord</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Bathrooms</h3>
+                                <select class="form-control">
+                                    <option selected> Any Bathrooms </option>
+                                    <option> 1 or more Bathrooms </option>
+                                    <option> 2 or more Bathrooms </option>
+                                    <option> 3 or more Bathrooms </option>
+                                    <option> 4 or more Bathrooms </option>
+                                    <option> 5 or more Bathrooms </option>
+                                    <option> 6 or more Bathrooms </option>
+                                    <option> 7 or more Bathrooms </option>
+                                    <option> 8 or more Bathrooms </option>
+                                    <option> 9 or more Bathrooms </option>
+                                    <option> 10 or more Bathrooms </option>
+                                    <option> 11 or more Bathrooms </option>
+                                    <option> 12 or more Bathrooms </option>
+                                </select>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Size(Sqft)</h3>
+                                <label data-testid="min_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="min_price_input" value="">
+                                </label>
+                                <span class="minus mb-4"> - </span>
+                                <label data-testid="max_price" class="number">
+                                    <input style="width: 160px;" type="number" lang="en" step="1000" min="0"
+                                        max="1000000000" data-testid="max_price_input" value="NaN">
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Real Estate Agent</h3>
+                                <input type="text" class="form-control" placeholder="E.g.DAMAC Properties">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="p-2">
+                                <h3 class="mb-1">Ads with video only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with video only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" p-2">
+                                <h3 class="mb-1">Ads with 360 tour only</h3>
+                                <div class=" py-1 pl-3 align-middle">
+                                    <span class="mr-1"><input type="checkbox"></span>
+                                    <span>Ads with 360 tour only</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="moreSearchBtn p-2 row">
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2">Search</button>
+                                </div>
+                                <div class="col-sm-6 px-1">
+                                    <button class="btn btn-block p-2" (click)="HideMore()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 pl-0">
+                        <button class="btn btn-block btn-danger">Search</button>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+    </nav>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
+<div class="content">
+    <h2>Villas & houses for rent in Dubai, UAE 6,902 results</h2>
+    <div class="promoted row">
+        <div class="col-sm-4" [routerLink] = "['/estate_detail', PromotedImg.id]" *ngFor="let PromotedImg of PromotedImgArr">
+            <img class="img-responsive promoted-img" src="{{PromotedImg.src}}">
+            <div class="caption">
+                <div class="badge badge-pill badge-danger py-1 px-3 font-weight-normal mb-5">Promoted</div>
+                <div class="promoted-info">
+                    <h2 class="mt-5 white font-weight-bold">AED {{PromotedImg.price}}</h2>
+                    <div class="d-flex">
+                        <div class="mx-2 white"><i class="fa fa-bed"></i> {{PromotedImg.bed}} </div>
+                        <div class="mx-2 white"><i class="fa fa-bath"></i> {{PromotedImg.bath}} </div>
+                        <div class="mx-2 white"><i class="fa fa-object-ungroup"> {{PromotedImg.sqft}} </i></div>
+                    </div>
+                    <div class="white mx-2"><i class="fa fa-map-marker"></i> {{PromotedImg.location}} </div>
+                    <div class="">
+                        <button class="btn px-4 mx-2 btn-white white"><i class="fa fa-envelope"></i> Email </button>
+                        <button class="btn px-4 mx-2 btn-white white"><i class="fa fa-phone"></i> Call </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown-divider my-4"></div>
+    <div class="estate-detail row my-3" [routerLink] = "['/estate_detail', EstateDetail.id]" *ngFor="let EstateDetail of EstateDetailArr">
+        <div class="col-sm-4">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let DetailImg of EstateDetail.img">
+                    <div class="picsum-img-wrapper">
+                        <img src="{{DetailImg.src}}" alt="Random first slide">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="col-sm-8">
+            <div>
+                <h2 class="mt-1"> {{EstateDetail.title}} </h2>
+                <h2> AED {{EstateDetail.price}} </h2>
+                <h4> {{EstateDetail.days}} </h4>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="row mb-2">
+                            <div class="col-sm-4">
+                                <i class="fa fa-bed"></i> {{EstateDetail.bed}} Beds
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="fa fa-bath"></i> {{EstateDetail.bath}} Baths
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="fa fa-object-group"></i> {{EstateDetail.sqft}} SqFt
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <h4 class="mb-2"><i class="fa fa-map-marker"></i> {{EstateDetail.location}} </h4>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn px-4 mx-2 btn-danger"><i class="fa fa-envelope"></i> Email </button>
+                            <button class="btn px-4 mx-2 btn-danger"><i class="fa fa-phone"></i> Call </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="master">
+                            <img src="{{EstateDetail.master}}" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <hr>
+        </div>
+    </div>
+</div>

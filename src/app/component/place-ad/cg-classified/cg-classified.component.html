@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-6 col-md-8 p-4">
+            <div class="motor">
+                <p class="h3 text-center">Now choose the right category for <br> your ad:</p>
+                <p class="h6 text-secondary back" routerLink="/place_ad">... Back</p>
+                <div class="dropdown-divider mb-0"></div>
+                <div class="">
+                    <div class="dropdown mx-4" *ngFor="let classified of classifiedArr">
+                        <div class="py-3 px-4 mb-0 sub_motors d-flex justify-content-between"
+                            *ngIf="!classified.subItem" [routerLink]="['/place_ad/cg_estate_rent/cg_estate_rent_detail',classified.id]">
+                            <span class="lists h6">{{classified.name}}</span>
+                            <div><i class="fa fa-arrow-right right"></i></div>
+                        </div>
+                        <div class="dropdown-divider my-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-2"></div>
+    </div>
+</div>

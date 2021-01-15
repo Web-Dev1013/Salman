@@ -1,0 +1,20 @@
+.bg-red{
+    background: #e53b3b;
+    padding: 50px;
+}
+.red{
+    color: red;
+}
+.mac_desktop{
+    margin-bottom: -100px;
+}
+.btn-border-red{
+    border: 1px solid red;    
+}
+.btn-border-red:hover{
+    background: red;
+    color: white;   
+}
+.bg-darkred{
+    background: darkred;
+}

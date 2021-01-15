@@ -4,7 +4,7 @@
             <div class="searchBox my-1 text-center">
                 <h1 class="white title">Rent properties with dubizzle</h1>
                 <div class="switch row">
-                    <a class="col-lg-6 sale" routeLink="propertyforsale">Sale</a>
+                    <a class="col-lg-6 sale" routerLink="/propertyforsale">Sale</a>
                     <a class="col-lg-6 rent active">Rent</a>
                 </div>
                 <div class="container range p-4">
@@ -372,25 +372,276 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid mt-4">
+
+    <div id="popular" class="carousel slide carousel-multi-item mt-5" data-ride="carousel">
         <h1 class="font-weight-bold"> Popular Categories </h1>
-        <div id="popular" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3" (click) = "gotoProductDetail('/realEstate/', slide.id)" *ngFor="let slide of Popular_slides">
-                    <img src="{{slide.src}}" class="img-fluid mx-auto d-block rounded my-4" alt="img2">
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#popular" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#popular" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+
+        <!--Slides-->
+        <div class="carousel-inner py-3" role="listbox">
+
+            <!--First slide-->
+            <div class="carousel-item active">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/propertyforrent/', 1)">
+                            <img class="card-img-top"
+                                src="./../../../../assets/Image/propertyforrent/carousel/popular/commercial.jpg"
+                                alt="Card image cap">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 clearfix d-none d-md-block">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/propertyforrent/', 2)">
+                            <img class="card-img-top"
+                                src="./../../../../assets/Image/propertyforrent/carousel/popular/apartment.jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 clearfix d-none d-md-block">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/propertyforrent/', 3)">
+                            <img class="card-img-top"
+                                src="./../../../../assets/Image/propertyforrent/carousel/popular/daily-short.jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/propertyforrent/', 4)">
+                            <img class="card-img-top"
+                                src="./../../../../assets/Image/propertyforrent/carousel/popular/land.jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+
                 </div>
+
             </div>
-            <a class="carousel-control-prev" href="#popular" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#popular" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <!--/.First slide-->
+
+            <div class="carousel-item">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/propertyforrent/', 5)">
+                            <img class="card-img-top"
+                                src="./../../../../assets/Image/propertyforrent/carousel/popular/monthly-short.jpg"
+                                alt="Card image cap">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 clearfix d-none d-md-block">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/propertyforrent/', 6)">
+                            <img class="card-img-top"
+                                src="./../../../../assets/Image/propertyforrent/carousel/popular/multiple-units.jpg"
+                                alt="Card image cap">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 clearfix d-none d-md-block">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/propertyforrent/', 7)">
+                            <img class="card-img-top"
+                                src="./../../../../assets/Image/propertyforrent/carousel/popular/rooms.jpg"
+                                alt="Card image cap">
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/propertyforrent/', 8)">
+                            <img class="card-img-top"
+                                src="./../../../../assets/Image/propertyforrent/carousel/popular/villa.jpg"
+                                alt="Card image cap">
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!--/.Second slide-->
+
         </div>
     </div>
-    <div class="container-fluid mt-4">
+
+    <div id="Featured" class="carousel slide carousel-multi-item mt-5" data-ride="carousel">
+        <h1 class="pt-3 font-weight-bold"> Featured Properties </h1>
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#Featured" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#Featured" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+
+        <!--Slides-->
+        <div class="carousel-inner py-3" role="listbox">
+
+            <!--First slide-->
+            <div class="carousel-item active">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/realEstate/', 9)">
+                            <!-- <div class="card-header"> -->
+                                <img class="card-img-top mx-0 px-0" src="{{Featured_slides[0].src}}" alt="Card image cap">
+
+                            <!-- </div> -->
+                            <div class="card-body">
+                                <h4 class="card-title font-weight-bold mb-1 red">{{Featured_slides[0].price}}</h4>
+                                <p class="card-text mb-0 black font-weight-bold">{{Featured_slides[0].title}}</p>
+                                <p class="card-text mb-0 black">{{Featured_slides[0].property}}</p>
+                                <span class="card-text float-left black">{{Featured_slides[0].name}}</span>
+                                <span class="black float-right">{{Featured_slides[0].days}} days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 clearfix d-none d-md-block">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/realEstate/', 10)">
+                            <!-- <div class="card-header"> -->
+                                <img class="card-img-top mx-0 px-0" src="{{Featured_slides[1].src}}" alt="Card image cap">
+
+                            <!-- </div> -->
+                            <div class="card-body">
+                                <h4 class="card-title font-weight-bold mb-1 red">{{Featured_slides[1].price}}</h4>
+                                <p class="card-text mb-0 black font-weight-bold">{{Featured_slides[1].title}}</p>
+                                <p class="card-text mb-0 black">{{Featured_slides[1].property}}</p>
+                                <span class="card-text float-left black">{{Featured_slides[1].name}}</span>
+                                <span class="black float-right">{{Featured_slides[1].days}} days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 clearfix d-none d-md-block">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/realEstate/', 11)">
+                            <!-- <div class="card-header"> -->
+                                <img class="card-img-top mx-0 px-0" src="{{Featured_slides[2].src}}" alt="Card image cap">
+
+                            <!-- </div> -->
+                            <div class="card-body">
+                                <h4 class="card-title font-weight-bold mb-1 red">{{Featured_slides[2].price}}</h4>
+                                <p class="card-text mb-0 black font-weight-bold">{{Featured_slides[2].title}}</p>
+                                <p class="card-text mb-0 black">{{Featured_slides[2].property}}</p>
+                                <span class="card-text float-left black">{{Featured_slides[2].name}}</span>
+                                <span class="black float-right">{{Featured_slides[2].days}} days</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/realEstate/', 12)">
+                            <!-- <div class="card-header"> -->
+                                <img class="card-img-top mx-0 px-0" src="{{Featured_slides[0].src}}" alt="Card image cap">
+
+                            <!-- </div> -->
+                            <div class="card-body">
+                                <h4 class="card-title font-weight-bold mb-1 red">{{Featured_slides[3].price}}</h4>
+                                <p class="card-text mb-0 black font-weight-bold">{{Featured_slides[3].title}}</p>
+                                <p class="card-text mb-0 black">{{Featured_slides[3].property}}</p>
+                                <span class="card-text float-left black">{{Featured_slides[3].name}}</span>
+                                <span class="black float-right">{{Featured_slides[3].days}} days</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!--/.First slide-->
+
+            <div class="carousel-item">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/realEstate/', 13)">
+                            <!-- <div class="card-header"> -->
+                                <img class="card-img-top mx-0 px-0" src="{{Featured_slides[0].src}}" alt="Card image cap">
+
+                            <!-- </div> -->
+                            <div class="card-body">
+                                <h4 class="card-title font-weight-bold mb-1 red">{{Featured_slides[0].price}}</h4>
+                                <p class="card-text mb-0 black font-weight-bold">{{Featured_slides[0].title}}</p>
+                                <p class="card-text mb-0 black">{{Featured_slides[0].property}}</p>
+                                <span class="card-text float-left black">{{Featured_slides[0].name}}</span>
+                                <span class="black float-right">{{Featured_slides[0].days}} days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 clearfix d-none d-md-block">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/realEstate/', 14)">
+                            <!-- <div class="card-header"> -->
+                                <img class="card-img-top mx-0 px-0" src="{{Featured_slides[1].src}}" alt="Card image cap">
+
+                            <!-- </div> -->
+                            <div class="card-body">
+                                <h4 class="card-title font-weight-bold mb-1 red">{{Featured_slides[1].price}}</h4>
+                                <p class="card-text mb-0 black font-weight-bold">{{Featured_slides[1].title}}</p>
+                                <p class="card-text mb-0 black">{{Featured_slides[1].property}}</p>
+                                <span class="card-text float-left black">{{Featured_slides[1].name}}</span>
+                                <span class="black float-right">{{Featured_slides[1].days}} days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 clearfix d-none d-md-block">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/realEstate/', 15)">
+                            <!-- <div class="card-header"> -->
+                                <img class="card-img-top mx-0 px-0" src="{{Featured_slides[2].src}}" alt="Card image cap">
+
+                            <!-- </div> -->
+                            <div class="card-body">
+                                <h4 class="card-title font-weight-bold mb-1 red">{{Featured_slides[2].price}}</h4>
+                                <p class="card-text mb-0 black font-weight-bold">{{Featured_slides[2].title}}</p>
+                                <p class="card-text mb-0 black">{{Featured_slides[2].property}}</p>
+                                <span class="card-text float-left black">{{Featured_slides[2].name}}</span>
+                                <span class="black float-right">{{Featured_slides[2].days}} days</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-2" (click) = "gotoProductDetail('/realEstate/', 16)">
+                            <!-- <div class="card-header"> -->
+                                <img class="card-img-top mx-0 px-0" src="{{Featured_slides[3].src}}" alt="Card image cap">
+
+                            <!-- </div> -->
+                            <div class="card-body">
+                                <h4 class="card-title font-weight-bold mb-1 red">{{Featured_slides[3].price}}</h4>
+                                <p class="card-text mb-0 black font-weight-bold">{{Featured_slides[3].title}}</p>
+                                <p class="card-text mb-0 black">{{Featured_slides[3].property}}</p>
+                                <span class="card-text float-left black">{{Featured_slides[3].name}}</span>
+                                <span class="black float-right">{{Featured_slides[3].days}} days</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!--/.Second slide-->
+
+        </div>
+    </div>
+    <!-- <div class="container-fluid mt-4">
         <div id="Featured" class="carousel slide" data-ride="carousel" data-interval="900000">
             <h1 class="pt-3 font-weight-bold"> Featured Properties </h1>
             <div class="carousel-inner row w-100 my-4" role="listbox">
@@ -419,7 +670,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    </div>
+    </div> -->
 </div>
 <div class="container">
     <div class="row footer-links mb-5">

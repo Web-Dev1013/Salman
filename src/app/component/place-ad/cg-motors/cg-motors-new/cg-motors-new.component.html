@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-lg-4 col-md-2"></div>
+    <div class="col-lg-4 px-5 col-md-8">
+        <div class="feature" *ngIf="activePage == 'feature'">
+            <div class="text-center">
+                <p class="h3 pt-4">You are almost there!</p>
+                <p class="h7 pt-3 pt-3 text-secondary">Include as much details and pictures as possible,<br> and set the right price!</p>
+            </div>
+            <p class="h6 text-secondary pt-2 back" routerLink="/place_ad/cg_motors">
+                ...Back</p>
+            <input type="text" class="form-control mb-2" placeholder="Title">
+            <button class="btn btn-border-red btn-block red mb-2"> <i class="fa fa-camera"></i> Add Pictures </button>
+            <input type="file" class="form-control">
+            <input type="tel" class="form-control mb-2" placeholder="Phone number" pattern="[]">
+            <input type="text" class="form-control mb-2" placeholder="Price">
+            <textarea class="w-100 p-2 rounded" rows="8" placeholder="Describe your Standard/Commuter"></textarea>
+            <input type="number" class="form-control mb-2" placeholder="Usage">
+            <input type="number" class="form-control mb-2" placeholder="Kilometers">
+            <select class="form-control mb-2">
+                <option selected class="gray">Year</option>
+                <option value="{{year}}" *ngFor="let year of yearArr">{{year}}</option>
+            </select>
+            <select class="form-control mb-2">
+                <option selected class="gray">Seller type</option>
+                <option value="{{seller.value}}" *ngFor="let seller of seller_typeArr">{{seller.name}}</option>
+            </select>
+            <select class="form-control mb-2">
+                <option selected class="gray">Final Drive System</option>
+                <option value="{{drive_system.value}}" *ngFor="let drive_system of drive_systemArr">
+                    {{drive_system.name}}
+                </option>
+            </select>
+            <select class="form-control mb-2">
+                <option selected class="gray">Wheels</option>
+                <option value="{{wheel.value}}" *ngFor="let wheel of wheelArr">{{wheel.name}}</option>
+            </select>
+            <select class="form-control mb-2">
+                <option selected class="gray">Manufacturer</option>
+                <option value="{{manufacture.value}}" *ngFor="let manufacture of manufactureArr">{{manufacture.name}}
+                </option>
+            </select>
+            <select class="form-control mb-2">
+                <option selected class="gray">Engine Size</option>
+                <option value="{{engine_size.value}}" *ngFor="let engine_size of engine_sizeArr">{{engine_size.name}}
+                </option>
+            </select>
+            <select class="form-control mb-2">
+                <option selected class="gray">Warranty</option>
+                <option value="{{warranty.value}}" *ngFor="let warranty of warrantyArr">{{warranty.name}}</option>
+            </select>
+            <div class="map p-3 w-100 mb-2 rounded">
+                <p class="h5">Is the pin in the right location?</p>
+                <p class="h8 text-secondary">Click and drag the pin to the exact spot. Users are more likely to respond to ads that are
+                    correctly shown on the map</p>
+                <div class="">
+                    <agm-map [latitude]="lat" [longitude]="lng">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+            <button class="btn btn-danger btn-block py-2 my-3" (click)="gotoNextPage('safety')">Next</button>
+        </div>
+        <div class="safety pt-5" *ngIf="activePage == 'safety'">
+            <div class="text-center">
+                <p class="h4">Safety first!</p>
+                <p class="h7 text-secondary"> We review all ads to keep everyone on <br> dubizzle safe and happy.</p>
+            </div>
+            <p class="h8 text-secondary">Your ad will not go live if it is</p>
+            <p class="h8 text-secondary">1. For any prohibited item or activity that violates UAE law </p>
+            <p class="h8 text-secondary">2. In the wrong category</p>
+            <p class="h8 text-secondary">3. Placed multiple times, or in multiple categories</p>
+            <p class="h8 text-secondary">4. With fraudulent or misleading information</p>
+            <p class="h8 text-secondary">5. For an item that is located outside the UAE</p>
+            <div class="text-center">
+                <p class="h8 text-secondary">For more information, read our</p>
+                <a class="h8 blue font-weight-bold">terms and conditions</a>
+            </div>
+
+            <button class="btn btn-danger btn-block" (click)="gotoNextPage('verify')">  Yes, I agree! </button>
+        </div>
+        <div class="pt-5" *ngIf="activePage=='verify'">
+            <p class = 'h6 font-weight-normal text-center line-height-2 text-secondary'>We know it's rude to interrupt,<br> but can you help us verify your phone number? <br> You only need to do this once.</p>
+            <div class="verify p-4">
+                <p class="h5">Enter your phone number</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">+971</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="50 123 4567">
+                </div>
+                <button class="btn btn-block btn-danger py-2">Send verification code</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-2"></div>
+</div>

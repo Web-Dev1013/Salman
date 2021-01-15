@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-lg-4 col-md-2"></div>
+    <div class="col-lg-4 col-md-8 pt-4">
+        <div class="require_item" *ngIf="activePage=='require_item'">
+            <p class="h4 text-center">You’re almost there!</p>
+            <p class="h6 text-secondary text-center">Include as much details and pictures as possible,<br> and set the
+                right price!</p>
+            <p class="h6 back text-secondary" routerLink="/place_ad/cg_job/hire">...Back</p>
+            <div class="">
+                <input type="text" class="form-control mb-3" placeholder="Job Title">
+                <textarea class="w-100 mb-3 rounded p-3" rows="10" placeholder="Describe the Job"></textarea>
+                <select class="form-control mb-3" *ngFor="let commonSelect of commonSelectArr">
+                    <option value="" selected> {{commonSelect.name}} </option>
+                    <option value="{{option.id}}" *ngFor="let option of commonSelect.options">{{option.name}}</option>
+                </select>
+                <p class="h7 text-secondary mb-3">When users match these key skills, they will be on top of your
+                    applicants list</p>
+                <input type="text" class="form-control px-2 mb-3" placeholder="Skill 1">
+                <input type="text" class="form-control px-2 mb-3" placeholder="Skill 2">
+                <input type="text" class="form-control px-2 mb-3" placeholder="Skill 3">
+                <input type="text" class="form-control px-2 mb-3" placeholder="Skill 4">
+                <select class="form-control mb-3">
+                    <option selected>CV Required</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <select class="form-control mb-3">
+                    <option selected>Monthly Salary</option>
+                    <option value="salary.id" *ngFor="let salary of salaryArr">{{salary.salary}}</option>
+                </select>
+                <input type="text" class="form-control mb-3" placeholder="Benefits">
+                <input type="text" class="form-control mb-3" placeholder="Company Name">
+                <select class="form-control mb-3">
+                    <option selected>Company Size</option>
+                    <option value="" *ngFor="let companySize of companySizeArr"> {{companySize.name}} </option>
+                </select>
+                <select class="form-control mb-3">
+                    <option selected>Listed by</option>
+                    <option value="employer">Employer</option>
+                    <option value="recruiter">Recruiter</option>
+                </select>
+                <!-- <p class="h4 text-center mb-3">Ask applicants a question to<br> see if they qualify!</p>
+            <p class="h7 text-center mb-3">If they don't answer correctly,<br>we'll filter them out of your applicants</p>
+            <button class="btn btn-border-red btn-block mb-3">Ask a question <i class="fa fa-caret-down"></i></button>
+            <input type="text" class="form-control px-2 mb-3" placeholder="Where is your job based?"> -->
+                <div class="map p-3 w-100 mb-3 rounded mb-3">
+                    <p class="h5">Is the pin in the right location?</p>
+                    <p class="h8 text-secondary">Click and drag the pin to the exact spot. Users are more likely to
+                        respond to ads that are
+                        correctly shown on the map</p>
+                    <div class="">
+                        <agm-map [latitude]="lat" [longitude]="lng">
+                            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                        </agm-map>
+                    </div>
+                </div>
+                <div class="bg-lightgray text-secondary h7 rounded mb-3 p-3">
+                    <p class="h7 mb-3">
+                        All ads will expire 30 days after the posting. You will still be able to access this ad and
+                        manage its candidates & their CV’s for one more month.
+                    </p>
+                    <p class="h7">
+                        Once your archive period is over, all applicants & their CV’s for this job will be permanently
+                        removed from your Jobs Dashboard and will no longer be retrievable.
+                    </p>
+                </div>
+                <button class="btn btn-danger btn-block" (click)="gotoNextPage('safety')">Next</button>
+            </div>
+        </div>
+        <div class="safety" *ngIf="activePage=='safety'">
+            <p class="h4 text-center">Safety first!</p>
+            <p class="text-secondary text-center h7">We review all ads to keep everyone on <br> dubizzle safe and happy.</p>
+            <p class="h6 text-secondary back" (click)="gotoNextPage('require_item')">...Back</p>
+            <p class="h7 text-secondary"> Your ad will not go live if it is:</p>
+            <p class="h7 text-secondary">1. For any prohibited item or activity that violates UAE law</p>
+            <p class="h7 text-secondary">2. In the wrong category</p>
+            <p class="h7 text-secondary">3. Placed multiple times, or in multiple categories</p>
+            <p class="h7 text-secondary">4. With fraudulent or misleading information</p>
+            <p class="h7 text-secondary">5. Placed by a job seeker</p>   
+            <p class="h7 text-secondary">6. Advertising for different positions in the same ad</p>  
+            <p class="h7 text-secondary text-center">For more information, read our <br><a class="blue font-weight-bold">terms and conditions</a></p> 
+            <button class="btn btn-danger btn-block" (click)="gotoNextPage('verify')">Yes, I agree!</button>
+        </div>        
+        <div class="pt-5" *ngIf="activePage=='verify'">
+            <p class = 'h6 font-weight-normal text-center line-height-2 text-secondary'>We know it's rude to interrupt,<br> but can you help us verify your phone number? <br> You only need to do this once.</p>
+            <p class="h6 text-secondary my-4 back" (click)="gotoNextPage('safety')">...Back</p>
+            <div class="verify p-4 mt-4">
+                <p class="h5">Enter your phone number</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">+971</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="50 123 4567">
+                </div>
+                <button class="btn btn-block btn-danger py-2">Send verification code</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-2"></div>
+</div>

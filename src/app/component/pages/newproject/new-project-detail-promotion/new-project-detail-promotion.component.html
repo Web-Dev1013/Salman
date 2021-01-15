@@ -1,0 +1,39 @@
+<div class="cotainder-fluid mt-5">
+    <nav aria-label="breadcrumb" class="mt-5">
+        <ol class="breadcrumb px-5 pt-4">
+            <i class="fa fa-map-marker mx-2"></i>
+            <li class="breadcrumb-item"><a href="#"> Main </a></li>
+            <li class="breadcrumb-item"><a class="active">Promotions</a></li>
+        </ol>
+    </nav>
+    <div class="dropdown-divider"></div>
+    <div class="mx-5">
+        <h2 class="my-3">Promotions - Dubai</h2>
+        <div class="d-flex">
+            <button class="btn btn-danger px-3 mx-3">Dubai</button>
+            <div class="dropdown">
+                <button class="btn btn-border-red" (click)="show_select_type()">
+                    Type of Promotion
+                </button>
+                <div class="select_promotion" *ngIf="toggle_select_type">
+                    <span class="dropdown-item-text">
+                        <span class="close" (click)="hide_select_type()">&times;</span>
+                        <h3 class="font-weight-bold">Select type of promotion</h3>
+                        <button class="btn btn-border-red px-3 mr-2">Gift</button>
+                        <button class="btn btn-border-red px-3 mr-2">Discount</button>
+                        <button class="btn btn-border-red px-3 mr-2">Other</button>
+                    </span>
+                    <div class="dropdown-divider"></div>
+                    <span class="dropdown-item-text">
+                        <button class="btn btn-border-red px-3 w-50">Clear filters</button>
+                        <button class="btn btn-danger px-3 w-50">Show 0</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <h4 class="gray m-3"> Sorry, no results</h4>
+        <div class="promotion text-center">
+            <h4 class="gray">number of ads: 0</h4>
+        </div>
+    </div>
+</div>

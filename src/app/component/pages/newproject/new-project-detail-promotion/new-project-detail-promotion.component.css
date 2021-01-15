@@ -1,0 +1,29 @@
+.breadcrumb{
+    background: none;
+}
+.btn-danger{
+    background:red !important;
+}
+.red{
+    color: red;
+}
+.gray{
+    color: gray;
+}
+.btn-border-red{
+    border: 1px solid red;
+}
+.select_promotion{
+    position: absolute;
+    width: 220%;
+    padding: 20px 5px;
+    border: 1px solid #eee;
+    background: white;
+    z-index: 999;
+}
+.close:hover{
+    cursor: pointer !important;
+}
+.promotion{
+    padding: 150px 10%;
+}

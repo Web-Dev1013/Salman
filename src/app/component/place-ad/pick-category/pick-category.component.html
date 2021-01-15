@@ -1,0 +1,38 @@
+<div class="text-center p-3">
+    <p class="h2">Hello, What are you listing today?</p>
+    <p class="h6">Select the area that best suits your ad</p>
+</div>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 col-sm-12">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="category py-3 text-center" routerLink="cg_motors">
+                        <img class="mt-3" src="../../../../assets/icon/icon-motors.svg" width="30%">
+                        <p class="h6 mt-3">Motors</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4 py-0">
+                    <div class="category text-center">
+                        <div class="py-3" *ngIf="showJobItem" (click) = "toggleJobItem()">
+                            <img class="mt-3" src="../../../../assets/icon/icon-jobs.svg" width="30%">
+                            <p class="h6 mt-3">Jobs</p>
+                        </div>
+                        <div class="" *ngIf="hideJobItem">
+                            <div class="job_item py-4 font-weight-bold" [routerLink]="['cg_job', 'hire']">I am hiring</div>
+                            <div class="job_item py-4 font-weight-bold" [routerLink]="['cg_job', 'wanted']">I want a job</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4" *ngFor="let category of categories" routerLink = "{{category.id}}">
+                    <div class="category py-3 text-center">
+                        <img class="mt-3" src="{{category.icon_src}}" width="30%">
+                        <p class="h6 mt-3">{{category.name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

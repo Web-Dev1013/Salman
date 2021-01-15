@@ -1,0 +1,13 @@
+.logo{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    color: #343434;
+}
+.logo:hover{
+    cursor: pointer;
+}
+:focus{
+    outline: none !important;
+    border: none !important;
+}

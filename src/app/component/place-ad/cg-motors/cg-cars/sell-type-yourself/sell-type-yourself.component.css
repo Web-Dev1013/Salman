@@ -1,0 +1,8 @@
+.h7{
+    font-size: 14px;
+    font-weight: normal;
+}
+.help:hover{
+    cursor: pointer;
+    color: rgb(6, 85, 255) !important;
+}

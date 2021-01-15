@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-6 col-md-8 p-4">
+            <div class="motor">
+                <p class="h3 text-center">Now choose the right category for <br> your ad:</p>
+                <p class="h6 text-secondary back" routerLink="/place_ad">... Back</p>
+                <div class="dropdown-divider mb-0"></div>
+                <div class="">
+                    <div class="dropdown mx-4" *ngFor="let p_rent of p_rentArr" (mouseenter)="showDropdown(p_rent.id)" (mouseleave)="hideDropdown()">
+                        <div class="py-3 px-4 mb-0 sub_motors d-flex justify-content-between">
+                            <span class="lists h6">{{p_rent.name}}</span>
+                            <div><i class="fa fa-arrow-right right"></i></div>
+                        </div>
+                        <div class="dropdown-menu py-0 w-100 d-block" *ngIf="toggle_dropdown == p_rent.id">
+                            <a class="dropdown-item py-3"
+                                [routerLink]="['/place_ad/cg_estate_rent/cg_estate_rent_detail',subItem.id]" *ngFor="let subItem of p_rent.subItem">{{subItem.name}}</a>
+                        </div>
+                        <div class="dropdown-divider my-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-2"></div>
+    </div>
+</div>

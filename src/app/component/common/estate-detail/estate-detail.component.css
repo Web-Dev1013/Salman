@@ -1,0 +1,83 @@
+/* Common Css */
+.breadcrumb{
+    background: none !important;
+}
+.red{
+    color: red;
+}
+.btn-border-red{
+    border: 1px solid red;
+    height: 45px !important;
+}
+.btn-border-red:hover{
+    background: red;
+    color: white;
+}
+.btn-danger{
+    background: red !important;
+    height: 45px !important;
+}
+.btn-danger:hover{
+    background: rgb(211, 2, 2) !important;
+}
+.w-46{
+    width: 46%;
+}
+.global-border{
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+.gray{
+    color: gray;
+}
+/* End Common Css */
+.picsum-img-wrapper img{
+    width: 100% !important;
+}
+.favoriteBtn{
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    z-index: 100;
+    border-color: #eee;
+    box-shadow: 1px 2px 4px #151515;
+}
+.favoriteBtn:hover{
+    background: #555 !important;
+    color: white;
+    border-color: #333;
+}
+.master{
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px #1515156b;
+}
+.common-info{
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+.individual-info{
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+.reply-section{
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px 25%;
+}
+.scam{
+    border: 1px solid rgb(81, 111, 245);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+agm-map {
+    height: 300px;
+}

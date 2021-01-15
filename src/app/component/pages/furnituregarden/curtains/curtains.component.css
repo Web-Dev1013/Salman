@@ -17,6 +17,18 @@
 /* end Common Class */
 .merchandise{
     width: 100%;
+    transition: 0.4s;
+}
+.merchandise:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+}
+.merchandise:hover{
+    cursor: pointer;
+}
+.merchandise:focus{
+    outline: none !important;
+    /* border: none !important; */
 }
 .merchandise-name{
     font-size: 16px;

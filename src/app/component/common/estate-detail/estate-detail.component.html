@@ -1,0 +1,172 @@
+<div class="container mt-3">
+    <div class="row mt-5 justify-content-between">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <i class="fa fa-map-marker mx-2"></i>
+                <li class="breadcrumb-item" *ngFor="let breadcrumb of estateData.breadcrumb"><a
+                        href="#">{{breadcrumb}}</a></li>
+            </ol>
+        </nav>
+        <div> Reference ID: <b>{{estateData.ref_id}}</b> </div>
+    </div>
+    <div class="row mt-3 justify-content-between">
+        <h1 class="font-weight-bold">{{estateData.title}}</h1>
+        <h1 class="red font-weight-bold">AED {{estateData.price}}</h1>
+    </div>
+    <div class="row">
+        <div class="estate_detail_img col-sm-9">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let DetailImg of estateData.images">
+                    <div class="picsum-img-wrapper">
+                        <img src="{{DetailImg}}" alt="Random first slide">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+            <button class="btn btn-light favoriteBtn"> <i class="fa fa-heart-o"></i> Favorite </button>
+            <div class="dropdown-divider"></div>
+            <h2 class="font-weight-bold"> Property Info</h2>
+            <div class="row mb-3">
+                <div class="col-sm-4">
+                    <div class="common-info mr-1 text-center">
+                        <h3 class="gray mb-0">Beds</h3>
+                        <i class="fa fa-bed"></i>
+                        <h3 class="mb-0">{{estateData.bed}}</h3>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="common-info mr-1 text-center">
+                        <h3 class="gray mb-0">Baths</h3>
+                        <i class="fa fa-bath"></i>
+                        <h3 class="mb-0">{{estateData.bath}}</h3>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="common-info text-center">
+                        <h3 class="gray mb-0">Size(SqFt)</h3>
+                        <i class="fa fa-object-group"></i>
+                        <h3 class="mb-0">{{estateData.sqft}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="individual-info">
+                <div class="d-flex justify-content-between">
+                    <h3 class="mb-2"> <i class="fa fa-fort-awesome mx-2"></i> Furnished </h3>
+                    <h3 class="mb-2"> <b>{{estateData.furnished}} </b></h3>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="d-flex justify-content-between">
+                    <h3 class="mb-2"> <i class="fa fa-home mx-2"></i> Villa For </h3>
+                    <h3 class="mb-2"> <b>{{estateData.type}} </b></h3>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="d-flex justify-content-between">
+                    <h3 class="mb-2"> <i class="fa fa-user mx-2"></i> Listed By </h3>
+                    <h3 class="mb-2"> <b> {{estateData.listedBy}} </b></h3>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="d-flex justify-content-between">
+                    <h3 class="mb-2"> <i class="fa fa-users mx-2"></i> Developer </h3>
+                    <h3 class="mb-2"> <b> {{estateData.developer}} </b></h3>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="d-flex justify-content-between">
+                    <h3 class="mb-2"> <i class="fa fa-calendar mx-2"></i> Posted On </h3>
+                    <h3 class="mb-2"> <b> {{estateData.postedOn}} </b></h3>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="d-flex justify-content-between">
+                    <h3 class="mb-2"> <i class="fa fa-check-square-o mx-2"></i> Property Reference </h3>
+                    <h3 class="mb-2"> <b> {{estateData.ref_id}} </b></h3>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="">
+                    <h2 class="mt-3 mb-1">Amenities</h2>
+                    <div class="row">
+                        <span class="p-3 mr-2" *ngFor="let amenity of estateData.amenities"> <i class="fa fa-check"></i>
+                            {{amenity}} </span>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="">
+                    <h2 class="mt-3">Description</h2>
+                    <h4 class="">{{estateData.description}}</h4>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="">
+                    <h2 class="mt-3">Location</h2>
+                    <div class="map">
+                        <agm-map [latitude]="lat" [longitude]="lng">
+                            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                        </agm-map>
+                    </div>
+                </div>
+            </div>
+            <div class="reply-section my-4">
+                <div class="scam">
+                    <div class="">
+                        <span class="badge badge-pill badge-primary"><i class="fa fa-info p-1"></i></span>
+                        <span class="text-primary font-weight-bold ml-2">Scam Warning</span>
+                    </div>
+                    <div class="">
+                        <div>Never wire money or financial info to a seller on the internet. For your security, all
+                            transactions should be done in person.</div>
+                        <div class="d-flex justify-content-between">
+                            <a routerLink="" class="nav-link text-decoration-none"> Report Scams </a>
+                            <a routerLink="" class="nav-link text-decoration-none"> Show Scam Example </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-3">
+                    <button class="btn btn-danger btn-block" *ngIf="hidePhoneNum" (click) = "showPhoneNumber()"> Show Phone Number </button>
+                    <button class="btn btn-border-red btn-block" *ngIf="showPhoneNum"> {{estateData.phoneNumber}} </button>
+                </div>
+                <div class="d-flex">
+                    <div class="dropdown-divider w-46"></div>
+                    <div class="mx-2 gray">OR</div>
+                    <div class="dropdown-divider w-46"></div>
+                </div>
+                <h2 class="text-center my-3">Reply to Ad</h2>
+                <h4 class="gray mb-1">Your message</h4>
+                <div class="message mb-4"  >
+                    <textarea class="global-border w-100" rows="4">Marhaba! I saw your ad on dubizzle. When is it available for viewing? Thanks.</textarea>
+                </div>
+                <h4 class="gray mb-1"> Your Phone </h4>
+                <div class="mb-4">
+                    <input type="tel" class="form-control" required placeholder="e.g. +971 55 876 3456" pattern="+[0-9]{3} [0-9]{2} [0-9]{3} [0-9]{4}"> 
+                </div>
+                <div class="mb-4">
+                    <button class="btn btn-border-red btn-block red">Send message</button>
+                </div>
+                <div class="text-center">
+                    <h4 class="gray mb-1">By clicking on 'Send Reply', I agree to the Dubizzle</h4>
+                    <h4 class="mb-1"><a class="" href="">Terms & Conditions</a><a class="gray text-decoration-none"> and </a> <a href="" class="">Privacy Policy</a></h4>
+                </div> 
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="master mb-4">
+                <div class="py-4 text-center">
+                    <img class="img-responsive" src="{{estateData.master}}">
+                </div>
+                <h3 class="font-weight-bold text-center">{{estateData.master_name}}</h3>
+                <div class="dropdown-divider"></div>
+                <div class="text-center">
+                    <h5 class="mb-1 mt-3"> RERA Registration Number: <b>{{estateData.RERA_Num}}</b></h5>
+                    <h5 class="">DED License Number : <b>{{estateData.DED_Num}}</b></h5>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="mt-3">
+                    <button class="btn btn-danger btn-block" *ngIf="hidePhoneNum" (click) = "showPhoneNumber()"> Show Phone Number </button>
+                    <button class="btn btn-border-red btn-block" *ngIf="showPhoneNum"> {{estateData.phoneNumber}} </button>
+                    <button class="btn btn-border-red btn-block red">Send Reply</button>
+                </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="master my-4">
+                <h2 class="font-weight-bold">Know your Rights as a Tenant in the UAE</h2>
+                <h4 class="mb-1">Wondering how much you are allowed to borrow from the bank, for a property that is not
+                    yet ready? Or how to figure out whether an agent is authorized to represent you?</h4>
+            </div>
+        </div>
+    </div>
+</div>

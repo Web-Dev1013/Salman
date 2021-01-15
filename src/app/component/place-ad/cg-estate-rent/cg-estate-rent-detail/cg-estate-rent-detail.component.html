@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-lg-4 col-md-2"></div>
+    <div class="col-lg-4 px-5 col-md-8">
+        <div class="feature" *ngIf="activePage == 'feature'">
+            <div class="text-center">
+                <p class="h3 pt-4">You are almost there!</p>
+                <p class="h7 pt-3 pt-3 text-secondary">Include as much details and pictures as possible,<br> and set the right price!</p>
+            </div>
+            <p class="h6 text-secondary pt-2 back" routerLink="/place_ad/cg_estate_rent">
+                ...Back</p>
+            <input type="text" class="form-control mb-2" placeholder="Title">
+            <button class="btn btn-border-red btn-block red mb-2"> <i class="fa fa-camera"></i> Add Pictures </button>
+            <input type="file" class="form-control">
+            <input type="text" class="form-control mb-2" placeholder="350 Tour URL">
+            <input type="text" class="form-control mb-2" placeholder="YouTube">
+            <input type="tel" class="form-control mb-2" placeholder="Phone number" pattern="[]">
+            <input type="text" class="form-control mb-2" placeholder="Price per month">
+            <textarea class="w-100 p-2 rounded" rows="8" placeholder="Describe your property"></textarea>
+            <input type="text" class="form-control mb-2" placeholder="Property Reference ID #">
+            <select class="form-control mb-2">
+                <option selected class="gray">Bathroom</option>
+                <option value="en_suit">En Suit</option>
+                <option value="communal_bathroom">Communal bathroom only</option>
+            </select>            
+            <input type="number" class="form-control mb-2" placeholder="Security Deposit">
+            <input type="number" class="form-control mb-2" placeholder="Number of tenants">
+            <select class="form-control mb-2" *ngFor="let select of selectArr">
+                <option selected class="gray">{{select.name}}</option>
+                <option value="{{option.id}}" *ngFor="let option of select.option">{{option.name}}</option>
+            </select>
+            <div class="my-2" style="column-count: 2;">
+                <span class="w-100 d-block mb-2" *ngFor="let checkbox of checkboxArr">
+                    <input type="checkbox"><span class="p-2">{{checkbox.name}}</span>
+                </span>                
+            </div>
+            <input type="text" class="form-control mb-2" placeholder="Building">
+            <input type="text" class="form-control mb-2" placeholder="Neighborhood">
+            <div class="map p-3 w-100 mb-2 rounded">
+                <p class="h5">Is the pin in the right location?</p>
+                <p class="h8 text-secondary">Click and drag the pin to the exact spot. Users are more likely to respond to ads that are
+                    correctly shown on the map</p>
+                <div class="">
+                    <agm-map [latitude]="lat" [longitude]="lng">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+            <button class="btn btn-danger btn-block py-2 my-3" (click)="gotoNextPage('safety')">Next</button>
+        </div>
+        <div class="safety pt-5" *ngIf="activePage == 'safety'">
+            <div class="text-center">
+                <p class="h4">Safety first!</p>
+                <p class="h7 text-secondary"> We review all ads to keep everyone on <br> dubizzle safe and happy.</p>
+            </div>
+            <p class="h8 text-secondary">Your ad will not go live if it is</p>
+            <p class="h8 text-secondary">1. For any prohibited item or activity that violates UAE law </p>
+            <p class="h8 text-secondary">2. In the wrong category</p>
+            <p class="h8 text-secondary">3. Placed multiple times, or in multiple categories</p>
+            <p class="h8 text-secondary">4. With fraudulent or misleading information</p>
+            <p class="h8 text-secondary">5. For an item that is located outside the UAE</p>
+            <div class="text-center">
+                <p class="h8 text-secondary">For more information, read our</p>
+                <a class="h8 blue font-weight-bold">terms and conditions</a>
+            </div>
+
+            <button class="btn btn-danger btn-block" (click)="gotoNextPage('verify')">  Yes, I agree! </button>
+        </div>
+        <div class="pt-5" *ngIf="activePage=='verify'">
+            <p class = 'h6 font-weight-normal text-center line-height-2 text-secondary'>We know it's rude to interrupt,<br> but can you help us verify your phone number? <br> You only need to do this once.</p>
+            <div class="verify p-4">
+                <p class="h5">Enter your phone number</p>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">+971</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="50 123 4567">
+                </div>
+                <button class="btn btn-block btn-danger py-2">Send verification code</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-2"></div>
+</div>

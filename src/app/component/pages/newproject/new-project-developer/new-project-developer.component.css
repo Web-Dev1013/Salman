@@ -1,0 +1,42 @@
+.breadcrumb{
+    background: none;
+}
+.gray{
+    color: gray;
+}
+.red{
+    color: red;
+}
+.developer_item{
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: 0.6s;
+}
+.developer_item:hover{
+    cursor: pointer;
+    border-color: red;
+}
+.developer_item img{
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    height: 180px;
+    object-fit: cover;
+}
+.favorite_icon{
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+    font-size: 36px;
+}
+.favorite_icon:hover{
+    cursor: pointer;
+    color: red;
+}
+.btn-border-light{
+    border: 1px solid red;
+    color: red;
+}
+.btn-border-light:hover{
+    background: red;
+    color: white;
+}

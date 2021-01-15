@@ -1,5 +1,5 @@
 .searchBox{
-    background: url("./../../../../assets/Image/community/CommunityImage.png");
+    background: url("../../../../assets/Image/community/CommunityImage.png");
     background-size: cover;
     border-radius: 15px;
     box-shadow: 0 0 5px #151515;
@@ -33,6 +33,10 @@
 .listBox{
     box-shadow: 0 0 5px #151515;
     border-radius: 10px;
+    transition: 0.4s;
+}
+.listBox:hover{
+    border:1px solid red;
 }
 .listGroup .listBox{
     height: 80px;
@@ -42,6 +46,7 @@
 }
 .listBox:hover{
     cursor: pointer;
+    transform: scale(1.1);
 }
 .list-title{
     font-size: 28px;
@@ -57,7 +62,7 @@
 }
 .carbox:hover{
     cursor: pointer;
-    box-shadow: 0 0 10px #151615;
+    box-shadow: 0 3px 20px #151615a9;
     border-radius: 10px;
 }
 .card-body img{
@@ -88,4 +93,7 @@
 }
 .all-blog:hover{
     color: black;
+}
+div:focus{
+    outline: none !important;
 }

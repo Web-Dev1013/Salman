@@ -10,8 +10,9 @@ const routes: Routes = [
   { path: "", redirectTo: "mobiletablet", pathMatch: "full" },
   {
     path: "mobiletablet", component: MobiletabletComponent, children: [
-      { path: "", redirectTo:"mobilephone", pathMatch:"full"},
-      { path: "mobilephone", component:MobilephoneComponent},
+      { path: "", redirectTo:"mobilephones", pathMatch:"full"},
+      { path: "mobilephones", component:MobilephoneComponent},
+      { path: ":id", component: TabletsComponent},
       { path: "phonetablet", component: PhonetabletComponent },
       { path: "tablets", component: TabletsComponent },
       { path: "othermobiletablet", component: OthermobiletabletComponent }

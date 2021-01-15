@@ -1,0 +1,14 @@
+.back:hover{
+    color: red !important;
+    cursor: pointer;
+}
+.sub_jobs:hover{
+    cursor: pointer;
+    background: #eee;
+}
+.sub_jobs{
+    transition: 0.3s;
+}
+:focus{
+    outline: none !important;
+}

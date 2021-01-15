@@ -10,23 +10,33 @@ import { ProductDetailComponent } from './component/common/product-detail/produc
 import { ProductsListComponent } from './component/common/products-list/products-list.component';
 import { MotorsComponent } from './component/pages/motors/motors.component';
 import { RealestateComponent } from './component/common/realestate/realestate.component';
+import { EstateDetailComponent } from './component/common/estate-detail/estate-detail.component';
+import { UserInfoComponent } from './component/common/user-info/user-info.component';
+import { MyChatsComponent } from './component/common/my-chats/my-chats.component';
+import { AccountSettingComponent } from './component/common/account-setting/account-setting.component';
 const routes: Routes = [
-  {path: "", redirectTo: "main", pathMatch: "full"},
+  {path: "", component:MainComponent},
+  {path: "place_ad", loadChildren: () => import(`./component/place-ad/place-ad.module`).then(m => m.PlaceAdModule)},
+  {path: "user_info/:id", component: UserInfoComponent},
+  {path: "my_chats/:id", component: MyChatsComponent},
+  {path: "account_setting/:id", component: AccountSettingComponent},
   {path: "navbar", component: NavbarComponent},
-  {path: "main",  component: MainComponent},
-  {path: "propertyforrent", component: PropertyforrentComponent},
-  {path: "propertyforsale", component: PropertyforsaleComponent},
+  {path: "main/:id",  component: MainComponent},
+  {path: "propertyforrent", loadChildren: () => import(`./component/pages/propertyforrent/propertyforrent.module`).then(m => m.PropertyforrentModule)},
+  {path: "propertyforsale", loadChildren: () => import(`./component/pages/propertyforsale/propertyforsale.module`).then( m => m.PropertyforsaleModule)},
   {path: "carousel", component: CarouselComponent},
-  {path: "classified", component: ClassifiedComponent},
-  {path: "motors", component: MotorsComponent},
+  {path: "classified", loadChildren: () => import(`./component/pages/classified/classified.module`).then(m => m.ClassifiedModule)},
+  {path: "motors", loadChildren: () => import(`./component/pages/motors/motors.module`).then(m => m.MotorsModule)},
   {path: "furnituregarden", loadChildren: () => import(`./component/pages/furnituregarden/furnituregarden.module`).then(m => m.FurnituregardenModule)},
   {path: "mobiletablet", loadChildren: () => import(`./component/pages/mobiletablet/mobiletablet.module`).then(m => m.MobiletabletModule)}, 
   {path: "job", loadChildren: () => import(`./component/pages/job/job.module`).then(m => m.JobModule)},  
   {path: "community", loadChildren: () => import(`./component/pages/community/community.module`).then(m => m.CommunityModule)},
-  {path: "propertynewproject", loadChildren: () => import(`./component/pages/newproject/newproject.module`).then(m => m.NewprojectModule)},
-  {path: "common/:id", component: ProductsListComponent},
+  // {path: "common/:id", component: ProductsListComponent},
   {path: "product_detail/:id", component: ProductDetailComponent},
-  {path: "realEstate/:id", component: RealestateComponent}
+  // {path: "realEstate/:id", component: RealestateComponent},
+  {path: "estate_detail/:id", component: EstateDetailComponent},
+  {path: "propertynewproject", loadChildren: () => import(`./component/pages/newproject/newproject.module`).then(m => m.NewprojectModule)},
+
 ]
 
 @NgModule({

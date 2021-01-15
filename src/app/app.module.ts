@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FurnituregardenRoutingModule } from './component/pages/furnituregarden/furnituregarden-routing.module';
 import { MobiletabletRoutingModule } from './component/pages/mobiletablet/mobiletablet-routing.module';
@@ -25,10 +26,18 @@ import { TabletsComponent } from './component/pages/mobiletablet/tablets/tablets
 import { JobComponent } from './component/pages/job/job.component';
 import { CommunityComponent } from './component/pages/community/community.component';
 import { NewprojectComponent } from './component/pages/newproject/newproject.component';
-import { CommonofkindComponent } from './component/pages/motors/commonofkind/commonofkind.component';
 import { ProductDetailComponent } from './component/common/product-detail/product-detail.component';
 import { ProductsListComponent } from './component/common/products-list/products-list.component';
 import { RealestateComponent } from './component/common/realestate/realestate.component';
+import { EstateDetailComponent } from './component/common/estate-detail/estate-detail.component';
+import { NewProjectDetailComponent } from './component/pages/newproject/new-project-detail/new-project-detail.component';
+import { NewProjectDetailListComponent } from './component/pages/newproject/new-project-detail-list/new-project-detail-list.component';
+import { NewProjectDeveloperComponent } from './component/pages/newproject/new-project-developer/new-project-developer.component';
+import { CountryService } from './services/country.service';
+import { PlaceAdComponent } from './component/place-ad/place-ad.component';
+import { UserInfoComponent } from './component/common/user-info/user-info.component';
+import { MyChatsComponent } from './component/common/my-chats/my-chats.component';
+import { AccountSettingComponent } from './component/common/account-setting/account-setting.component';
 
 @NgModule({
   declarations: [
@@ -51,10 +60,17 @@ import { RealestateComponent } from './component/common/realestate/realestate.co
     JobComponent,
     CommunityComponent,
     NewprojectComponent,
-    CommonofkindComponent,
     ProductDetailComponent,
     ProductsListComponent,
     RealestateComponent,
+    EstateDetailComponent,
+    NewProjectDetailComponent,
+    NewProjectDetailListComponent,
+    NewProjectDeveloperComponent,
+    PlaceAdComponent,
+    UserInfoComponent,
+    MyChatsComponent,
+    AccountSettingComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +79,10 @@ import { RealestateComponent } from './component/common/realestate/realestate.co
     MobiletabletRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    // FurnituregardenModule
+    // CountryService,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCE0nvTeHBsiQIrbpMVTe489_O5mwyqofk'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

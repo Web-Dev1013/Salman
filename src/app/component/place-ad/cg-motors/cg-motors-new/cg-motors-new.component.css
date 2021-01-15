@@ -1,0 +1,52 @@
+.h7{
+    font-size: 14px;
+    font-weight: normal;
+}
+.h8{
+    font-size: 12px;
+    font-weight: normal;
+}
+.blue{
+    color: blue;
+}
+.red{
+    color: red;
+}
+.gray{
+   color: #495057
+}
+.btn-border-red{
+    border:1px solid red;
+}
+.btn-danger{
+    background: red;
+}
+input[type=file]{    
+    position: absolute;
+    width: 80%;
+    top: 223px;
+    opacity: 0;
+}
+agm-map {
+    height: 200px;
+}
+.map{
+    border: 1px solid #eee;
+}
+textarea{
+    border-color: #ddd !important;
+}
+p:focus{
+    outline: none !important;
+}
+.back:hover{
+    cursor: pointer;
+    color: red !important;
+}
+.verify{
+    border: 1px solid #eee;
+    box-shadow: 0 3px 15px #1515154f;
+}
+.line-height-2{
+    line-height: 2;
+}

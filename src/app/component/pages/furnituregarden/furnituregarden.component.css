@@ -35,3 +35,7 @@
 .form-control{
     font-size: 14px !important;
 }
+.col-md-9:focus{
+    outline: none !important;
+    border:none !important
+}

@@ -29,23 +29,21 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/custom-theme.scss",
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/popper.js/dist/umd/popper.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "./src/assets/js/header.js",
-              "./src/assets/js/main.js",
-              "./src/assets/js/newproject.js",
-              "./src/assets/js/carousel/jquery.backstretch.min.js",
-              "./src/assets/js/carousel/wow.js",
-              "./src/assets/js/carousel/scripts.js"
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "src/assets/js/header.js",
+              "src/assets/js/main.js",
+              "src/assets/js/newproject.js",
+              "src/assets/js/carousel/jquery.backstretch.min.js",
+              "src/assets/js/carousel/wow.js",
+              "src/assets/js/carousel/scripts.js"
             ]
           },
           "configurations": {

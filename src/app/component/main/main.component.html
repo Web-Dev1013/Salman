@@ -2,32 +2,14 @@
     <div class="content">
         <div class="contentImage fluid">
             <div class="contentTitle mb-3">
-                <h2>The best place to buy your house, sell your car or find a job in Al Ain.</h2>
+                <h2>The best place to buy your house, sell your car or find a job in {{activeCityName}}.</h2>
             </div>
             <div class="contentSearch form-control form-control-lg col-10 offset-1">
                 <nav class="navbar navbar-expand-lg mx-auto p-2">
                     <div class="mx-auto">
                         <ul class="navbar-nav" style="font-weight:600">
-                            <li class="nav-item  mx-auto pr-4">
-                                <a class="nav-link" href="">All</a>
-                            </li>
-                            <li class="nav-item  mx-auto pr-4">
-                                <a class="nav-link " href="javascript:void(0)">Motors</a>
-                            </li>
-                            <li class="nav-item  mx-auto pr-4">
-                                <a class="nav-link " href="javascript:void(0)">Classified</a>
-                            </li>
-                            <li class="nav-item  mx-auto pr-4">
-                                <a class="nav-link " href="javascript:void(0)">Property for Rent</a>
-                            </li>
-                            <li class="nav-item  mx-auto pr-4">
-                                <a class="nav-link " href="javascript:void(0)">Property for Sale</a>
-                            </li>
-                            <li class="nav-item  mx-auto pr-4">
-                                <a class="nav-link " href="javascript:void(0)">Job</a>
-                            </li>
-                            <li class="nav-item  mx-auto pr-5">
-                                <a class="nav-link " href="javascript:void(0)">Community</a>
+                            <li class="nav-item  mx-auto pr-4" (click)="selectedCity(SearchItem)" *ngFor="let SearchItem of SearchItemsArr">
+                                <a class="nav-link p-2" [ngClass]= "[SearchItem.item == selectedCityName ? 'badge badge-danger badge-pill' : '']" >{{SearchItem.item}}</a>
                             </li>
                         </ul>
                     </div>
@@ -38,83 +20,168 @@
         </div>
     </div>
 </div>
-<div class="content mg-2-5">
-    <h3 class="title pt-3 pl-3">Popular Categories</h3>
+<div class="content px-5 py-5">
+    <h1 class="pt-3 pl-3 font-weight-bold">Popular Categories</h1>
     <div class="popularList form-inline pb-3">
         <div class="card col-md-3 pr-0">
             <div class="card-body">
-                <h4 class="card-title"><i class="fa fa-car"></i> Motors (374) </h4>
-                <a class="card-link d-block" href="">Used Cars for Sale</a>
-                <a class="card-link d-block" href="">Motorcycles</a>
-                <a class="card-link d-block" href="">Auto accessories & Parts</a>
-                <a class="card-link d-block" href="">Heavy Vehicles</a>
+                <h4 class="card-title"><i class="fa fa-car red"></i> Motors (374) </h4>
+                <a class="card-link d-block" [routerLink]="['/common', usedCar]">Used Cars for Sale</a>
+                <a class="card-link d-block" [routerLink]="['/common', motorcycle]">Motorcycles</a>
+                <a class="card-link d-block" [routerLink]="['/common', accessories]">Auto accessories & Parts</a>
+                <a class="card-link d-block" [routerLink]="['/common', vehicles]">Heavy Vehicles</a>
+                <a class="red font-weight-bold" routerLink="motors"> All in Motors <i class="fa fa-arrow-right"></i>
+                </a>
             </div>
         </div>
         <div class="card col-md-3 pr-0">
             <div class="card-body">
-                <h4 class="card-title"> <i class="fa fa-car"></i>Motors (374) </h4>
-                <a class="card-link d-block" href="">Used Cars for Sale</a>
-                <a class="card-link d-block" href="">Motorcycles</a>
-                <a class="card-link d-block" href="">Auto accessories & Parts</a>
-                <a class="card-link d-block" href="">Heavy Vehicles</a>
+                <h4 class="card-title"><i class="fa fa-car red"></i> Property for Rent (2374) </h4>
+                <a class="card-link d-block" [routerLink]="['/common', usedCar]">Used Cars for Sale</a>
+                <a class="card-link d-block" [routerLink]="['/common', motorcycle]">Motorcycles</a>
+                <a class="card-link d-block" [routerLink]="['/common', accessories]">Auto accessories & Parts</a>
+                <a class="card-link d-block" [routerLink]="['/common', vehicles]">Heavy Vehicles</a>
+                <a class="red font-weight-bold" routerLink="propertyforrent"> All in Property for Rent <i
+                        class="fa fa-arrow-right"></i> </a>
             </div>
         </div>
         <div class="card col-md-3 pr-0">
             <div class="card-body">
-                <h4 class="card-title"><i class="fa fa-car"></i> Motors (374) </h4>
-                <a class="card-link d-block" href="">Used Cars for Sale</a>
-                <a class="card-link d-block" href="">Motorcycles</a>
-                <a class="card-link d-block" href="">Auto accessories & Parts</a>
-                <a class="card-link d-block" href="">Heavy Vehicles</a>
+                <h4 class="card-title"><i class="fa fa-car red"></i> Property for Sale (3474) </h4>
+                <a class="card-link d-block" [routerLink]="['/common', usedCar]">Used Cars for Sale</a>
+                <a class="card-link d-block" [routerLink]="['/common', motorcycle]">Motorcycles</a>
+                <a class="card-link d-block" [routerLink]="['/common', accessories]">Auto accessories & Parts</a>
+                <a class="card-link d-block" [routerLink]="['/common', vehicles]">Heavy Vehicles</a>
+                <a class="red font-weight-bold" routerLink="propertyforsale"> All in Property for Sale <i
+                        class="fa fa-arrow-right"></i> </a>
             </div>
         </div>
-        <div class="card col-md-3">
+        <div class="card col-md-3 pr-0">
             <div class="card-body">
-                <h4 class="card-title"> <i class="fa fa-car"></i>Motors (374) </h4>
-                <a class="card-link d-block" href="">Used Cars for Sale</a>
-                <a class="card-link d-block" href="">Motorcycles</a>
-                <a class="card-link d-block" href="">Auto accessories & Parts</a>
-                <a class="card-link d-block" href="">Heavy Vehicles</a>
+                <h4 class="card-title"><i class="fa fa-car red"></i> Property New Project (3174) </h4>
+                <a class="card-link d-block" [routerLink]="['/common', usedCar]">Used Cars for Sale</a>
+                <a class="card-link d-block" [routerLink]="['/common', motorcycle]">Motorcycles</a>
+                <a class="card-link d-block" [routerLink]="['/common', accessories]">Auto accessories & Parts</a>
+                <a class="card-link d-block" [routerLink]="['/common', vehicles]">Heavy Vehicles</a>
+                <a class="red font-weight-bold" routerLink="propertynewproject"> All in Property New Project <i
+                        class="fa fa-arrow-right"></i> </a>
             </div>
         </div>
     </div>
-    <h3 class="title pt-3 pl-3">Popular Categories</h3>
     <div class="popularList form-inline pb-3">
         <div class="card col-md-3 pr-0">
             <div class="card-body">
-                <h4 class="card-title"><i class="fa fa-car"></i> Motors (374) </h4>
-                <a class="card-link d-block" href="">Used Cars for Sale</a>
-                <a class="card-link d-block" href="">Motorcycles</a>
-                <a class="card-link d-block" href="">Auto accessories & Parts</a>
-                <a class="card-link d-block" href="">Heavy Vehicles</a>
+                <h4 class="card-title"><i class="fa fa-car red"></i> Classified (1374) </h4>
+                <a class="card-link d-block" [routerLink]="['/common', usedCar]">Used Cars for Sale</a>
+                <a class="card-link d-block" [routerLink]="['/common', motorcycle]">Motorcycles</a>
+                <a class="card-link d-block" [routerLink]="['/common', accessories]">Auto accessories & Parts</a>
+                <a class="card-link d-block" [routerLink]="['/common', vehicles]">Heavy Vehicles</a>
+                <a class="red font-weight-bold" routerLink="classified"> All in Classified <i
+                        class="fa fa-arrow-right"></i> </a>
             </div>
         </div>
         <div class="card col-md-3 pr-0">
             <div class="card-body">
-                <h4 class="card-title"><i class="fa fa-car"></i> Motors (374) </h4>
-                <a class="card-link d-block" href="">Used Cars for Sale</a>
-                <a class="card-link d-block" href="">Motorcycles</a>
-                <a class="card-link d-block" href="">Auto accessories & Parts</a>
-                <a class="card-link d-block" href="">Heavy Vehicles</a>
+                <h4 class="card-title"><i class="fa fa-car red"></i> Community (234) </h4>
+                <a class="card-link d-block" [routerLink]="['/common', usedCar]">Used Cars for Sale</a>
+                <a class="card-link d-block" [routerLink]="['/common', motorcycle]">Motorcycles</a>
+                <a class="card-link d-block" [routerLink]="['/common', accessories]">Auto accessories & Parts</a>
+                <a class="card-link d-block" [routerLink]="['/common', vehicles]">Heavy Vehicles</a>
+                <a class="red font-weight-bold" routerLink="community"> All in Community <i
+                        class="fa fa-arrow-right"></i> </a>
             </div>
         </div>
         <div class="card col-md-3 pr-0">
             <div class="card-body">
-                <h4 class="card-title"><i class="fa fa-car"></i> Motors (374) </h4>
-                <a class="card-link d-block" href="">Used Cars for Sale</a>
-                <a class="card-link d-block" href="">Motorcycles</a>
-                <a class="card-link d-block" href="">Auto accessories & Parts</a>
-                <a class="card-link d-block" href="">Heavy Vehicles</a>
+                <h4 class="card-title"><i class="fa fa-car red"></i> Jobs (374) </h4>
+                <a class="card-link d-block" [routerLink]="['/common', usedCar]">Used Cars for Sale</a>
+                <a class="card-link d-block" [routerLink]="['/common', motorcycle]">Motorcycles</a>
+                <a class="card-link d-block" [routerLink]="['/common', accessories]">Auto accessories & Parts</a>
+                <a class="card-link d-block" [routerLink]="['/common', vehicles]">Heavy Vehicles</a>
+                <a class="red font-weight-bold" routerLink="job"> All in Jobs <i class="fa fa-arrow-right"></i> </a>
             </div>
         </div>
-        <div class="card col-md-3">
+        <div class="card col-md-3 pr-0">
             <div class="card-body">
-                <h4 class="card-title"><i class="fa fa-car"></i> Motors (374) </h4>
-                <a class="card-link d-block" href="">Used Cars for Sale</a>
-                <a class="card-link d-block" href="">Motorcycles</a>
-                <a class="card-link d-block" href="">Auto accessories & Parts</a>
-                <a class="card-link d-block" href="">Heavy Vehicles</a>
+                <h4 class="card-title"><i class="fa fa-car red"></i> Furniture and Garden (374) </h4>
+                <a class="card-link d-block" [routerLink]="['/common', usedCar]">Used Cars for Sale</a>
+                <a class="card-link d-block" [routerLink]="['/common', motorcycle]">Motorcycles</a>
+                <a class="card-link d-block" [routerLink]="['/common', accessories]">Auto accessories & Parts</a>
+                <a class="card-link d-block" [routerLink]="['/common', vehicles]">Heavy Vehicles</a>
+                <a class="red font-weight-bold" routerLink="furnituregarden"> All in Furniture and Garden <i
+                        class="fa fa-arrow-right"></i> </a>
             </div>
+        </div>
+    </div>
+    <div class="px-5">
+        <p class="h3">You recently looked at</p>
+        <div class="row mb-5">
+            <div class="col-lg-2 col-md-4 col-sm-12 pr-0 mb-2 carbox" *ngFor="let Featured of FeaturedArr[1]">
+                <div class="card-body pt-0 px-1" (click) ="gotoProductDetails('/product_detail', Featured.id)">
+                    <img class="img-responsive" src="{{Featured.src}}">
+                    <div class="ml-3">
+                        <div class="card-title mb-1">
+                            <h3 class="red font-weight-bold mb-0"> {{Featured.price}} </h3>
+                        </div>
+                        <div class="card-title">
+                            <div style="overflow: hidden;"><h5 class="font-weight-bold mb-0 text-nowrap"> {{Featured.title}} </h5></div>
+                        </div>
+                        <div class="card-text small mb-3">{{Featured.property}}</div>
+                        <div class="card-text small">{{Featured.name}} <span class="float-right mr-3"> {{Featured.time}} </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-5">
+        <p class="h3">Popular in Used Cars for Sale</p>
+        <div class="row mb-5">
+            <div class="col-lg-2 col-md-4 col-sm-12 pr-0 mb-2 carbox" *ngFor="let Featured of FeaturedArr[1]">
+                <div class="card-body pt-0 px-1" (click) ="gotoProductDetails('/product_detail', Featured.id)">
+                    <img class="img-responsive" src="{{Featured.src}}">
+                    <div class="ml-3">
+                        <div class="card-title mb-1">
+                            <h3 class="red font-weight-bold mb-0"> {{Featured.price}} </h3>
+                        </div>
+                        <div class="card-title">
+                            <div style="overflow: hidden;"><h5 class="font-weight-bold mb-0 text-nowrap"> {{Featured.title}} </h5></div>
+                        </div>
+                        <div class="card-text small mb-3">{{Featured.property}}</div>
+                        <div class="card-text small">{{Featured.name}} <span class="float-right mr-3"> {{Featured.time}} </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-5">
+        <p class="h3">Saved searches in Motors</p>
+        <div class="row mb-5">
+            <div class="col-lg-2 col-md-4 col-sm-12 pr-0 mb-2 carbox" *ngFor="let Featured of FeaturedArr[1]">
+                <div class="card-body pt-0 px-1" (click) ="gotoProductDetails('/product_detail', Featured.id)">
+                    <img class="img-responsive" src="{{Featured.src}}">
+                    <div class="ml-3">
+                        <div class="card-title mb-1">
+                            <h3 class="red font-weight-bold mb-0"> {{Featured.price}} </h3>
+                        </div>
+                        <div class="card-title">
+                            <div style="overflow: hidden;"><h5 class="font-weight-bold mb-0 text-nowrap"> {{Featured.title}} </h5></div>
+                        </div>
+                        <div class="card-text small mb-3">{{Featured.property}}</div>
+                        <div class="card-text small">{{Featured.name}} <span class="float-right mr-3"> {{Featured.time}} </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 app-banner border-radius ml-1">
+        <div class="col-sm-3 py-3">
+            <span style="font-size: 18px">Find amazing deals on the go.</span>
+            <p class="red" style="font-size: 18px"> Download the app now!</p>
+        </div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-5 mx-auto py-4 text-center">
+            <img src="../../../../assets/icon/appstore.png" class="img-responsive mx-4">
+            <img src="../../../../assets/icon/googleplay.png" class="img-responsive">
         </div>
     </div>
 </div>

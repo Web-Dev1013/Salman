@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-6 col-md-8 p-4">
+            <div class="motor">
+                <p class="h3 text-center">Now choose the right category for <br> your ad:</p>
+                <p class="h6 text-secondary back" routerLink="/place_ad/cg_motors">... Back</p>
+                <div class="dropdown-divider mb-0"></div>
+                <div class="" *ngFor="let motor of pageDataArr">
+                    <div class="dropdown mx-4" *ngIf="motor.subItem" (mouseenter)="showDropdown(motor.id)" (mouseleave)="hideDropdown()">
+                        <div class="py-3 px-4 mb-0 sub_motors d-flex justify-content-between">
+                            <span class="lists h6">{{motor.name}}</span>
+                            <div><i class="fa fa-arrow-right right"></i></div>
+                        </div>
+                        <div class="dropdown-menu py-0 w-100 d-block" *ngIf="toggle_dropdown == motor.id">
+                            <a class="dropdown-item py-3"
+                                [routerLink]="['/place_ad/cg_motors/cg_motors_new',subItem.id]" *ngFor="let subItem of motor.subItem">{{subItem.name}}</a>
+                        </div>
+                        <div class="dropdown-divider my-0"></div>
+                    </div>
+                    <div class="px-4" *ngIf="!motor.subItem" [routerLink]="['/place_ad/cg_motors/cg_motors_new',motor.id]">
+                        <div class="sub_motors px-4 py-3 d-flex justify-content-between">
+                            <div class="lists h6">{{motor.name}}</div>
+                            <div class=""> <i class="fa fa-arrow-right"></i> </div>
+                        </div>
+                        <div class="dropdown-divider my-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-2"></div>
+    </div>
+</div>

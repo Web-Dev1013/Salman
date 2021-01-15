@@ -1,0 +1,17 @@
+.sub_motors:hover{
+    cursor: pointer;
+    background: #eee;
+}
+.sub_motors{
+    transition: 0.3s;
+}
+div:focus{
+    outline: none !important;
+}
+.back:hover{
+    color: red !important;
+    cursor: pointer;
+}
+:focus{
+    outline: none !important;
+}

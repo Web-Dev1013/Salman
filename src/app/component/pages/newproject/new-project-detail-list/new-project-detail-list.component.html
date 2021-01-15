@@ -1,0 +1,359 @@
+<nav class="navbar navbar-expand-lg navbar-light subNav p-0 container-fluid">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#SubNavbar"
+        aria-controls="demo-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="SubNavbar">
+        <div class="container-fluid px-0">
+            <div class="col-sm-12 col-md-6 col-lg-6 row px-0 mx-0">
+                <div class="col-lg-3 col-md-6 col-sm-6 subItem dropdown">
+                    <span class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                        {{CityName}}
+                    </span>
+                    <div class="dropdown-menu p-0 fix-height">
+                        <a class="dropdown-item p-0" *ngFor="let City of CitiesArr">
+                            <a class="sublist text-decoration-none" (click)="SelectCity(City.name)"> {{ City.name}} </a>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 subItem dropdown">
+                    <span class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                        {{Neighborhood}}
+                    </span>
+                    <div class="dropdown-menu p-0 fix-height">
+                        <a class="dropdown-item p-0" *ngFor="let Neighborhood of NeighborhoodsArr">
+                            <a class="sublist text-decoration-none" (click)="SelectNeighborhood(Neighborhood.name)"> {{
+                                Neighborhood.name}} </a>
+                        </a>
+                        <div class="btn btn-danger btn-block my-2">
+                            Apply
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 subItem dropdown">
+                    <span class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                        {{BedroomName}}
+                    </span>
+                    <div class="dropdown-menu p-0 fix-height">
+                        <a class="dropdown-item p-0" *ngFor="let Bedroom of BedroomsArr">
+                            <a class="sublist text-decoration-none" (click)="SelectBedroom(Bedroom.name)"> {{
+                                Bedroom.name}} </a>
+                        </a>
+                        <div class="btn btn-danger btn-block my-2">
+                            Apply
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 subItem dropdown">
+                    <span class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                        {{PriceFromName}}
+                    </span>
+                    <div class="dropdown-menu p-0 fix-height">
+                        <a class="dropdown-item p-0" *ngFor="let PriceFrom of PriceFromArr">
+                            <a class="sublist text-decoration-none" (click)="SelectPriceFrom(PriceFrom.name)"> {{
+                                PriceFrom.name}} </a>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 row px-0 mx-0">
+                <div class="col-lg-3 col-md-6 col-sm-6 subItem dropdown">
+                    <span class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                        {{PriceToName}}
+                    </span>
+                    <div class="dropdown-menu p-0 fix-height">
+                        <a class="dropdown-item p-0" *ngFor="let PriceTo of PriceToArr">
+                            <a class="sublist text-decoration-none" (click)="SelectPriceTo(PriceTo.name)"> {{
+                                PriceTo.name}} </a>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 subItem dropdown">
+                    <span class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                        {{PropertyTypeName}}
+                    </span>
+                    <div class="dropdown-menu p-0 fix-height">
+                        <a class="dropdown-item p-0" *ngFor="let PropertyType of PropertyTypeArr">
+                            <a class="sublist text-decoration-none" (click)="SelectPropertyType(PropertyType)"> {{
+                                PropertyType}} </a>
+                        </a>
+                        <div class="btn btn-danger btn-block my-2">
+                            Apply
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 subItem dropdown">
+                    <span class="btn btn-block dropdown-toggle" data-toggle="dropdown">
+                        Developers
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right p-0">
+                        <div class="developer_search">
+                            <form class="form-inline" action="/action_page.php">
+                                <div class="input-group full-width">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="developer column-2 dropdown-item p-0">
+                            <a class="sublist text-decoration-none" *ngFor="let content of DeveloperArr">
+                                <img src="{{content.src}}"> {{content.name}}
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="container-fluid mb-2">
+                            <div class="col-md-6">
+                                <button class="btn btn-info btn-block">Reset All Filters</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-danger btn-block">Show 252 Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 subItem dropdown">
+                    <button class="btn btn-block data-toggle non-boxshadow" (click)="open(advanced)"> Advanced
+                    </button>
+                    <ng-template #advanced let-modal>
+                        <div class="modal-body container">
+                            <div class="title">Advanced</div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0">Size from </h5>
+                                        <div ngbDropdown placement="bottom-right" class="d-inline-block py-0 btn-block">
+                                            <button class="btn btn-block non-boxshadow btn-border" id="sizefrom"
+                                                ngbDropdownToggle>
+                                                Size for</button>
+                                            <div class="py-0 fix-height" ngbDropdownMenu aria-labelledby="sizefrom">
+                                                <button class=" p-0" ngbDropdownItem
+                                                    *ngFor="let Size of Advanced_SizeArr">
+                                                    <a class="d-flex sublist text-decoration-none px-4"> {{Size.name}}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0">Size to </h5>
+                                        <div ngbDropdown placement="bottom-right" class="d-inline-block py-0 btn-block">
+                                            <button class="btn btn-block non-boxshadow btn-border" id="sizeto"
+                                                ngbDropdownToggle>
+                                                Size to</button>
+                                            <div class="py-0 fix-height" ngbDropdownMenu aria-labelledby="sizeto">
+                                                <button class=" p-0" ngbDropdownItem
+                                                    *ngFor="let Size of Advanced_SizeArr">
+                                                    <a class="d-flex sublist text-decoration-none px-4"> {{Size.name}}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 p-0"></div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row">
+
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0"> Apartment </h5>
+                                        <div ngbDropdown placement="bottom-right" class="d-inline-block py-0 btn-block">
+                                            <button class="btn btn-block non-boxshadow btn-border" id="apartment"
+                                                ngbDropdownToggle>
+                                                Apartment</button>
+                                            <div class="py-0 fix-height" ngbDropdownMenu aria-labelledby="apartment">
+                                                <button class=" p-0" ngbDropdownItem
+                                                    *ngFor="let apartment of Advanced_TypeArr">
+                                                    <a class="d-flex sublist text-decoration-none px-4">
+                                                        {{apartment.name}}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0"> Project status </h5>
+                                        <div ngbDropdown placement="bottom-right" class="d-inline-block py-0 btn-block">
+                                            <button class="btn btn-block non-boxshadow btn-border" id="status"
+                                                ngbDropdownToggle>
+                                                All </button>
+                                            <div class="py-0 fix-height" ngbDropdownMenu aria-labelledby="status">
+                                                <button class=" p-0" ngbDropdownItem
+                                                    *ngFor="let status of Advanced_StatusArr">
+                                                    <a class="d-flex sublist text-decoration-none px-4"> {{status.name}}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0"> Completion </h5>
+                                        <div ngbDropdown placement="bottom-right" class="d-inline-block py-0 btn-block">
+                                            <button class="btn btn-block non-boxshadow btn-border" id="completion"
+                                                ngbDropdownToggle>
+                                                Completion</button>
+                                            <div class="py-0 fix-height" ngbDropdownMenu aria-labelledby="completion">
+                                                <button class=" p-0" ngbDropdownItem
+                                                    *ngFor="let Completion of CompletionArr">
+                                                    <a class="d-flex sublist text-decoration-none px-4"> {{Completion}}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0"> Floors In the building </h5>
+                                        <input type="number" placeholder="Floors in the building"
+                                            class="font-size-normal form-control non-boxshadow">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0"> Parking type </h5>
+                                        <div ngbDropdown placement="bottom-right" class="d-inline-block py-0 btn-block">
+                                            <button class="btn btn-block non-boxshadow btn-border" id="parking"
+                                                ngbDropdownToggle>
+                                                All Parkings </button>
+                                            <div class="py-0 fix-height" ngbDropdownMenu aria-labelledby="parking">
+                                                <button class=" p-0" ngbDropdownItem
+                                                    *ngFor="let ParkingType of ParkingTypeArr">
+                                                    <a class="d-flex sublist text-decoration-none px-4"> {{ParkingType}}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0"> Bathrooms </h5>
+                                        <div ngbDropdown placement="bottom-right" class="d-inline-block py-0 btn-block">
+                                            <button class="btn btn-block non-boxshadow btn-border" id="bathrooms"
+                                                ngbDropdownToggle>
+                                                All Bathrooms </button>
+                                            <div class="py-0 fix-height" ngbDropdownMenu aria-labelledby="bathrooms">
+                                                <button class=" p-0" ngbDropdownItem
+                                                    *ngFor="let Bathrooms of BathroomsArr">
+                                                    <a class="d-flex sublist text-decoration-none px-4"> {{Bathrooms}}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0"> Price per SqFt from </h5>
+                                        <div ngbDropdown placement="bottom-right" class="d-inline-block py-0 btn-block">
+                                            <button class="btn btn-block non-boxshadow btn-border" id="SqFtfrom"
+                                                ngbDropdownToggle>
+                                                Price per SqFt... </button>
+                                            <div class="py-0 fix-height" ngbDropdownMenu aria-labelledby="SqFtfrom">
+                                                <button class=" p-0" ngbDropdownItem
+                                                    *ngFor="let PricePerSqFt of PricePerSqFtArr">
+                                                    <a class="d-flex sublist text-decoration-none px-4">
+                                                        {{PricePerSqFt}}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <div class="px-2">
+                                        <h5 class="m-0"> Price per SqFt to </h5>
+                                        <div ngbDropdown placement="bottom-right" class="d-inline-block py-0 btn-block">
+                                            <button class="btn btn-block non-boxshadow btn-border" id="SqFtto"
+                                                ngbDropdownToggle>
+                                                Price per to... </button>
+                                            <div class="py-0 fix-height" ngbDropdownMenu aria-labelledby="SqFtto">
+                                                <button class="p-0" ngbDropdownItem
+                                                    *ngFor="let PricePerSqFt of PricePerSqFtArr">
+                                                    <a class="d-flex sublist text-decoration-none px-4">
+                                                        {{PricePerSqFt}}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row ml-2">
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <input type="checkbox" class=""> Elevator
+                                </div>
+                                <div class="col-md-4 col-sm-6 p-0">
+                                    <input type="checkbox" class=""> Payment plan
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row">
+                                <div class="multi-btn">
+                                    <button class="btn btn-gray m-1" *ngFor="let Tag of AdvancedTagArr">
+                                        {{Tag}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row">
+                                <button class="btn btn-danger btn-block py-2">Show 252</button>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <a href="" class="red nav-link">Hide filters </a>
+                                <a href="" class="red nav-link">Reset all filters </a>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="content container-fluid">
+    <div class="row">
+        <h3 class="gray ">United Arab Emirates.</h3>
+    </div>
+    <div class="list-title text-dark mb-3">New Off-plan Projects in Abu Dhabi</div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12 pr-0 mb-2" *ngFor="let Project of projectsArr">
+            <div class="card-body" [routerLink]="['/propertynewproject/new_project_detail', Project.id]">
+                <div class="projectImg">
+                    <img class="img-responsive" src="{{Project.src}}" width="100%">
+                </div>
+                <div class="ml-3">
+                    <div class="card-title">
+                        <h2 class="font-weight-bold mb-0"> {{Project.title}} </h2>
+                    </div>
+                    <div class="card-title">
+                        <h4 class="font-weight-bold mb-0"> {{Project.city}} </h4>
+                    </div>
+                    <div class="card-title">
+                        <h4 class="font-weight-bold mb-0 red"> from {{Project.price}} </h4>
+                    </div>
+                    <div class="card-title">
+                        <h4 class="gray"> {{Project.SqFt}}...{{Project.bedrooms}} </h4>
+                    </div>
+                </div>
+                <div class="border-top">
+                    <button class="btn btn-block btn-danger"> <i class="fa fa-phone"></i> &nbsp;&nbsp;Call </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
+  id: string = "";
   products: Motor_Product[] = [
     new Motor_Product("usedCar", 1, "2016 BMW X6 xDrive50i M-Sport, BMW Warranty, ...", "Used Cars for Sale ‪>‪ BMW ‪>‪ BMW X6", "AED 145,000", "5 January 2021", 2016, "4 door", "97,113", "white", " Located : UAE ‪>‪ Dubai ‪>‪ Al Quoz ‪>‪ Al Quoz Industrial District ‪>‪ Al Quoz Industrial Area 3", "../../../../../assets/Image/motors/product/usedcar/image.webp"),
     new Motor_Product("usedCar", 2, "2016 BMW X6 xDrive50i M-Sport, BMW Warranty, ...", "Used Cars for Sale ‪>‪ BMW ‪>‪ BMW X6", "AED 145,000", "5 January 2021", 2016, "4 door", "97,113", "white", " Located : UAE ‪>‪ Dubai ‪>‪ Al Quoz ‪>‪ Al Quoz Industrial District ‪>‪ Al Quoz Industrial Area 3", "../../../../../assets/Image/motors/product/usedcar/image (1).webp"),
@@ -40,16 +41,14 @@ export class ProductsListComponent implements OnInit {
     new Motor_Product("numberPlates", 29, "4-digit plate", "Number Plates ‪>‪ Dubai plate ‪>‪ Private car", "AED 12,000", "5 January 2021", 2000, "", "705,000", "", "Located : UAE ‪>‪ Dubai ‪>‪ Al Quoz ‪>‪ Al Quoz 3", "../../../../../assets/Image/motors/product/number plats/dubai-plate_private-car_classic.png"),
     new Motor_Product("numberPlates", 30, "4-digit plate", "Number Plates ‪>‪ Dubai plate ‪>‪ Private car", "AED 12,000", "5 January 2021", 2000, "", "705,000", "", "Located : UAE ‪>‪ Dubai ‪>‪ Al Quoz ‪>‪ Al Quoz 3", "../../../../../assets/Image/motors/product/number plats/dubai-plate_private-car_new.png"),
   ];
-  product: any[] = [];
-  constructor(public location: Location, private router: Router, private route: ActivatedRoute) { }
-  ngOnInit(): void {
-    this.products.forEach((p: Motor_Product) => {
-    console.log("++++++++++++++++", this.route.snapshot.params.id, p.cat_id)
-      if (p.cat_id == this.route.snapshot.params.id) {
-        this.product.push(p);
-        console.log(this.product);
-      }
+  
+  constructor(public location: Location, private router: Router, private activedRoute: ActivatedRoute) { 
+    this.activedRoute.params.subscribe(params => {
+      this.id = params.id;
     });
+  }
+  ngOnInit(): void {
+    console.log("+++++++++",this.id);
   }
   
   public gotoProductDetails(url:any, id:any) {

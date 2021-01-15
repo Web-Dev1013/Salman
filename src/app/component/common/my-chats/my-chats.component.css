@@ -1,0 +1,10 @@
+.my_chats{
+    border: 1px solid #eee !important;
+    min-height: 550px;
+}
+.border-bottom{
+    border-bottom: 1px solid #eee;
+}
+.border-right{
+    border-right: 1px solid #eee;
+}

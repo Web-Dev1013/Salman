@@ -14,6 +14,7 @@ const routes: Routes = [
   {
     path: "furnituregarden", component: FurnituregardenComponent, children: [
       {path: "", redirectTo:"furniture", pathMatch:"full"},
+      {path: ":id", component: FurnitureComponent},
       {path: "furniture", component: FurnitureComponent},
       {path: "home", component: HomeComponent},
       {path: "lighting", component: LightingComponent},

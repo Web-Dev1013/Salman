@@ -1,0 +1,57 @@
+<br>
+<div class="container-fluid mt-5">
+    <nav aria-label="breadcrumb" class="mx-5">
+        <ol class="breadcrumb pt-4 ">
+            <i class="fa fa-map-marker mx-2"></i>
+            <li class="breadcrumb-item" *ngFor="let breadcrumb of developersArr[0].breadcrumb"><a
+                    href="#">{{breadcrumb}}</a></li>
+        </ol>
+    </nav>
+    <div class="">
+        <div class="d-flex justify-content-between px-5 w-100">
+            <h1 class="px-5"> All real estate developers in {{developersArr[0].city}}</h1>
+            <div class="d-flex">
+                <input type="text" class="form-control mx-3 " placeholder="Search by developer">
+                <select class="form-control">
+                    <option *ngFor="let City of CitiesArr"> {{City.name}} </option>
+                </select>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row p-3 w-100" *ngFor="let developer of developersArr">
+            <div class="col-md-4 text-center">
+                <div class="master">
+                    <img class="img-responsive" width="150px" src="{{developer.master_url}}">
+                </div>
+                <h4 class="gray font-weight-bold"> Founded in : {{developer.founded_year}} </h4>
+                <h4 class="gray">Number of projects built: {{developer.built_num}} </h4>
+            </div>
+            <div class="col-md-8">
+                <h2 class="red"> {{developer.master_name}} </h2>
+                <p>DAMAC Properties is a Dubai-based property developer&nbsp;delivering residential, commercial and
+                    leisure properties across the region. Having delivered over 24,000 homes, DAMAC Properties is an
+                    established Middle East homegrown brand known for its luxury developments.&nbsp;</p>
+                <div class="row">
+                    <div class="col-md-4 p-2 text-center" [routerLink] = "['/propertynewproject/new_project_detail', developer_item.id]" *ngFor="let developer_item of developer.developers">
+                        <div class="developer_item">
+                            <img class="img-responsive w-100" src="{{developer_item.src}}">
+                            <div class="py-2 px-4 text-left">
+                                <h2 class="mb-0">{{developer_item.name}}</h2>
+                                <h4 class="gray"> {{developer.city}}, {{developer_item.location}} </h4>
+                                <h4 class="red mb-0 font-weight-bold">from {{developer_item.price}}</h4>
+                                <h5 class="mb-0 gray"> {{developer_item.sqft}} SqFt . {{developer_item.bedrooms}} bedrooms </h5>
+                                <i class="fa fa-heart-o favorite_icon"></i>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <h3 class="red text-center font-weight-bold"> <i class="fa fa-phone mx-2"></i> Call </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4 text-center">
+                    <button class="btn btn-border-light px-3">Developer Profile</button>
+                </div>
+                <div class="dropdown-divider"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-lg-4 col-md-3"></div>
+    <div class="col-lg-4 col-md-6">
+        <p class="h4 pt-5 text-center">Now choose the right category<br> for your ad:</p>
+        <p class="h6 text-secondary back py-2" routerLink="/place_ad">...Back</p>
+        <div class="dropdown-divider my-0"></div>
+        <div class="px-4">
+            <div class="hire" *ngIf="job_type == 'hire'">
+                <div class="" *ngFor="let job of jobArr">
+                    <div class="sub_jobs px-4 py-3 d-flex justify-content-between" [routerLink]="['/place_ad/cg_job/cg_job_hire', 'hire_'+job.id]">
+                        <div class="lists h6">{{job.name}}</div>
+                        <div class=""> <i class="fa fa-arrow-right"></i> </div>
+                    </div>
+                    <div class="dropdown-divider my-0"></div>
+                </div>
+            </div>
+            <div class="wanted" *ngIf="job_type == 'wanted'">
+                <div class="" *ngFor="let job of jobArr">
+                    <div class="sub_jobs px-4 py-3 d-flex justify-content-between" [routerLink]="['/place_ad/cg_job/cg_job_wanted', 'wanted_'+job.id]">
+                        <div class="lists h6">{{job.name}}</div>
+                        <div class=""> <i class="fa fa-arrow-right"></i> </div>
+                    </div>
+                    <div class="dropdown-divider my-0"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-3"></div>
+</div>

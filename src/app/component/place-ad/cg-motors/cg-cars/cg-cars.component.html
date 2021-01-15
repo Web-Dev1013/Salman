@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 py-4">
+            <p class="h4 text-center py-2">Choose how you want to sell your car:</p>
+            <div class="row my-4">
+                <div class="d-flex">
+                    <div class="px-2">
+                        <input type="radio" name="radio" (change) = "sell_type('dubizzle')" class="radio">
+                    </div>
+                    <div class="text px-2">
+                        <p class="h5"> Let dubizzle sell it on your behalf</p>
+                        <p class="text-secondary">We inspect and photograph your car, manage all buyers on your behalf,
+                            and ensure a secure transaction.</p>
+                        <p class="font-weight-bold py-2"><a class="red">Learn more about SellerAssist</a></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex">
+                    <div class="px-2">
+                        <input type="radio" name="radio" (change) = "sell_type('yourself')" class="radio">
+                    </div>
+                    <div class="text px-2">
+                        <p class="h5"> Post it yourself</p>
+                        <p class="text-secondary">Post an ad, negotiate with buyers directly and manage the transaction
+                            yourself.</p>
+                        <p class="font-weight-bold py-3">Selling more than one car? <a class="blue">Save with our
+                                business packages! Learn more.</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown-divider py-2"></div>
+            <button class="btn btn-danger btn-block py-3" routerLink={{type}}>Continue</button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

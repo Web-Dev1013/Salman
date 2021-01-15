@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
+import { LocationStrategy, PlatformLocation, Location, TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ export class AppComponent {
   removeFooter() {
     var titlee = this.location.prepareExternalUrl(this.location.path());
     titlee = titlee.slice( 1 );
-    if(titlee === 'signup' || titlee === 'nucleoicons' || titlee.indexOf("propertynewproject/propertynewproject") > -1){
+    if(titlee === 'signup' || titlee === 'nucleoicons' || titlee.indexOf("propertynewproject/propertynewproject") > -1 || titlee.indexOf("place_ad") > -1){
         return false;
     }
     else {
@@ -26,7 +26,7 @@ export class AppComponent {
   hideHeader(){
     var newproject = this.location.prepareExternalUrl(this.location.path());
     newproject = newproject.slice(1);
-    if(newproject.indexOf("propertynewproject/propertynewproject") > -1){
+    if(newproject.indexOf("propertynewproject") > -1 || newproject.indexOf("new_project_detail") > -1 || newproject.indexOf("place_ad") > -1){
       return false;
     }
     else{
